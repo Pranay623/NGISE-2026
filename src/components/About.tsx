@@ -1,0 +1,53 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Users, BookOpen, Globe } from "lucide-react";
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+export default function AboutSection() {
+  const cards = [
+    { icon: Users, title: "Global Network", desc: "Connect with leading experts and researchers worldwide" },
+    { icon: BookOpen, title: "Knowledge Sharing", desc: "Present and discuss cutting-edge research findings" },
+    { icon: Globe, title: "Innovation Hub", desc: "Explore emerging technologies and future trends" }
+  ];
+
+  return (
+    <section id="about" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={{}}>
+          <motion.h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6" variants={itemVariants}>
+            About the Conference
+          </motion.h2>
+          <motion.div className="w-24 h-1 bg-blue-600 mx-auto mb-8" variants={itemVariants} initial={{ width: 0 }} whileInView={{ width: 96 }} transition={{ duration: 0.8, delay: 0.2 }} />
+        </motion.div>
+
+        <motion.div className="max-w-4xl mx-auto" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{}}>
+          <motion.p className="text-lg text-gray-700 leading-relaxed text-center mb-8" variants={itemVariants}>
+            The IEEE International Conference on Next Generation Information System Engineering (NGISE 2026) serves as a premier platform for researchers, industry practitioners,
+            and academicians to present cutting-edge research and innovations in information system engineering.
+          </motion.p>
+
+          <motion.p className="text-lg text-gray-700 leading-relaxed text-center mb-12" variants={itemVariants}>
+            Our focus areas encompass Artificial Intelligence, Machine Learning, Big Data Analytics, Cloud Computing, Cybersecurity, Internet of Things, Green IT, and emerging technologies
+            that are shaping the future of information systems.
+          </motion.p>
+
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center" variants={{}} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            {cards.map((c, i) => (
+              <motion.div key={i} className="bg-gray-50 p-6 rounded-xl" variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}>
+                <motion.div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                  <c.icon className="w-6 h-6 text-blue-600" />
+                </motion.div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{c.title}</h3>
+                <p className="text-gray-600">{c.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
