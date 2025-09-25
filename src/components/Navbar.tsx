@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown } from "lucide-react"; // dropdown icon
+import { ChevronDown } from "lucide-react";
 import Logo from "../public/main logo.png";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader } from "./ui/sheet";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const location = useLocation();
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
 
   // Function to handle active link styling
@@ -32,7 +35,7 @@ export default function Navbar() {
             className="w-22 h-12"
           />
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8 relative">
             <Link to="/" className={linkClass("/")}>
               Home
@@ -108,6 +111,37 @@ export default function Navbar() {
             <Link to="/contact" className={linkClass("/contact")}>
               Contact Us
             </Link>
+          </div>
+
+          {/* Mobile Sheet Menu */}
+          <div className="lg:hidden flex items-center">
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" className="flex items-center gap-2">
+                  <img
+                    src="https://ucarecdn.com/f601cf8c-0502-43aa-810b-72542ba282c3/-/preview/1000x1000/"
+                    className="w-5 h-5"
+                  />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="top" className="w-full overflow-y-auto">
+                <SheetHeader></SheetHeader>
+                <div
+                  className="p-6 flex flex-col gap-y-5 text-center"
+                  onClick={() => setIsSheetOpen(false)}
+                >
+                  <Link to="/">Home</Link>
+                  <Link to="/venue">Venue</Link>
+                  <Link to="/call-for-papers">Call for Papers</Link>
+                  <Link to="/speakers">Speakers</Link>
+                  <Link to="/committee">Committee</Link>
+                  <Link to="/program">Program</Link>
+                  <Link to="/registrations">Registration</Link>
+                  <Link to="/locale">Locale</Link>
+                  <Link to="/contact">Contact Us</Link>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
