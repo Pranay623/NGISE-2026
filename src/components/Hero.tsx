@@ -78,7 +78,7 @@ export default function Hero() {
             style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
             // variants={itemVariants}
           >
-            IEEE International Conference on Next Generation Information System Engineering
+          International Conference on Next Generation Information System Engineering
           </motion.p>
 
           <motion.div

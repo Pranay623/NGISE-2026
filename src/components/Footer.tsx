@@ -49,7 +49,7 @@ const Footer = () => {
           <img src={BDCOE} alt="BDCOE Logo" className="w-15 h-11 mx-auto" />
           <p className="font-semibold">Big Data Centre of Excellence</p>
           <p className="text-gray-500 mt-2 text-xs">
-            © 2026 IEEE NGISE. All rights reserved.
+            © 2026  NGISE. All rights reserved.
           </p>
         </div>
       </div>
