@@ -13,14 +13,14 @@ const containerVariants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
+// const itemVariants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     transition: { duration: 0.6, ease: "easeOut" },
+//   },
+// };
 
 // Background slideshow images
 const images = [Image1, Image2, Image3, Image4, Image5, Image6];
@@ -63,7 +63,7 @@ export default function Hero() {
           <motion.h1
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight"
             style={{ textShadow: "0px 4px 12px rgba(0,0,0,0.7)" }}
-            variants={itemVariants}
+            // variants={itemVariants}
           >
             WELCOME TO{" "}
             <motion.span
@@ -76,14 +76,14 @@ export default function Hero() {
           <motion.p
             className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200"
             style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
-            variants={itemVariants}
+            // variants={itemVariants}
           >
             IEEE International Conference on Next Generation Information System Engineering
           </motion.p>
 
           <motion.div
             className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-lg"
-            variants={itemVariants}
+            // variants={itemVariants}
           >
             <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
               <Calendar className="w-5 h-5 text-blue-400" />
@@ -100,9 +100,10 @@ export default function Hero() {
 
           <motion.button
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-200"
-            variants={itemVariants}
+            // variants={itemVariants}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => window.location.href = "/registrations"}
           >
             Register Now
           </motion.button>

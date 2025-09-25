@@ -10,6 +10,7 @@ import TracksPage from "./pages/TracksPage";
 import DatesPage from "./pages/DatesPage";
 import SpeakersPage from "./pages/SpeakersPage";
 import VenuePage from "./pages/VenuePage";
+import Registration from "./components/Registration";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/dates" element={<DatesPage />} />
             <Route path="/speakers" element={<SpeakersPage />} />
             <Route path="/venue" element={<VenuePage />} />
+            <Route path="/registrations" element={<Registration />} />
           </Routes>
         </main>
         <Footer />

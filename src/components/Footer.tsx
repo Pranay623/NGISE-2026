@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Logo from "../public/collegelogo.png"; // Replace with your logo path
 import { Link } from "react-router-dom";
+import BDCOE from "../public/bdcoe logoo.png"
 
 const Footer = () => {
   return (
@@ -28,7 +29,7 @@ const Footer = () => {
               { name: "Registrations", link: "/registrations" },
               { name: "Paper Submission", link: "/papers" },
               { name: "FAQ", link: "/faq" },
-              { name: "Contact Us", link: "/contact" },
+              { name: "Contact Us", link: "/venue" },
             ].map((item, idx) => (
               <Link
                 key={idx}
@@ -44,7 +45,8 @@ const Footer = () => {
         {/* Bottom Section: Designed & Developed By */}
         <div className="text-center text-gray-400 text-sm space-y-1">
           <p>Designed & Developed By:</p>
-          <p className="font-semibold">Big Data Centre of Excellence</p>
+          {/* <p className="font-semibold">Big Data Centre of Excellence</p> */}
+          <img src={BDCOE} alt="BDCOE Logo" className="w-15 h-11 mx-auto" />
           <p className="font-semibold">Big Data Centre of Excellence</p>
           <p className="text-gray-500 mt-2 text-xs">
             © 2026 IEEE NGISE. All rights reserved.
