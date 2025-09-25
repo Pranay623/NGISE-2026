@@ -73,6 +73,10 @@ export default function Navbar() {
     <Button variant="outline" className="flex items-center gap-2 mt-2">
         <img src="https://ucarecdn.com/f601cf8c-0502-43aa-810b-72542ba282c3/-/preview/1000x1000/" className="w-5 h-5"/>
       
+
+
+
+      
     </Button>
   </SheetTrigger>
   <SheetContent side="top" className="w-full overflow-y-auto">
