@@ -1,5 +1,5 @@
 import React from "react";
-import Venue from "../components/Venue";
+import Venue from "../components/Contact";
 
 const VenuePage = () => {
   return <Venue />;
