@@ -10,6 +10,7 @@ export default function Navbar() {
   const location = useLocation();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
+  const [committee, sercommittee] = useState(false);
 
   // Function to handle active link styling
   const linkClass = (path: string) =>
@@ -49,9 +50,57 @@ export default function Navbar() {
             <Link to="/speakers" className={linkClass("/speakers")}>
               Speakers
             </Link>
-            <Link to="/committee" className={linkClass("/committee")}>
+            {/* <Link to="/committee" className={linkClass("/committee")}>
               Committee
-            </Link>
+            </Link> */}
+            {/* Dropdown for Locale */}
+            <div
+              className="relative"
+              onMouseEnter={() => sercommittee(true)}
+              onMouseLeave={() => sercommittee(false)}
+            >
+              <button
+                className={`flex items-center space-x-1 ${
+                  location.pathname.startsWith("/committee")
+                    ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                    : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
+                }`}
+              >
+                <span>Committee</span>
+                <ChevronDown className="w-4 h-4 mt-0.5" />
+              </button>
+
+              <AnimatePresence>
+                {committee && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
+                  >
+                    <Link
+                      to="/committee/oragnizers"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                    >
+                      Organizing Committee
+                    </Link>
+                    {/* <Link
+                      to="/locale/hotels"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                    >
+                      Nearby Hotels
+                    </Link>
+                    <Link
+                      to="/locale/visa"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                    >
+                      Visa Information
+                    </Link> */}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             <Link to="/program" className={linkClass("/program")}>
               Program
             </Link>

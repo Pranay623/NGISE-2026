@@ -12,6 +12,7 @@ import SpeakersPage from "./pages/SpeakersPage";
 import VenuePage from "./pages/VenuePage";
 import Registration from "./components/Registration";
 import City from "./pages/City";
+import Organizers from "./pages/Organizers";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/venue" element={<VenuePage />} />
             <Route path="/registrations" element={<Registration />} />
             <Route path="/locale/about-city" element={<City />} />
+            <Route path="/committee/oragnizers" element={<Organizers />} />
           </Routes>
         </main>
         <Footer />
