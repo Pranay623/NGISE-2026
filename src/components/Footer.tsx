@@ -11,7 +11,7 @@ const Footer = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-gray-900 text-white pt-12 pb-6"
+      className="bg-gray-700 text-white pt-12 pb-6"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section: Logo + Navigation */}

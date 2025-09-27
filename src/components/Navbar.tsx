@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown } from "lucide-react"; // dropdown icon
+import { ChevronDown } from "lucide-react";
 import Logo from "../public/main logo.png";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader } from "./ui/sheet";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const location = useLocation();
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
+  const [committee, sercommittee] = useState(false);
 
   // Function to handle active link styling
   const linkClass = (path: string) =>
@@ -32,7 +36,7 @@ export default function Navbar() {
             className="w-22 h-12"
           />
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8 relative">
             <Link to="/" className={linkClass("/")}>
               Home
@@ -46,9 +50,57 @@ export default function Navbar() {
             <Link to="/speakers" className={linkClass("/speakers")}>
               Speakers
             </Link>
-            <Link to="/committee" className={linkClass("/committee")}>
+            {/* <Link to="/committee" className={linkClass("/committee")}>
               Committee
-            </Link>
+            </Link> */}
+            {/* Dropdown for Locale */}
+            <div
+              className="relative"
+              onMouseEnter={() => sercommittee(true)}
+              onMouseLeave={() => sercommittee(false)}
+            >
+              <button
+                className={`flex items-center space-x-1 ${
+                  location.pathname.startsWith("/committee")
+                    ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                    : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
+                }`}
+              >
+                <span>Committee</span>
+                <ChevronDown className="w-4 h-4 mt-0.5" />
+              </button>
+
+              <AnimatePresence>
+                {committee && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
+                  >
+                    <Link
+                      to="/committee/oragnizers"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                    >
+                      Organizing Committee
+                    </Link>
+                    {/* <Link
+                      to="/locale/hotels"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                    >
+                      Nearby Hotels
+                    </Link>
+                    <Link
+                      to="/locale/visa"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                    >
+                      Visa Information
+                    </Link> */}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             <Link to="/program" className={linkClass("/program")}>
               Program
             </Link>
@@ -108,6 +160,37 @@ export default function Navbar() {
             <Link to="/contact" className={linkClass("/contact")}>
               Contact Us
             </Link>
+          </div>
+
+          {/* Mobile Sheet Menu */}
+          <div className="lg:hidden flex items-center">
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" className="flex items-center gap-2">
+                  <img
+                    src="https://ucarecdn.com/f601cf8c-0502-43aa-810b-72542ba282c3/-/preview/1000x1000/"
+                    className="w-5 h-5"
+                  />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="top" className="w-full overflow-y-auto">
+                <SheetHeader></SheetHeader>
+                <div
+                  className="p-6 flex flex-col gap-y-5 text-center"
+                  onClick={() => setIsSheetOpen(false)}
+                >
+                  <Link to="/">Home</Link>
+                  <Link to="/venue">Venue</Link>
+                  <Link to="/call-for-papers">Call for Papers</Link>
+                  <Link to="/speakers">Speakers</Link>
+                  <Link to="/committee">Committee</Link>
+                  <Link to="/program">Program</Link>
+                  <Link to="/registrations">Registration</Link>
+                  <Link to="/locale">Locale</Link>
+                  <Link to="/contact">Contact Us</Link>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
