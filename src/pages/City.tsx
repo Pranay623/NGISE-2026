@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
-// Images (assuming kept in /public or /assets folder)
+// Images
 import akshardham from "../public/akshadham.jpg";
 import indiagate from "../public/indiagate.jpg";
 import Jama from "../public/jamamasjid.jpg";
@@ -21,63 +21,7 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const places = [
-  {
-    name: "The India Gate",
-    desc: "The India Gate is a war memorial located near the Rajpath on the eastern edge of the ceremonial axis of New Delhi.",
-    img: indiagate,
-  },
-  {
-    name: "Akshardham Temple",
-    desc: "Akshardham means the divine abode of God. It is hailed as an eternal place of devotion, purity, and peace.",
-    img: akshardham,
-  },
-  {
-    name: "Jama Masjid",
-    desc: "Jama Masjid of Delhi is one of the largest mosques in India, built by Mughal emperor Shah Jahan.",
-    img: Jama,
-  },
-  {
-    name: "Lotus Temple",
-    desc: "The Lotus Temple is notable for its lotus-like shape and has become a prominent attraction in Delhi.",
-    img: Lotus,
-  },
-  {
-    name: "Mahatma Gandhi Museum",
-    desc: "The National Gandhi Museum houses original relics, books, and memorabilia closely connected with Mahatma Gandhi.",
-    img: mg,
-  },
-  {
-    name: "Red Fort",
-    desc: "The Red Fort, also known as Lal Qila, is a historic fort in Delhi that served as the Mughal emperors' main residence.",
-    img: redfort,
-  },
-  {
-    name: "Humayun's Tomb",
-    desc: "Built in the 1560s under Emperor Akbar’s patronage, Humayun's Tomb is a UNESCO World Heritage site.",
-    img: humayun,
-  },
-  {
-    name: "Lodhi Garden",
-    desc: "Lodi Garden is a 90-acre city park in New Delhi, dotted with beautiful tombs and lush greenery.",
-    img: lodhi,
-  },
-  {
-    name: "Gurudwara Bangla Sahib",
-    desc: "One of the most prominent Sikh houses of worship, associated with the eighth Sikh Guru.",
-    img: bangla,
-  },
-  {
-    name: "Chandni Chowk",
-    desc: "One of the oldest and busiest markets in Old Delhi, famous for food, shopping, and culture.",
-    img: chandni,
-  },
-  {
-    name: "National Museum",
-    desc: "One of India's largest museums, located in New Delhi amid spacious boulevards and government institutions.",
-    img: national,
-  },
-];
+const places = [ { name: "The India Gate", desc: "The India Gate is a war memorial located near the Rajpath on the eastern edge of the ceremonial axis of New Delhi.", img: indiagate, }, { name: "Akshardham Temple", desc: "Akshardham means the divine abode of God. It is hailed as an eternal place of devotion, purity, and peace.", img: akshardham, }, { name: "Jama Masjid", desc: "Jama Masjid of Delhi is one of the largest mosques in India, built by Mughal emperor Shah Jahan.", img: Jama, }, { name: "Lotus Temple", desc: "The Lotus Temple is notable for its lotus-like shape and has become a prominent attraction in Delhi.", img: Lotus, }, { name: "Mahatma Gandhi Museum", desc: "The National Gandhi Museum houses original relics, books, and memorabilia closely connected with Mahatma Gandhi.", img: mg, }, { name: "Red Fort", desc: "The Red Fort, also known as Lal Qila, is a historic fort in Delhi that served as the Mughal emperors' main residence.", img: redfort, }, { name: "Humayun's Tomb", desc: "Built in the 1560s under Emperor Akbar’s patronage, Humayun's Tomb is a UNESCO World Heritage site.", img: humayun, }, { name: "Lodhi Garden", desc: "Lodi Garden is a 90-acre city park in New Delhi, dotted with beautiful tombs and lush greenery.", img: lodhi, }, { name: "Gurudwara Bangla Sahib", desc: "One of the most prominent Sikh houses of worship, associated with the eighth Sikh Guru.", img: bangla, }, { name: "Chandni Chowk", desc: "One of the oldest and busiest markets in Old Delhi, famous for food, shopping, and culture.", img: chandni, }, { name: "National Museum", desc: "One of India's largest museums, located in New Delhi amid spacious boulevards and government institutions.", img: national, }, ];
 
 export default function City() {
   return (
@@ -156,11 +100,18 @@ export default function City() {
             className="flex"
           >
             <Card className="overflow-hidden shadow-lg rounded-2xl hover:shadow-xl transition-shadow duration-300">
-              <img
-                src={place.img}
-                alt={place.name}
-                className="w-full h-52 object-cover"
-              />
+              <div className="overflow-hidden ">
+                <img
+                  src={place.img}
+                  alt={place.name}
+                  className="
+                    w-full h-52 object-cover 
+                    filter grayscale hover:grayscale-0 
+                    transition-all duration-500
+                    hover:shadow-[0_0_30px_rgba(59,130,246,0.6)]
+                  "
+                />
+              </div>
               <CardContent className="p-5">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   {place.name}
