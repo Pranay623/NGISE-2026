@@ -8,6 +8,25 @@ body {
 }
 
 
+/* Container of each item */
+.item-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image inside the item */
+.item-card img {
+  width: 100%;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect: glow */
+.item-card:hover img {
+  transform: scale(1.05); /* Slight zoom */
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.6); /* Glow effect */
+}
 
 @layer base {
   :root {
