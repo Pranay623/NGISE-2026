@@ -10,9 +10,12 @@ export default function Navbar() {
   const location = useLocation();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
-  const [committee, sercommittee] = useState(false);
+  const [committee, setCommittee] = useState(false);
 
-  // Function to handle active link styling
+  // mobile submenu states
+  const [mobileCommitteeOpen, setMobileCommitteeOpen] = useState(false);
+  const [mobileLocaleOpen, setMobileLocaleOpen] = useState(false);
+
   const linkClass = (path: string) =>
     location.pathname === path
       ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
@@ -36,7 +39,7 @@ export default function Navbar() {
             className="w-22 h-12"
           />
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8 relative">
             <Link to="/" className={linkClass("/")}>
               Home
@@ -50,14 +53,12 @@ export default function Navbar() {
             <Link to="/speakers" className={linkClass("/speakers")}>
               Speakers
             </Link>
-            {/* <Link to="/committee" className={linkClass("/committee")}>
-              Committee
-            </Link> */}
-            {/* Dropdown for Locale */}
+
+            {/* Committee dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => sercommittee(true)}
-              onMouseLeave={() => sercommittee(false)}
+              onMouseEnter={() => setCommittee(true)}
+              onMouseLeave={() => setCommittee(false)}
             >
               <button
                 className={`flex items-center space-x-1 ${
@@ -85,22 +86,11 @@ export default function Navbar() {
                     >
                       Organizing Committee
                     </Link>
-                    {/* <Link
-                      to="/locale/hotels"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                    >
-                      Nearby Hotels
-                    </Link>
-                    <Link
-                      to="/locale/visa"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                    >
-                      Visa Information
-                    </Link> */}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
+
             <Link to="/program" className={linkClass("/program")}>
               Program
             </Link>
@@ -108,7 +98,7 @@ export default function Navbar() {
               Registration
             </Link>
 
-            {/* Dropdown for Locale */}
+            {/* Locale dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setLocaleOpen(true)}
@@ -162,7 +152,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Sheet Menu */}
+          {/* Mobile Nav (Sheet) */}
           <div className="lg:hidden flex items-center">
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
@@ -174,20 +164,49 @@ export default function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="top" className="w-full overflow-y-auto">
-                <SheetHeader></SheetHeader>
-                <div
-                  className="p-6 flex flex-col gap-y-5 text-center"
-                  onClick={() => setIsSheetOpen(false)}
-                >
-                  <Link to="/">Home</Link>
-                  <Link to="/venue">Venue</Link>
-                  <Link to="/call-for-papers">Call for Papers</Link>
-                  <Link to="/speakers">Speakers</Link>
-                  <Link to="/committee">Committee</Link>
-                  <Link to="/program">Program</Link>
-                  <Link to="/registrations">Registration</Link>
-                  <Link to="/locale">Locale</Link>
-                  <Link to="/contact">Contact Us</Link>
+                <SheetHeader />
+                <div className="p-6 flex flex-col gap-y-4 text-left">
+                  <Link to="/" onClick={() => setIsSheetOpen(false)}>Home</Link>
+                  <Link to="/venue" onClick={() => setIsSheetOpen(false)}>Venue</Link>
+                  <Link to="/call-for-papers" onClick={() => setIsSheetOpen(false)}>Call for Papers</Link>
+                  <Link to="/speakers" onClick={() => setIsSheetOpen(false)}>Speakers</Link>
+
+                  {/* Committee (expandable) */}
+                  <button
+                    className="flex justify-between items-center"
+                    onClick={() => setMobileCommitteeOpen(!mobileCommitteeOpen)}
+                  >
+                    Committee
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileCommitteeOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {mobileCommitteeOpen && (
+                    <div className="ml-4 flex flex-col gap-y-2">
+                      <Link to="/committee/oragnizers" onClick={() => setIsSheetOpen(false)}>
+                        Organizing Committee
+                      </Link>
+                    </div>
+                  )}
+
+                  <Link to="/program" onClick={() => setIsSheetOpen(false)}>Program</Link>
+                  <Link to="/registrations" onClick={() => setIsSheetOpen(false)}>Registration</Link>
+
+                  {/* Locale (expandable) */}
+                  <button
+                    className="flex justify-between items-center"
+                    onClick={() => setMobileLocaleOpen(!mobileLocaleOpen)}
+                  >
+                    Locale
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileLocaleOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {mobileLocaleOpen && (
+                    <div className="ml-4 flex flex-col gap-y-2">
+                      <Link to="/locale/about-city" onClick={() => setIsSheetOpen(false)}>About The City</Link>
+                      <Link to="/locale/hotels" onClick={() => setIsSheetOpen(false)}>Nearby Hotels</Link>
+                      <Link to="/locale/visa" onClick={() => setIsSheetOpen(false)}>Visa Information</Link>
+                    </div>
+                  )}
+
+                  <Link to="/contact" onClick={() => setIsSheetOpen(false)}>Contact Us</Link>
                 </div>
               </SheetContent>
             </Sheet>
