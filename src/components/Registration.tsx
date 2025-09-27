@@ -98,8 +98,8 @@ const Registration = () => {
               <thead>
                 <tr className="bg-gray-100 text-gray-800">
                   <th className="py-3 px-6">Category</th>
-                  <th className="py-3 px-6">IEEE Members (USD)</th>
-                  <th className="py-3 px-6">Non-IEEE Members (USD)</th>
+                  <th className="py-3 px-6">A (USD)</th>
+                  <th className="py-3 px-6">B (USD)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
