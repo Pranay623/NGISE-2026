@@ -13,6 +13,8 @@ import VenuePage from "./pages/VenuePage";
 import Registration from "./components/Registration";
 import City from "./pages/City";
 import Organizers from "./pages/Organizers";
+import MainVenue from "./components/Venue";
+import FAQ from "./components/Faq";
 
 function App() {
   return (
@@ -26,10 +28,12 @@ function App() {
             <Route path="/tracks" element={<TracksPage />} />
             <Route path="/dates" element={<DatesPage />} />
             <Route path="/speakers" element={<SpeakersPage />} />
-            <Route path="/venue" element={<VenuePage />} />
+            <Route path="/contact" element={<VenuePage />} />
             <Route path="/registrations" element={<Registration />} />
             <Route path="/locale/about-city" element={<City />} />
             <Route path="/committee/oragnizers" element={<Organizers />} />
+            <Route path="/venue" element={<MainVenue />} />
+            <Route path="/faq" element={<FAQ />} />
           </Routes>
         </main>
         <Footer />

@@ -1,9 +1,11 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+
+// Images (assuming kept in /public or /assets folder)
 import akshardham from "../public/akshadham.jpg";
-import indiagate from "../public/indiagate.jpg";    
-import Jama from "../public/jamamasjid.jpg";    
+import indiagate from "../public/indiagate.jpg";
+import Jama from "../public/jamamasjid.jpg";
 import Lotus from "../public/lotus_temple.jpg";
 import mg from "../public/Gandhi_museum.jpg";
 import redfort from "../public/redfort.jpg";
@@ -12,8 +14,6 @@ import lodhi from "../public/lodhi_garden.jpg";
 import bangla from "../public/gurudwara.jpg";
 import chandni from "../public/chandni _chowk.jpg";
 import national from "../public/national_museum.jpg";
-
-
 
 // Animation variants
 const fadeInUp = {
@@ -30,7 +30,7 @@ const places = [
   {
     name: "Akshardham Temple",
     desc: "Akshardham means the divine abode of God. It is hailed as an eternal place of devotion, purity, and peace.",
-    img : akshardham,
+    img: akshardham,
   },
   {
     name: "Jama Masjid",
@@ -81,56 +81,97 @@ const places = [
 
 export default function City() {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      {/* About the City */}
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      {/* Heading Section */}
       <motion.div
+        className="text-center mb-16"
         initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-        className="mb-12"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
       >
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">About The City</h1>
-        <p className="text-gray-600 leading-relaxed">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+          variants={fadeInUp}
+        >
+          About the City
+        </motion.h2>
+        <motion.div
+          className="w-24 h-1 bg-blue-600 mx-auto mb-8"
+          initial={{ width: 0 }}
+          whileInView={{ width: 96 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        />
+        <motion.p
+          className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+          variants={fadeInUp}
+        >
           Ajay Kumar Garg Engineering College is located on Delhi - Meerut
           Expressway, Ghaziabad, Uttar Pradesh, India. Ghaziabad is a key
           industrial hub in Uttar Pradesh and also a part of Delhi NCR, which
           includes Faridabad, Gurgaon, Noida, and Delhi. Delhi, considered the
           heart of India, is rich in history, with ancient structures serving as
           reminders of our glorious past.
-        </p>
+        </motion.p>
       </motion.div>
 
-      {/* Places to Visit */}
-      <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+      {/* Places to Visit Section */}
+      <motion.div
+        className="text-center mb-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+          variants={fadeInUp}
+        >
           Places To Visit
-        </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {places.map((place, i) => (
-            <motion.div
-              key={i}
-              variants={fadeInUp}
-              whileHover={{ scale: 1.03 }}
-              className="flex"
-            >
-              <Card className="overflow-hidden shadow-md rounded-2xl">
-                <img
-                  src={place.img}
-                  alt={place.name}
-                  className="w-full h-48 object-cover"
-                />
-                <CardContent className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {place.name}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {place.desc}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        </motion.h2>
+        <motion.div
+          className="w-24 h-1 bg-blue-600 mx-auto mb-8"
+          initial={{ width: 0 }}
+          whileInView={{ width: 96 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        />
+        <motion.p
+          className="text-lg text-gray-600 max-w-2xl mx-auto"
+          variants={fadeInUp}
+        >
+          Explore Delhi, a city blending history, culture, and modernity. Here
+          are some of the must-visit places during your stay.
+        </motion.p>
+      </motion.div>
+
+      <motion.div
+        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeInUp}
+      >
+        {places.map((place, i) => (
+          <motion.div
+            key={i}
+            variants={fadeInUp}
+            whileHover={{ scale: 1.03 }}
+            className="flex"
+          >
+            <Card className="overflow-hidden shadow-lg rounded-2xl hover:shadow-xl transition-shadow duration-300">
+              <img
+                src={place.img}
+                alt={place.name}
+                className="w-full h-52 object-cover"
+              />
+              <CardContent className="p-5">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {place.name}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {place.desc}
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
