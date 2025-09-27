@@ -4,6 +4,7 @@ import img1 from "../public/image.jpg";
 import img2 from "../public/image2.jpg";
 import img3 from "../public/image3.jpg";
 import img4 from "../public/image4.jpg";
+import CardSwap, { Card } from './CardSwap'
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -40,29 +41,29 @@ export default function Venue() {
   }, []);
 
   return (
-    <section id="venue" className="py-20 bg-gray-50">
+    <section id="venue" className="py-20   bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             // variants={itemVariants}
           >
             Conference Venue
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-blue-600 mx-auto mb-8"
+            className="w-24 h-1 bg-blue-600 mx-auto mb-5"
             initial={{ width: 0 }}
             whileInView={{ width: 96 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
           <motion.p
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg text-gray-600 max-w-2xl mx-auto font-semibold"
             // variants={itemVariants}
           >
             AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD, INDIA
@@ -70,7 +71,7 @@ export default function Venue() {
         </motion.div>
 
         {/* Slideshow */}
-        <div className="relative w-full">
+        {/* <div className="relative w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -82,7 +83,7 @@ export default function Venue() {
                 index % 2 === 0 ? "" : "md:flex-row-reverse"
               }`}
             >
-              {/* Image */}
+
               <div className="w-full md:w-1/2">
                 <img
                   src={slides[index].img}
@@ -91,7 +92,7 @@ export default function Venue() {
                 />
               </div>
 
-              {/* Text */}
+
               <div className="w-full md:w-1/2 text-center md:text-left">
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                   {slides[index].text}
@@ -99,7 +100,45 @@ export default function Venue() {
               </div>
             </motion.div>
           </AnimatePresence>
-        </div>
+        </div> */}
+        <div className="relative w-full flex flex-col md:flex-row items-center gap-8">
+  {/* Left side: text */}
+  <div className="w-full md:w-1/2 text-center md:text-left">
+    <AnimatePresence mode="wait">
+      <motion.p
+        key={index}
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 50 }}
+        transition={{ duration: 0.8 }}
+        className="text-2xl font-bold md:text-xl text-gray-700 leading-relaxed"
+      >
+        {slides[index].text}
+      </motion.p>
+    </AnimatePresence>
+  </div>
+
+  {/* Right side: card images */}
+  <div className="w-full md:w-1/2" style={{ height: '450px', position: 'relative' }}>
+    <CardSwap
+      cardDistance={60}
+      verticalDistance={70}
+      delay={3000}
+      pauseOnHover={false}
+    >
+      {slides.map((slide, i) => (
+        <Card key={i}>
+          <img
+            src={slide.img}
+            alt={`Slide ${i + 1}`}
+            className="rounded-md shadow-xl w-full h-80 md:h-[26rem] object-cover"
+          />
+        </Card>
+      ))}
+    </CardSwap>
+  </div>
+</div>
+
       </div>
     </section>
   );

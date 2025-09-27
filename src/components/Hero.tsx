@@ -7,12 +7,19 @@ import Image3 from "../public/image3.jpg";
 import Image4 from "../public/image4.jpg";
 import Image5 from "../public/image5.jpg";
 import Image6 from "../public/image6.jpg";
+// import ShinyText from './ShinyText';
+import GlareHover from './GlareHover'
+// import RotatingText from './RotatingText'
+import SplitText from "./SplitText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
+const handleAnimationComplete = () => {
+  console.log('All letters have animated!');
+};
 // const itemVariants = {
 //   hidden: { opacity: 0, y: 20 },
 //   visible: {
@@ -23,7 +30,7 @@ const containerVariants = {
 // };
 
 // Background slideshow images
-const images = [Image1, Image2, Image3, Image4, Image5, Image6];
+const images = [Image1, Image2, Image5, Image6];
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -54,13 +61,13 @@ export default function Hero() {
   ))}
 
   {/* Gradient overlay for text readability */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
 </div>
 
       {/* Foreground content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <motion.div initial="hidden" animate="visible" variants={containerVariants}>
-          <motion.h1
+          {/* <motion.h1
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight"
             style={{ textShadow: "0px 4px 12px rgba(0,0,0,0.7)" }}
             // variants={itemVariants}
@@ -71,34 +78,62 @@ export default function Hero() {
             >
               NGISE 2026
             </motion.span>
-          </motion.h1>
+          </motion.h1> */}
+          <SplitText
+  text={
+    <>
+      Welcome To <span className="text-blue-100">NGISE 2026</span>
+    </>
+  }
+  className="text-7xl font-semibold text-center mb-4"
+  delay={40}
+  duration={0.3}
+  ease="power3.out"
+  splitType="chars"
+  from={{ opacity: 0, y: 40 }}
+  to={{ opacity: 1, y: 0 }}
+  threshold={0.1}
+  rootMargin="-100px"
+  textAlign="center"
+  onLetterAnimationComplete={handleAnimationComplete}
+/>
 
           <motion.p
-            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200"
-            style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
-            // variants={itemVariants}
-          >
-          International Conference on Next Generation Information System Engineering
-          </motion.p>
+  className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-gray-200"
+  style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+  International Conference on Next Generation Information System Engineering
+</motion.p>
 
-          <motion.div
-            className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-lg"
-            // variants={itemVariants}
-          >
-            <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-              <Calendar className="w-5 h-5 text-blue-400" />
-              <span>28th–29th October 2026</span>
-            </motion.div>
+<motion.div
+  className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-lg"
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+>
+  <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
+    <Calendar className="w-5 h-5 text-blue-400" />
+    <span>28th–29th October 2026</span>
+  </motion.div>
 
-            <div className="hidden md:block w-px h-6 bg-gray-400"></div>
+  <div className="hidden md:block w-px h-6 bg-gray-400"></div>
 
-            <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-              <MapPin className="w-5 h-5 text-blue-400" />
-              <span>Ajay Kumar Garg Engineering College, Ghaziabad, India</span>
-            </motion.div>
-          </motion.div>
+  {/* <ShinyText 
+    text="Ajay Kumar Garg Engineering College, Ghaziabad, India" 
+    disabled={false} 
+    speed={3} 
+    className='custom-class  ' 
+  /> */}
+  <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
+    <MapPin className="w-5 h-5 text-blue-400" />
+    <span>Ajay Kumar Garg Engineering College, Ghaziabad, India</span>
+  </motion.div>
+</motion.div>
 
-          <motion.button
+          {/* <motion.button
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-200"
             // variants={itemVariants}
             whileHover={{ scale: 1.05, y: -2 }}
@@ -106,7 +141,21 @@ export default function Hero() {
             onClick={() => window.location.href = "/registrations"}
           >
             Register Now
-          </motion.button>
+          </motion.button> */}
+          <div style={{ height: '10px', position: 'relative' }} className="flex justify-center">
+  <GlareHover
+    glareColor="#ffffff"
+    glareOpacity={0.3}
+    glareAngle={-30}
+    glareSize={300}
+    transitionDuration={800}
+    playOnce={false}
+  >
+    <h2 style={{ fontSize: '1rem', fontWeight: '900', color: '#fff', margin: 0 }}>
+      Register Now
+    </h2>
+  </GlareHover>
+</div>
         </motion.div>
       </div>
     </section>

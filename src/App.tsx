@@ -15,9 +15,17 @@ import City from "./pages/City";
 import Organizers from "./pages/Organizers";
 import MainVenue from "./components/Venue";
 import FAQ from "./components/Faq";
+import ClickSpark from './components/ClickSpark'
 
 function App() {
   return (
+    <ClickSpark
+  sparkColor='#2563eb'
+  sparkSize={10}
+  sparkRadius={15}
+  sparkCount={8}
+  duration={400}
+>
     <Router>
       <div className="min-h-screen flex flex-col bg-white">
         <Navbar />
@@ -39,6 +47,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ClickSpark>
   );
 }
 
