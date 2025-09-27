@@ -11,7 +11,7 @@ const Footer = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-gray-700 text-white pt-12 pb-6"
+      className="bg-gray-800 text-white pt-12 pb-6"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section: Logo + Navigation */}
@@ -29,7 +29,7 @@ const Footer = () => {
               { name: "Registrations", link: "/registrations" },
               { name: "Paper Submission", link: "/papers" },
               { name: "FAQ", link: "/faq" },
-              { name: "Contact Us", link: "/venue" },
+              { name: "Contact Us", link: "/contact" },
             ].map((item, idx) => (
               <Link
                 key={idx}

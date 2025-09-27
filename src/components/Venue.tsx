@@ -1,28 +1,59 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { MapPin, Mail, Phone } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import img1 from "../public/image.jpg";
+import img2 from "../public/image2.jpg";
+import img3 from "../public/image3.jpg";
+import img4 from "../public/image4.jpg";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
+const slides = [
+  {
+    img: img1,
+    text: "NGISE-2025 is proudly organized by the Department of Information Technology, Ajay Kumar Garg Engineering College, Ghaziabad.",
+  },
+  {
+    img: img2,
+    text: "Established in 1999 and expanded in 2019 with the addition of the CSIT branch, the department has been a pioneer in academic excellence.",
+  },
+  {
+    img: img3,
+    text: "Ajay Kumar Garg Engineering College (AKGEC), approved by AICTE and affiliated to Dr. A.P.J. Abdul Kalam Technical University, offers 12 B.Tech disciplines and PG programs.",
+  },
+  {
+    img: img4,
+    text: "AKGEC has earned the Academic Excellence Award and the Chancellor’s Medal for consecutive years, setting benchmarks in engineering education.",
+  },
+];
+
 export default function Venue() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="venue" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
         <motion.div
           className="text-center mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={{}}
         >
           <motion.h2
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
             // variants={itemVariants}
           >
-            Venue & Contact
+            Conference Venue
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-blue-600 mx-auto mb-8"
@@ -30,107 +61,44 @@ export default function Venue() {
             whileInView={{ width: 96 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
+          <motion.p
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            // variants={itemVariants}
+          >
+            AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD, INDIA
+          </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Venue Section */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Conference Venue
-            </h3>
-
-            {/* Google Maps Embed */}
+        {/* Slideshow */}
+        <div className="relative w-full">
+          <AnimatePresence mode="wait">
             <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="rounded-xl overflow-hidden shadow-md mb-6"
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+              transition={{ duration: 0.8 }}
+              className={`flex flex-col md:flex-row items-center gap-8 ${
+                index % 2 === 0 ? "" : "md:flex-row-reverse"
+              }`}
             >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.4668507627675!2d77.4994291756927!3d28.675678282119712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf30885b1e2a5%3A0x9983675e24c6638b!2sAjay%20Kumar%20Garg%20Engineering%20College!5e0!3m2!1sen!2sin!4v1758812119007!5m2!1sen!2sin"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </motion.div>
-
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-blue-600 mt-1" />
-                <div>
-                  <p className="font-semibold text-gray-900">
-                    Ajay Kumar Garg Engineering College
-                  </p>
-                  <p className="text-gray-600">
-                    27th Km Milestone, Delhi-Meerut Expressway, Ghaziabad,
-                    Uttar Pradesh 201015, India
-                  </p>
-                </div>
+              {/* Image */}
+              <div className="w-full md:w-1/2">
+                <img
+                  src={slides[index].img}
+                  alt="Venue"
+                  className="rounded-2xl shadow-lg w-full h-80 md:h-[26rem] object-cover"
+                />
               </div>
-            </div>
-          </motion.div>
 
-          {/* Contact Info Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Contact Information
-            </h3>
-
-            <div className="space-y-6">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-white p-6 rounded-xl hover:shadow-md transition-all duration-300"
-              >
-                <h4 className="font-semibold text-gray-900 mb-4">
-                  Conference Secretariat
-                </h4>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">
-                      conference@ngise2026.org
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">+91-120-2722200</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-white p-6 rounded-xl hover:shadow-md transition-all duration-300"
-              >
-                <h4 className="font-semibold text-gray-900 mb-4">
-                  Registration Support
-                </h4>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">
-                      registration@ngise2026.org
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">+91-120-2722201</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+              {/* Text */}
+              <div className="w-full md:w-1/2 text-center md:text-left">
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  {slides[index].text}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
