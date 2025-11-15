@@ -13,12 +13,12 @@ const Footer = () => {
       transition={{ duration: 0.6 }}
       className="bg-gray-800 text-white pt-12 pb-6"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* Top Section: Logo + Navigation */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-700 pb-8 mb-6">
+        <div className="flex flex-col md:flex-row justify-between text-center items-center md:items-center border-b border-gray-700 pb-8 mb-6">
           {/* College Logo */}
           <div className="flex items-center mb-6 md:mb-0">
-            <img src={Logo} alt="College Logo" className="w-14 h-14 mr-3" />
+            <img src={Logo} alt="College Logo" className="sm:w-14 sm:h-14 mr-3 w-10 h-10" />
             <span className="text-xl font-semibold">AKGEC</span>
           </div>
 
