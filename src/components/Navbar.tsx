@@ -36,7 +36,7 @@ export default function Navbar() {
             alt="NGISE Logo"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-22 h-12"
+            className="sm:w-22 sm:h-12 w-21 h-10 ml-5 sm:ml-3"
           />
 
           {/* Desktop Nav */}
