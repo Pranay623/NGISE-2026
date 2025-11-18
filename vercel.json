@@ -1,12 +1,5 @@
-{
+  {
   "rewrites": [
-    {
-      "source": "/2025",
-      "destination": "https://graceful-otter-699530.netlify.app/"
-    },
-    {
-      "source": "/2025/(.*)",
-      "destination": "https://graceful-otter-699530.netlify.app/$1"
-    }
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
