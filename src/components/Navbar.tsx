@@ -47,9 +47,9 @@ export default function Navbar() {
             <Link to="/venue" className={linkClass("/venue")}>
               Venue
             </Link>
-            <Link to="/call-for-papers" className={linkClass("/call-for-papers")}>
+            {/* <Link to="/call-for-papers" className={linkClass("/call-for-papers")}>
               Call for Papers
-            </Link>
+            </Link> */}
             <Link to="/speakers" className={linkClass("/speakers")}>
               Speakers
             </Link>
@@ -91,9 +91,9 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link to="/program" className={linkClass("/program")}>
+            {/* <Link to="/program" className={linkClass("/program")}>
               Program
-            </Link>
+            </Link> */}
             <Link to="/registrations" className={linkClass("/registrations")}>
               Registration
             </Link>

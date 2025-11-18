@@ -101,41 +101,63 @@ export default function Venue() {
             </motion.div>
           </AnimatePresence>
         </div> */}
-        <div className="relative w-full flex flex-col md:flex-row items-center gap-8">
-  {/* Left side: text */}
-  <div className="w-full md:w-1/2 text-center md:text-left">
+       <div className="relative w-full flex flex-col md:flex-row items-center gap-10 md:gap-8">
+
+  {/* Text Section */}
+  <div className="w-full md:w-1/2 text-center md:text-left px-2 sm:px-4">
     <AnimatePresence mode="wait">
       <motion.p
         key={index}
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: 50 }}
-        transition={{ duration: 0.8 }}
-        className="text-2xl font-bold md:text-xl text-gray-700 leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.6 }}
+        className="
+          text-base sm:text-lg 
+          md:text-xl 
+          font-medium 
+          text-gray-700 
+          leading-relaxed
+        "
       >
         {slides[index].text}
       </motion.p>
     </AnimatePresence>
   </div>
 
-  {/* Right side: card images */}
-  <div className="w-full md:w-1/2" style={{ height: '450px', position: 'relative' }}>
-    <CardSwap
-      cardDistance={60}
-      verticalDistance={70}
-      delay={3000}
-      pauseOnHover={false}
-    >
-      {slides.map((slide, i) => (
-        <Card key={i}>
-          <img
-            src={slide.img}
-            alt={`Slide ${i + 1}`}
-            className="rounded-md shadow-xl w-full h-80 md:h-[26rem] object-cover"
-          />
-        </Card>
-      ))}
-    </CardSwap>
+  {/* Image Section – Mobile Friendly Slider */}
+  <div className="w-full md:w-1/2">
+    {/* Mobile + Tablet Simple Fade Slider */}
+    <div className="md:hidden relative h-56 sm:h-72 overflow-hidden rounded-xl shadow-lg">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={index}
+          src={slides[index].img}
+          alt="Slide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.9 }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+    </div>
+
+    {/* Desktop Card Swap (unchanged) */}
+    <div className="hidden md:block w-full" style={{ height: "450px", position: "relative" }}>
+      <CardSwap cardDistance={60} verticalDistance={70} delay={3000} pauseOnHover={false}>
+        {slides.map((slide, i) => (
+          <Card key={i}>
+            <img
+              src={slide.img}
+              alt={`Slide ${i + 1}`}
+              className="rounded-md shadow-xl w-full h-80 md:h-[26rem] object-cover"
+            />
+          </Card>
+        ))}
+      </CardSwap>
+    </div>
+
   </div>
 </div>
 

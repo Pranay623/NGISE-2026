@@ -152,7 +152,8 @@ export default function Hero() {
     transitionDuration={800}
     playOnce={false}
   >
-    <h2 style={{ fontSize: '1rem', fontWeight: '900', color: '#fff', margin: 0 }}>
+    <h2 style={{ fontSize: '1rem', fontWeight: '900', color: '#fff', margin: 0 }}
+    onClick={() => window.location.href = "/registrations"}>
       Register Now
     </h2>
   </GlareHover>
