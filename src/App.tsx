@@ -15,38 +15,58 @@ import City from "./pages/City";
 import Organizers from "./pages/Organizers";
 import MainVenue from "./components/Venue";
 import FAQ from "./components/Faq";
-import ClickSpark from './components/ClickSpark'
+import ClickSpark from "./components/ClickSpark";
 
 function App() {
   return (
     <ClickSpark
-  sparkColor='#2563eb'
-  sparkSize={10}
-  sparkRadius={15}
-  sparkCount={8}
-  duration={400}
->
-    <Router>
-      <div className="min-h-screen flex flex-col bg-white">
-        <Navbar />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/tracks" element={<TracksPage />} />
-            <Route path="/dates" element={<DatesPage />} />
-            <Route path="/speakers" element={<SpeakersPage />} />
-            <Route path="/contact" element={<VenuePage />} />
-            <Route path="/registrations" element={<Registration />} />
-            <Route path="/locale/about-city" element={<City />} />
-            <Route path="/committee/oragnizers" element={<Organizers />} />
-            <Route path="/venue" element={<MainVenue />} />
-            <Route path="/faq" element={<FAQ />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+      sparkColor="#2563eb"
+      sparkSize={10}
+      sparkRadius={15}
+      sparkCount={8}
+      duration={400}
+    >
+      <Router>
+        <Routes>
+          <Route
+            path="/2025/*"
+            element={
+              <iframe
+                src="https://graceful-otter-699530.netlify.app/"
+                style={{ width: "100%", height: "100vh", border: "none" }}
+              />
+            }
+          />
+
+          <Route
+            path="/*"
+            element={
+              <div className="min-h-screen flex flex-col bg-white">
+                <Navbar />
+                <main className="flex-1">
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/tracks" element={<TracksPage />} />
+                    <Route path="/dates" element={<DatesPage />} />
+                    <Route path="/speakers" element={<SpeakersPage />} />
+                    <Route path="/contact" element={<VenuePage />} />
+                    <Route path="/registrations" element={<Registration />} />
+                    <Route path="/locale/about-city" element={<City />} />
+                    <Route
+                      path="/committee/oragnizers"
+                      element={<Organizers />}
+                    />
+                    <Route path="/venue" element={<MainVenue />} />
+                    <Route path="/faq" element={<FAQ />} />
+                  </Routes>
+                </main>
+                <Footer />
+              </div>
+            }
+          />
+        </Routes>
+      </Router>
     </ClickSpark>
   );
 }
