@@ -323,6 +323,30 @@ const Onpaper = () => {
             </div>
             <div className="mt-16 mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    SUBMISSION GUIDELINES
+                </h2>
+                <motion.div
+                    className="w-24 h-1 bg-blue-600 mx-auto"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 96 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                />
+            </div>
+            <div className="mt-16 mb-12 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    SUBMISSION TEMPLATES
+                </h2>
+                <motion.div
+                    className="w-24 h-1 bg-blue-600 mx-auto"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 96 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                />
+            </div>
+            <div className="mt-16 mb-12 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                     PLAGIARISM POLICY
                 </h2>
                 <motion.div

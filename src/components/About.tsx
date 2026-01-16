@@ -17,7 +17,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={{}}>
+        <motion.div className="text-center mb-10" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={{}}>
           <motion.h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6" variants={itemVariants}>
             About the Conference
           </motion.h2>
@@ -25,17 +25,11 @@ export default function AboutSection() {
         </motion.div>
 
         <motion.div className="max-w-4xl mx-auto" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{}}>
-          <motion.p className="text-lg text-gray-700 leading-relaxed text-center mb-8" variants={itemVariants}>
-            The IEEE International Conference on Next Generation Information System Engineering (NGISE 2026) serves as a premier platform for researchers, industry practitioners,
-            and academicians to present cutting-edge research and innovations in information system engineering.
+          <motion.p className="text-lg text-gray-700 leading-relaxed text-center mb-1" variants={itemVariants}>
+            The International Conference on Next Generation Information System Engineering (NGISE-2026) offers a collaborative forum for advancing cutting-edge technologies in information systems. It unites researchers, practitioners, and academicians to explore innovative solutions across diverse tracks. The event fosters idea exchanges about sustainable, secure solutions amid rapid digital transformation. Attendees benefit from networking opportunities that spur industry-academia partnerships. Through a rich tapestry of presentations, workshops, and discussions, the conference aims to catalyze advancements in next-generation information systems.
           </motion.p>
 
-          <motion.p className="text-lg text-gray-700 leading-relaxed text-center mb-12" variants={itemVariants}>
-            Our focus areas encompass Artificial Intelligence, Machine Learning, Big Data Analytics, Cloud Computing, Cybersecurity, Internet of Things, Green IT, and emerging technologies
-            that are shaping the future of information systems.
-          </motion.p>
-
-          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center" variants={{}} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          {/* <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center" variants={{}} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             {cards.map((c, i) => (
               <motion.div key={i} className="bg-gray-50 p-6 rounded-xl" variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}>
                 <motion.div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
@@ -45,7 +39,7 @@ export default function AboutSection() {
                 <p className="text-gray-600">{c.desc}</p>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>
