@@ -1,4 +1,4 @@
-import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -16,6 +16,7 @@ import Organizers from "./pages/Organizers";
 import MainVenue from "./components/Venue";
 import FAQ from "./components/Faq";
 import ClickSpark from "./components/ClickSpark";
+import CallForPapersPage from "./pages/CallForPapersPage";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
                 <main className="flex-1">
                   <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/call-for-papers" element={<CallForPapersPage />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/tracks" element={<TracksPage />} />
                     <Route path="/dates" element={<DatesPage />} />
