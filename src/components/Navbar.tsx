@@ -44,12 +44,12 @@ export default function Navbar() {
             <Link to="/" className={linkClass("/")}>
               Home
             </Link>
+            <Link to="/call-for-papers" className={linkClass("/call-for-papers")}>
+              Call for Papers
+            </Link>
             <Link to="/venue" className={linkClass("/venue")}>
               Venue
             </Link>
-            {/* <Link to="/call-for-papers" className={linkClass("/call-for-papers")}>
-              Call for Papers
-            </Link> */}
             <Link to="/speakers" className={linkClass("/speakers")}>
               Speakers
             </Link>
@@ -61,11 +61,10 @@ export default function Navbar() {
               onMouseLeave={() => setCommittee(false)}
             >
               <button
-                className={`flex items-center space-x-1 ${
-                  location.pathname.startsWith("/committee")
-                    ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
-                    : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
-                }`}
+                className={`flex items-center space-x-1 ${location.pathname.startsWith("/committee")
+                  ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                  : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
+                  }`}
               >
                 <span>Committee</span>
                 <ChevronDown className="w-4 h-4 mt-0.5" />
@@ -105,11 +104,10 @@ export default function Navbar() {
               onMouseLeave={() => setLocaleOpen(false)}
             >
               <button
-                className={`flex items-center space-x-1 ${
-                  location.pathname.startsWith("/locale")
-                    ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
-                    : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
-                }`}
+                className={`flex items-center space-x-1 ${location.pathname.startsWith("/locale")
+                  ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                  : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
+                  }`}
               >
                 <span>Locale</span>
                 <ChevronDown className="w-4 h-4 mt-0.5" />
@@ -167,8 +165,8 @@ export default function Navbar() {
                 <SheetHeader />
                 <div className="p-6 flex flex-col gap-y-4 text-left">
                   <Link to="/" onClick={() => setIsSheetOpen(false)}>Home</Link>
-                  <Link to="/venue" onClick={() => setIsSheetOpen(false)}>Venue</Link>
                   <Link to="/call-for-papers" onClick={() => setIsSheetOpen(false)}>Call for Papers</Link>
+                  <Link to="/venue" onClick={() => setIsSheetOpen(false)}>Venue</Link>
                   <Link to="/speakers" onClick={() => setIsSheetOpen(false)}>Speakers</Link>
 
                   {/* Committee (expandable) */}
