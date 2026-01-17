@@ -17,6 +17,7 @@ import MainVenue from "./components/Venue";
 import FAQ from "./components/Faq";
 import ClickSpark from "./components/ClickSpark";
 import CallForPapersPage from "./pages/CallForPapersPage";
+import TechnicalOrgannizers from "./pages/TechnicalOrgannizers";
 
 function App() {
   return (
@@ -58,6 +59,10 @@ function App() {
                     <Route
                       path="/committee/oragnizers"
                       element={<Organizers />}
+                    />
+                    <Route
+                      path="/committee/program-committee"
+                      element={<TechnicalOrgannizers />}
                     />
                     <Route path="/venue" element={<MainVenue />} />
                     <Route path="/faq" element={<FAQ />} />

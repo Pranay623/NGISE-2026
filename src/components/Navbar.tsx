@@ -85,6 +85,12 @@ export default function Navbar() {
                     >
                       Organizing Committee
                     </Link>
+                    <Link
+                      to="/committee/program-committee"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                    >
+                      Technical Program Committee
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
