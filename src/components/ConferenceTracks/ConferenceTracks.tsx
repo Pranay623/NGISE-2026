@@ -6,7 +6,7 @@ const tracksData = [
     {
         id: 1,
         title: "Track 1: Information System Engineering",
-        points: [
+       /* points: [
             "Enterprise Architecture and Systems Integration",
             "Data Modeling and Database Design",
             "Business Process Management and Automation",
@@ -16,7 +16,7 @@ const tracksData = [
             "Information Systems for Healthcare",
             "Internet of Things (IoT) and Information Systems",
             "Sustainability in Information Systems"
-        ]
+        ]*/
     },
     {
         id: 2,
