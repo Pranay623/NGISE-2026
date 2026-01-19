@@ -51,7 +51,7 @@ export default function Organizers() {
         <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Advisory Committee</h4>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {[
-            ["Prof Ingrid Papel", "Taltech"],
+            ["Prof Ingrid Papel", "Tallinn University of Technology (TalTech), Estonia"],
             ["Prof. A Min Tjoa", "Institute of Software Technology & Interactive Systems, TU Wien, Austria"],
             ["Prof. Colin Atkinson", "Software Engineering Group, University of Mannheim, Germany"],
             ["Dr. Gabriela Kotsis", "Institute of Tele-cooperation, Johannes Kepler University Linz (JKU), Austria"],
@@ -91,7 +91,7 @@ export default function Organizers() {
         <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">International Program Committee</h4>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {[
-            ["Riina Palu", "Director (Deputy Head), Digital Society Research Group, Taltech"],
+            ["Riina Palu", "Director (Deputy Head), Digital Society Research Group, Tallinn University of Technology (TalTech), Estonia"],
             ["Dr. Rozha Ahmed", "Computer Science Department, Sulaimani Polytechnic University, Iraq"],
             ["Dr. Markus Bertl", "Research Staff, WU Vienna University of Economics & Business, Austria"],
             ["Prof. (Dr.) Anupama Sharma", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
