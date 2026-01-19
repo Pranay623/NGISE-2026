@@ -213,30 +213,18 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className={`bg-white rounded-xl overflow-hidden border ${isOpen ? 'border-blue-200' : 'border-gray-100 hover:shadow-md'}`}
         >
-            <motion.button
+            <motion.div
                 layout="position"
-                onClick={toggle}
-                className={`w-full px-6 py-4 flex items-center justify-between text-left ${isOpen ? 'bg-blue-50/50' : 'bg-white'}`}
+                className={`w-full px-6 py-4 flex items-center justify-between text-left`}
             >
                 <div className="flex items-center gap-4">
                     <span className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed">
                         {track.title}
                     </span>
                 </div>
-                {isOpen ? <ChevronUp className="text-blue-600" /> : <ChevronDown className="text-gray-400" />}
-            </motion.button>
-
-            <AnimatePresence initial={false}>
-                {isOpen && (
+                {/* {isOpen ? <ChevronUp className="text-blue-600" /> : <ChevronDown className="text-gray-400" />} */}
+            </motion.div>
                     <motion.div
-                        initial="collapsed"
-                        animate="open"
-                        exit="collapsed"
-                        variants={{
-                            open: { opacity: 1, height: "auto" },
-                            collapsed: { opacity: 0, height: 0 }
-                        }}
-                        transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                         style={{
                             background: "rgba(255, 255, 255, 0.15)",
                             backdropFilter: "blur(12px)",
@@ -246,7 +234,7 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
                             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)"
                         }}
                     >
-                        <div className="px-2 py-1.5 grid grid-cols-1 gap-1">
+                        {/* <div className="px-2 py-1.5 grid grid-cols-1 gap-1">
                             {track.points.map((point, idx) => (
                                 <motion.div
                                     key={idx}
@@ -259,10 +247,8 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
                                     <span>{point}</span>
                                 </motion.div>
                             ))}
-                        </div>
+                        </div> */}
                     </motion.div>
-                )}
-            </AnimatePresence>
         </motion.div>
     );
 };
@@ -276,7 +262,7 @@ const ConferenceTracks = () => {
 
     return (
         <>
-            <div className="mt-16 mb-12 text-center">
+            <div className=" mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                     Conference Tracks
                 </h2>
