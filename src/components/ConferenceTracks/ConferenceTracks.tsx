@@ -21,7 +21,7 @@ const tracksData = [
     {
         id: 2,
         title: "Track 2: Artificial Intelligence & Machine Learning",
-        points: [
+        /*points: [
             "Neural Networks and Deep Learning Architectures",
             "Reinforcement Learning and Autonomous Systems",
             "Transfer Learning and Domain Adaptation",
@@ -36,12 +36,12 @@ const tracksData = [
             "AI in Cybersecurity and Fraud Detection",
             "AI for Edge and IoT Devices",
             "Hybrid AI Systems and Multi-Model Integration"
-        ]
+        ]*/
     },
     {
         id: 3,
         title: "Track 3: Sustainable Computing & Green IT",
-        points: [
+       /* points: [
             "Energy-Efficient Computing and Data Centers",
             "Green Cloud Computing",
             "Sustainable Software Engineering Practices",
@@ -56,12 +56,12 @@ const tracksData = [
             "Sustainable Data Storage and Management Solutions",
             "Green IT Policies and Regulatory Compliance",
             "Sustainable Supply Chain Management in IT"
-        ]
+        ]*/
     },
     {
         id: 4,
         title: "Track 4: Data Science & Big Data Analytics",
-        points: [
+      /*  points: [
             "Advanced Techniques in Pattern Recognition",
             "Scalable Algorithms for Big Data Mining",
             "Anomaly Detection and Outlier Mining",
@@ -77,12 +77,12 @@ const tracksData = [
             "Knowledge Representation and Ontology Learning",
             "Interactive Data Mining and Visual Analytics",
             "Applications of Data Mining in Healthcare and Bioinformatics"
-        ]
+        ]*/
     },
     {
         id: 5,
         title: "Track 5: Big Data Technologies",
-        points: [
+       /* points: [
             "Distributed Systems for Big Data Processing",
             "Data Storage and Management in Big Data Systems",
             "Big Data Integration and Interoperability",
@@ -98,12 +98,12 @@ const tracksData = [
             "Energy-Efficient Big Data Solutions",
             "Data Governance and Compliance in Big Data",
             "Emerging Technologies and Trends in Big Data Engineering"
-        ]
+        ]*/
     },
     {
         id: 6,
         title: "Track 6: Cloud Computing & IoT",
-        points: [
+        /*points: [
             "Serverless Computing and Function-as-a-Service (FaaS)",
             "Edge Computing and Cloud-Edge Integration",
             "Hybrid Cloud Architectures and Multi-Cloud Strategies",
@@ -117,12 +117,12 @@ const tracksData = [
             "Quantum Computing in the Cloud",
             "Blockchain and Distributed Ledger Technologies in the Cloud",
             "Cloud Solutions for IoT and Smart Devices"
-        ]
+        ]*/
     },
     {
         id: 7,
         title: "Track 7: Large Language Models (LLMs)",
-        points: [
+       /* points: [
             "Architectures and Techniques for Training Large Language Models",
             "Fine-Tuning and Transfer Learning in Large Language Models",
             "Ethics, Bias, and Fairness in Large Language Models",
@@ -136,12 +136,12 @@ const tracksData = [
             "Language Model Personalization and Customization",
             "Ethical Considerations in Large Language Model Development and Deployment",
             "Future Directions and Innovations in Large Language Models"
-        ]
+        ] */
     },
     {
         id: 8,
         title: "Track 8: Security & Privacy in Next-Gen Computing",
-        points: [
+      /*  points: [
             "Zero Trust Architectures and Next-Gen Security Models",
             "Security Challenges in Cloud Computing and Edge Networks",
             "Privacy-Preserving Machine Learning and AI",
@@ -156,12 +156,12 @@ const tracksData = [
             "Compliance and Regulatory Issues in Next-Gen Computing",
             "AI-Driven Security and Automated Threat Mitigation",
             "Emerging Threats and Security Trends in Next-Gen Computing"
-        ]
+        ]*/
     },
     {
         id: 9,
         title: "Track 9: Emerging Technologies & Future Trends",
-        points: [
+       /* points: [
             "Generative AI",
             "Quantum Computing",
             "5G and Beyond",
@@ -175,12 +175,12 @@ const tracksData = [
             "Digital Twins and Simulation Technologies",
             "Wearable Technology and Health Monitoring",
             "Space Technology and Exploration"
-        ]
+        ]*/
     },
     {
         id: 10,
         title: "Track 10: Digital Transformation, E-Government & Interoperability",
-        points: [
+       /* points: [
             "Strategies for Successful Digital Transformation",
             "Innovation in Digital Business Models",
             "Interoperability Standards and Frameworks",
@@ -196,7 +196,7 @@ const tracksData = [
             "Blockchain Applications for Transparency and Accountability",
             "Digital Literacy and Skills Development in Public Services",
             "Innovative Funding Models for Digital Initiatives"
-        ]
+        ]*/
     }
 ];
 
