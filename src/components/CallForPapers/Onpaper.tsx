@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const tracksData = [
     {
         id: 1,
-        title: "Track 1: Information Systems Engineering",
+        title: "Track 1: Information System Engineering",
        /* points: [
             "Enterprise Architecture and Systems Integration",
             "Data Modeling and Database Design",
@@ -20,8 +20,8 @@ const tracksData = [
     },
     {
         id: 2,
-        title: "Track 2: Machine Learning, Deep Learning and Artificial Intelligence",
-       /* points: [
+        title: "Track 2: Artificial Intelligence & Machine Learning",
+        /*points: [
             "Neural Networks and Deep Learning Architectures",
             "Reinforcement Learning and Autonomous Systems",
             "Transfer Learning and Domain Adaptation",
@@ -103,7 +103,7 @@ const tracksData = [
     {
         id: 6,
         title: "Track 6: Cloud Computing & IoT",
-       /* points: [
+        /*points: [
             "Serverless Computing and Function-as-a-Service (FaaS)",
             "Edge Computing and Cloud-Edge Integration",
             "Hybrid Cloud Architectures and Multi-Cloud Strategies",
@@ -122,7 +122,7 @@ const tracksData = [
     {
         id: 7,
         title: "Track 7: Large Language Models (LLMs)",
-        /*points: [
+       /* points: [
             "Architectures and Techniques for Training Large Language Models",
             "Fine-Tuning and Transfer Learning in Large Language Models",
             "Ethics, Bias, and Fairness in Large Language Models",
@@ -136,12 +136,12 @@ const tracksData = [
             "Language Model Personalization and Customization",
             "Ethical Considerations in Large Language Model Development and Deployment",
             "Future Directions and Innovations in Large Language Models"
-        ]*/
+        ] */
     },
     {
         id: 8,
         title: "Track 8: Security & Privacy in Next-Gen Computing",
-       /* points: [
+      /*  points: [
             "Zero Trust Architectures and Next-Gen Security Models",
             "Security Challenges in Cloud Computing and Edge Networks",
             "Privacy-Preserving Machine Learning and AI",
@@ -213,30 +213,18 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className={`bg-white rounded-xl overflow-hidden border ${isOpen ? 'border-blue-200' : 'border-gray-100 hover:shadow-md'}`}
         >
-            <motion.button
+            <motion.div
                 layout="position"
-                onClick={toggle}
-                className={`w-full px-6 py-4 flex items-center justify-between text-left ${isOpen ? 'bg-blue-50/50' : 'bg-white'}`}
+                className={`w-full px-6 py-4 flex items-center justify-between text-left`}
             >
                 <div className="flex items-center gap-4">
                     <span className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed">
                         {track.title}
                     </span>
                 </div>
-                {isOpen ? <ChevronUp className="text-blue-600" /> : <ChevronDown className="text-gray-400" />}
-            </motion.button>
-
-            <AnimatePresence initial={false}>
-                {isOpen && (
+                {/* {isOpen ? <ChevronUp className="text-blue-600" /> : <ChevronDown className="text-gray-400" />} */}
+            </motion.div>
                     <motion.div
-                        initial="collapsed"
-                        animate="open"
-                        exit="collapsed"
-                        variants={{
-                            open: { opacity: 1, height: "auto" },
-                            collapsed: { opacity: 0, height: 0 }
-                        }}
-                        transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                         style={{
                             background: "rgba(255, 255, 255, 0.15)",
                             backdropFilter: "blur(12px)",
@@ -246,7 +234,7 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
                             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)"
                         }}
                     >
-                        <div className="px-2 py-1.5 grid grid-cols-1 gap-1">
+                        {/* <div className="px-2 py-1.5 grid grid-cols-1 gap-1">
                             {track.points.map((point, idx) => (
                                 <motion.div
                                     key={idx}
@@ -259,15 +247,13 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
                                     <span>{point}</span>
                                 </motion.div>
                             ))}
-                        </div>
+                        </div> */}
                     </motion.div>
-                )}
-            </AnimatePresence>
         </motion.div>
     );
 };
 
-const Onpaper = () => {
+const ConferenceTracks = () => {
     const [openTrackId, setOpenTrackId] = useState<number | null>(null);
 
     const toggleTrack = (id: number) => {
@@ -278,7 +264,7 @@ const Onpaper = () => {
         <>
             <div className="mt-16 mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    Call for Papers
+                    Conference Tracks
                 </h2>
                 <motion.div
                     className="w-24 h-1 bg-blue-600 mx-auto"
@@ -288,9 +274,7 @@ const Onpaper = () => {
                     viewport={{ once: true }}
                 />
                 <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
-                    All submissions will be peer reviewed and evaluated based on originality, technical and/or research content/depth, correctness and relevance to conference scope.
-                    Topics of interest include, but are not limited to the following
-
+                    The conference invites high-quality, original, and unpublished papers on topics including, but are not limited to, the following:
                 </p>
             </div>
 
@@ -304,74 +288,8 @@ const Onpaper = () => {
                     />
                 ))}
             </div>
-
-
-            <div className="mt-16 mb-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    PAPER SUBMISSION
-                </h2>
-                <motion.div
-                    className="w-24 h-1 bg-blue-600 mx-auto"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 96 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                />
-                <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
-                    Prospective authors are invited to submit original, high-quality papers that have not been previously submitted or published elsewhere. The conference's reviewing process is committed to deliver constructive feedback to authors, through rigorous double-blind peer reviews by field experts with extensive experience. Accepted papers require revisions based on referees' comments and suggestions prior to inclusion in the conference proceedings.
-                </p>
-            </div>
-            <div className="mt-16 mb-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    SUBMISSION GUIDELINES
-                </h2>
-                <motion.div
-                    className="w-24 h-1 bg-blue-600 mx-auto"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 96 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                />
-            </div>
-            <div className="mt-16 mb-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    SUBMISSION TEMPLATES
-                </h2>
-                <motion.div
-                    className="w-24 h-1 bg-blue-600 mx-auto"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 96 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                />
-            </div>
-            <div className="mt-16 mb-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    PLAGIARISM POLICY
-                </h2>
-                <motion.div
-                    className="w-24 h-1 bg-blue-600 mx-auto"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: 96 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                />
-                <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
-                    Submitted papers must present original work by the authors, supported by adequate, proper, and scholarly citations to others' contributions. Our plagiarism policy enforces the highest standards of academic integrity, with all submissions required to be original and correctly cited. Any detected plagiarism will lead to rejection or corrective measures.
-                </p>
-
-                <div className="mt-8 max-w-4xl mx-auto px-4 text-left">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Submission Guidelines</h3>
-                    <ul className="list-disc pl-5 space-y-2 text-lg text-gray-700">
-                        <li>Authors must submit original, unpublished papers not under review elsewhere.</li>
-                        <li>Policy mandates less than 10% similarity excluding references. The same applies to the inclusion of AI-generated content in the submitted articles.</li>
-                        <li>As per the copyright transfer agreement, authors bear individual and collective responsibility for published content.</li>
-                        <li>Every author must maintain the highest ethical standards to avoid plagiarism.</li>
-                    </ul>
-                </div>
-            </div>
         </>
     );
 };
 
-export default Onpaper;
+export default ConferenceTracks;

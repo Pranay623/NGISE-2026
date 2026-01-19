@@ -7,7 +7,7 @@ const HomePage = () => {
     <div>
       <Hero />
       <AboutSection />
-      <div className="pb-20">
+      <div className="pb-20 ">
         <ConferenceTracks />
       </div>
     </div>
