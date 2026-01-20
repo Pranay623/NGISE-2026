@@ -50,9 +50,9 @@ export default function Navbar() {
             <Link to="/venue" className={linkClass("/venue")}>
               Venue
             </Link>
-            <Link to="/speakers" className={linkClass("/speakers")}>
+            {/* <Link to="/speakers" className={linkClass("/speakers")}>
               Speakers
-            </Link>
+            </Link> */}
 
             {/* Committee dropdown */}
             <div
@@ -173,7 +173,7 @@ export default function Navbar() {
                   <Link to="/" onClick={() => setIsSheetOpen(false)}>Home</Link>
                   <Link to="/call-for-papers" onClick={() => setIsSheetOpen(false)}>Call for Papers</Link>
                   <Link to="/venue" onClick={() => setIsSheetOpen(false)}>Venue</Link>
-                  <Link to="/speakers" onClick={() => setIsSheetOpen(false)}>Speakers</Link>
+                  {/* <Link to="/speakers" onClick={() => setIsSheetOpen(false)}>Speakers</Link> */}
 
                   {/* Committee (expandable) */}
                   <button

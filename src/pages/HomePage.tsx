@@ -1,13 +1,15 @@
 import Hero from "../components/Hero";
 import AboutSection from "../components/About";
 import ConferenceTracks from "../components/ConferenceTracks/ConferenceTracks";
+import ImpDates from "../components/ImpDates";
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
+      <ImpDates />
       <AboutSection />
-      <div className="pb-20 ">
+      <div className="mb-12">
         <ConferenceTracks />
       </div>
     </div>
