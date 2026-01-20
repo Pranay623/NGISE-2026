@@ -1,6 +1,7 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import PageHeader from "../PageHeader";
 
 const tracksData = [
     {
@@ -263,10 +264,11 @@ const ConferenceTracks = () => {
     return (
         <>
             <div className=" mb-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    Conference Tracks
-                </h2>
-                <motion.div
+                <PageHeader
+                    title="Conference Tracks"
+                    description="The conference invites high-quality, original, and unpublished papers on topics including, but are not limited to, the following:"
+                />
+                {/* <motion.div
                     className="w-24 h-1 bg-blue-600 mx-auto"
                     initial={{ width: 0 }}
                     whileInView={{ width: 96 }}
@@ -275,7 +277,7 @@ const ConferenceTracks = () => {
                 />
                 <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
                     The conference invites high-quality, original, and unpublished papers on topics including, but are not limited to, the following:
-                </p>
+                </p> */}
             </div>
 
             <div className="max-w-3xl mx-auto flex flex-col gap-4">

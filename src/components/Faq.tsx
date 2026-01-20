@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import PageHeader from "./PageHeader";
 
 const faqs = [
   {
@@ -52,55 +53,48 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section className="py-20 bg-gray-50" id="faq">
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Heading */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Frequently Asked Questions
-          </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
-        </motion.div>
+    <div className="bg-gray-50 min-h-screen">
+      <PageHeader
+        title="Frequently Asked Questions"
+        description="Find answers to common questions about NGISE 2026"
+      />
+      <section className="py-20" id="faq">
+        <div className="max-w-4xl mx-auto px-6">
 
-        {/* Animated FAQ */}
-        <div className="relative min-h-[200px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl shadow-lg p-8 text-center"
-            >
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Q. {faqs[index].q}
-              </h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                {faqs[index].a}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+          {/* Animated FAQ */}
+          <div className="relative min-h-[200px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.6 }}
+                className="bg-white rounded-2xl shadow-lg p-8 text-center"
+              >
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                  Q. {faqs[index].q}
+                </h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  {faqs[index].a}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-        {/* Dots navigation */}
-        <div className="flex justify-center mt-6 space-x-2">
-          {faqs.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full ${
-                i === index ? "bg-blue-600" : "bg-gray-300"
-              }`}
-            ></button>
-          ))}
+          {/* Dots navigation */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {faqs.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`w-3 h-3 rounded-full ${i === index ? "bg-blue-600" : "bg-gray-300"
+                  }`}
+              ></button>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

@@ -18,6 +18,9 @@ import FAQ from "./components/Faq";
 import ClickSpark from "./components/ClickSpark";
 import CallForPapersPage from "./pages/CallForPapersPage";
 import TechnicalOrgannizers from "./pages/TechnicalOrgannizers";
+import NearByCity from "./pages/NearByCity";
+import VisaInformation from "./pages/Visa";
+
 
 function App() {
   return (
@@ -56,6 +59,9 @@ function App() {
                     <Route path="/contact" element={<VenuePage />} />
                     <Route path="/registrations" element={<Registration />} />
                     <Route path="/locale/about-city" element={<City />} />
+                    <Route path="/locale/hotels" element={<NearByCity />} />
+                    <Route path="/locale/visa" element={<VisaInformation />} />
+                    
                     <Route
                       path="/committee/oragnizers"
                       element={<Organizers />}
