@@ -3,41 +3,40 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageHeader from "./PageHeader";
 
 const faqs = [
-  {
-    q: "I need a visa to enter India, how can I get the invitation letter?",
-    a: (
-      <>
-        Please visit the page:{" "}
-        <a
-          href="https://mha.gov.in/MHA1/TourVisa.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 underline"
-        >
-          https://mha.gov.in/MHA1/TourVisa.html
-        </a>
-      </>
-    ),
-  },
+  // {
+  //   q: "I need a visa to enter India, how can I get the invitation letter?",
+  //   a: (
+  //     <>
+  //       Please visit the page:{" "}
+  //       <a
+  //         href="https://mha.gov.in/MHA1/TourVisa.html"
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //         className="text-blue-600 underline"
+  //       >
+  //         https://mha.gov.in/MHA1/TourVisa.html
+  //       </a>
+  //     </>
+  //   ),
+  // },
   {
     q: "I have not received an invitation letter yet. When will it arrive?",
     a: (
       <>
-        Please contact JTB using the following email address, and they will
-        assist you in obtaining a visa. <br />
+        Please contact the organizers at   {"  "}
         <span className="font-semibold text-gray-800">
-          Email: ngise@akgec.ac.in
-        </span>
+            ngise@akgec.ac.in
+        </span> {"  "}for sending invitation letter. 
       </>
     ),
   },
   {
     q: "I am the author of the paper and a student. Do I register as a student?",
-    a: "Author Registration is required for all authors, whether or not they are students.",
+    a: "Author Registration is required for all categories of authors. Please select the appropriate category to register for the conference as an author. Student authors are required to upload a copy of their ID card issued by the University/Institute as a proof of their current affiliation.",
   },
   {
     q: "I am the author of two papers. Do I need to register for each paper?",
-    a: 'Yes. The policy of NGISE 2025 is “one registration per paper”. Since there is no field for entering the paper ID yet, it would be helpful if you could report your paper IDs to the “NGISE Contact” when you have finished the registration.',
+    a: 'Yes. The policy of NGISE 2026 is “one registration per paper”. Since there is no field for entering the paper ID yet, it would be helpful if you could report your paper IDs to the “NGISE Contact” when you have finished the registration.',
   },
 ];
 

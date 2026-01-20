@@ -53,7 +53,7 @@ const Registration = () => {
               </table>
             </div>
             <p className="text-sm text-gray-600 px-6 py-3 bg-gray-50">
-              Extra Page (over 10) Additional charges <strong>INR 1000 per page</strong>
+              Extra Page (over 12) Additional charges <strong>INR 1000 per page</strong>
             </p>
           </motion.div>
 
@@ -96,7 +96,7 @@ const Registration = () => {
               </table>
             </div>
             <p className="text-sm text-gray-600 px-6 py-3 bg-gray-50">
-              Extra Page (over 10) Additional charges <strong>USD 50 or EUR 43 per page</strong>
+              Extra Page (over 12) Additional charges <strong>USD 50 or EUR 43 per page</strong>
             </p>
           </motion.div>
           <motion.div
