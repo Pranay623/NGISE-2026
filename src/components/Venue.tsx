@@ -14,7 +14,7 @@ const itemVariants = {
 const slides = [
   {
     img: img1,
-    text: "NGISE-2025 is proudly organized by the Department of Information Technology, Ajay Kumar Garg Engineering College, Ghaziabad.",
+    text: "NGISE-2026 is proudly organized by the Department of Information Technology, Ajay Kumar Garg Engineering College, Ghaziabad.",
   },
   {
     img: img2,

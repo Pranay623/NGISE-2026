@@ -81,7 +81,7 @@ export default function City() {
                     alt={place.name}
                     className="
                     w-full h-52 object-cover 
-                    filter grayscale hover:grayscale-0 
+                     hover:grayscale-0 
                     transition-all duration-500
                     hover:shadow-[0_0_30px_rgba(59,130,246,0.6)]
                   "
