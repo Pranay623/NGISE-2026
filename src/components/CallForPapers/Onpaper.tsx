@@ -23,7 +23,7 @@ const Onpaper = () => {
                     viewport={{ once: true }}
                 />
                 <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
-                    Prospective authors are invited to submit original, high-quality papers that have not been previously submitted or published elsewhere. The ICIEA conference's reviewing process delivers constructive feedback to authors, including for rejected submissions, through rigorous double-blind peer reviews by field experts with extensive experience. Accepted papers require revisions based on referees' comments and suggestions prior to inclusion in the conference proceedings. </p>
+                    Authors are invited to submit original, high-quality papers that have not been previously submitted or published elsewhere. The NGISE-2026 reviewing process is comitted to deliver constructive feedback to authors, through rigorous double-blind peer reviews by field experts with extensive experience. Accepted papers are required to incorporate revisions based on referees' comments and suggestions in their Camera Ready submissions prior to inclusion in the conference proceedings. </p>
             </div>
 
             <div className="mt-16 mb-12 text-center">
