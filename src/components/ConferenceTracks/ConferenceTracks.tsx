@@ -161,7 +161,7 @@ const tracksData = [
     },
     {
         id: 9,
-        title: "Track 9: Emerging Technologies & Future Trends",
+        title: "Track 9: HEmerging Technologies & Future Trends",
        /* points: [
             "Generative AI",
             "Quantum Computing",
@@ -198,7 +198,12 @@ const tracksData = [
             "Digital Literacy and Skills Development in Public Services",
             "Innovative Funding Models for Digital Initiatives"
         ]*/
+    },
+    {
+        id: 11,
+        title: "Track 11: Model-Driven Software Engineering",
     }
+    
 ];
 
 const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isOpen: boolean, toggle: () => void }) => {
