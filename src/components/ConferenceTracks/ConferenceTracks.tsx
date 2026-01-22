@@ -198,7 +198,11 @@ const tracksData = [
             "Digital Literacy and Skills Development in Public Services",
             "Innovative Funding Models for Digital Initiatives"
         ]*/
-    }
+    },
+    {
+        id: 11,
+        title: "Track 11: Model-Driven Software Engineering",
+    }    
 ];
 
 const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isOpen: boolean, toggle: () => void }) => {
