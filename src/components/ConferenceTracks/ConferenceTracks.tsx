@@ -161,7 +161,7 @@ const tracksData = [
     },
     {
         id: 9,
-        title: "Track 9: Emerging Technologies & Future Trends",
+        title: "Track 9: HEmerging Technologies & Future Trends",
        /* points: [
             "Generative AI",
             "Quantum Computing",
