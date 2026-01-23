@@ -55,7 +55,7 @@ export default function Organizers() {
               <img src={rahul} alt="Prof. (Dr.) Rahul Sharma" className="w-32 h-32 object-cover object-right rounded-full mx-auto mb-4" />
               <p className="font-medium text-center">Prof. (Dr.) Rahul Sharma</p>
               <p className="text-gray-600 text-sm text-center">
-                Ajay Kumar Garg Engineering College, Ghaziabad, India
+                Karlsruhe Institute of Technology, Germany
               </p>
             </div>
           </div>
@@ -74,10 +74,10 @@ export default function Organizers() {
               ["Dr. Anupama Sharma", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
               ["Dr. Ruchi Gupta", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
               ["Dr. Silvia Lips", "e-Governance Research Team, e-Governance Academy, Estonia"],
-              ["Dr. Sunil Kumar", "Ajay Kumar Garg Engineering College, India"],
-              ["Dr. Aditya Pratap Singh", "Ajay Kumar Garg Engineering College, India"],
+          {/*["Dr. Sunil Kumar", "Ajay Kumar Garg Engineering College, India"],*/}
+          {/*["Dr. Aditya Pratap Singh", "Ajay Kumar Garg Engineering College, India"],*/}
               ["Dr. Anju Mishra", "Ajay Kumar Garg Engineering College, India"],
-              ["Dr. Shivani Aggarwal", "Ajay Kumar Garg Engineering College, India"],
+          {/*["Dr. Shivani Aggarwal", "Ajay Kumar Garg Engineering College, India"],*/}
             ].map(([name, affiliation], idx) => (
               <div
                 key={idx}
