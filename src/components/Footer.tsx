@@ -27,7 +27,7 @@ const Footer = () => {
             {[
               { name: "Home", link: "/" },
               { name: "Registrations", link: "/registrations" },
-              { name: "Paper Submission", link: "https://cmt3.research.microsoft.com/NGISE2025" },
+              { name: "Paper Submission", link: "/call-for-papers" },
               { name: "FAQ", link: "/faq" },
               { name: "Contact Us", link: "/contact" },
             ].map((item, idx) => (
