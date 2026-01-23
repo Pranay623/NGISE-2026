@@ -74,10 +74,10 @@ export default function Organizers() {
               ["Dr. Anupama Sharma", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
               ["Dr. Ruchi Gupta", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
               ["Dr. Silvia Lips", "e-Governance Research Team, e-Governance Academy, Estonia"],
-          {/*["Dr. Sunil Kumar", "Ajay Kumar Garg Engineering College, India"],*/}
-          {/*["Dr. Aditya Pratap Singh", "Ajay Kumar Garg Engineering College, India"],*/}
+          // ["Dr. Sunil Kumar", "Ajay Kumar Garg Engineering College, India"],
+          // ["Dr. Aditya Pratap Singh", "Ajay Kumar Garg Engineering College, India"],
               ["Dr. Anju Mishra", "Ajay Kumar Garg Engineering College, India"],
-          {/*["Dr. Shivani Aggarwal", "Ajay Kumar Garg Engineering College, India"],*/}
+          // ["Dr. Shivani Aggarwal", "Ajay Kumar Garg Engineering College, India"],
             ].map(([name, affiliation], idx) => (
               <div
                 key={idx}
