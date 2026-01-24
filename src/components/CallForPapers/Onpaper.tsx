@@ -58,7 +58,14 @@ const Onpaper = () => {
                                 "Authors must submit original, unpublished papers that are not under review elsewhere.",
                                 <>The policy mandates less than <span className="font-bold text-blue-700">10% similarity</span>, excluding references. The same applies to the inclusion of AI-generated content in submitted articles.</>,
                                 "As per the copyright transfer agreement, authors bear both individual and collective responsibility for the published content.",
-                                "Every author must maintain the highest ethical standards to avoid plagiarism."
+                                "Every author must maintain the highest ethical standards to avoid plagiarism.",
+                                "Allowable pages in the camera-ready paper: for short papers (6-8 pages), and for long papers (10-12 pages).",
+                                <>Strictly follow the Springer manuscript preparation guidelines <br /><a href="https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium">https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings</a>.</>,
+                                 "To download Springer template:",
+                                <>MS WORD: <a href="/src/public/splnproc1703.doc" download className="text-blue-600 hover:text-blue-800 underline font-medium">MS Word Template</a></>,
+                                <>LaTeX: <a href="/zip/LaTeX2e+Proceedings+Templates.zip" download className="text-blue-600 hover:text-blue-800 underline font-medium">LaTeX Template</a></>,
+
+
                             ].map((item, index) => (
                                 <li key={index} className="flex items-start gap-4 p-2 rounded-lg hover:bg-blue-50/50 transition-colors">
                                     <CheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
