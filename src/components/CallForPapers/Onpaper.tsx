@@ -102,7 +102,7 @@ const Onpaper = () => {
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 underline font-medium transition-colors"
                         >
-                            https://cmt3.research.microsoft.com/NGISE2025
+                            https://cmt3.research.microsoft.com/NGISE2026
                         </a>
                     </p>
                 </div>
