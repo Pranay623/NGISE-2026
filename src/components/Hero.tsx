@@ -82,7 +82,7 @@ export default function Hero() {
           <SplitText
   text={
     <>
-      Welcome To <span className="text-blue-100">NGISE 2026</span>
+      Welcome to <span className="text-blue-100">NGISE 2026</span>
     </>
   }
   className="text-7xl font-semibold text-center mb-4"
