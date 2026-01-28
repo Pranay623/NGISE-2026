@@ -7,17 +7,15 @@ const tracksData = [
     {
         id: 1,
         title: "Track 1: Information System Engineering",
-       /* points: [
-            "Enterprise Architecture and Systems Integration",
-            "Data Modeling and Database Design",
-            "Business Process Management and Automation",
-            "Information Systems Security and Privacy",
-            "User Experience and Interface Design in Information Systems",
-            "Agile Methods in Information Systems Development",
-            "Information Systems for Healthcare",
-            "Internet of Things (IoT) and Information Systems",
-            "Sustainability in Information Systems"
-        ]*/
+        points: [
+            "Model-Driven Software Engineering",
+            "Enterprise Architecture, Integration & Interoperability",
+            "Data Engineering, Modelling & Intelligent Information Systems",
+            "Business Process Engineering, Automation & Workflow Innovation",
+            "Security, Privacy & Trust in Information Systems",
+            "Human‑Centred Information Systems & User Experience Design",
+            "Resilient, Reliable & Sustainable Information Systems"
+        ]
     },
     {
         id: 2,
