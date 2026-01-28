@@ -20,187 +20,94 @@ const tracksData = [
     {
         id: 2,
         title: "Track 2: Artificial Intelligence & Machine Learning",
-        /*points: [
-            "Neural Networks and Deep Learning Architectures",
-            "Reinforcement Learning and Autonomous Systems",
-            "Transfer Learning and Domain Adaptation",
-            "Explainable AI and Model Interpretability",
-            "Natural Language Processing and Understanding",
-            "Computer Vision and Image Recognition",
-            "Generative Models and Adversarial Networks",
-            "AI Ethics and Fairness in Machine Learning",
-            "Scalable Machine Learning for Big Data",
-            "AI in Healthcare and Bioinformatics",
-            "Robotics and Intelligent Agents",
-            "AI in Cybersecurity and Fraud Detection",
-            "AI for Edge and IoT Devices",
-            "Hybrid AI Systems and Multi-Model Integration"
-        ]*/
+        points: [
+            "Large Language Models: Foundations, Training & Optimization",
+            "Neural Networks, Deep Learning & Generative Models",
+            "Reinforcement Learning, Autonomous Systems & Intelligent Agents",
+            "Natural Language Processing, Speech & Multimodal AI",
+            "Computer Vision & Perception Systems",
+            "AI Ethics, Fairness, Privacy & Trustworthy AI",
+            "Scalable, Distributed & Applied AI Systems"
+        ]
     },
     {
         id: 3,
-        title: "Track 3: Sustainable Computing & Green IT",
-       /* points: [
-            "Energy-Efficient Computing and Data Centers",
-            "Green Cloud Computing",
-            "Sustainable Software Engineering Practices",
-            "Low-Power and Energy-Aware Algorithms",
-            "Green Networking and Communication Technologies",
-            "Carbon Footprint Reduction in IT Systems",
-            "Resource Management and Optimization for Sustainability",
-            "Renewable Energy Integration in IT Infrastructure",
-            "Eco-Friendly Hardware Design and Development",
-            "Sustainable AI and Machine Learning Models",
-            "Lifecycle Assessment of IT Products and Services",
-            "Sustainable Data Storage and Management Solutions",
-            "Green IT Policies and Regulatory Compliance",
-            "Sustainable Supply Chain Management in IT"
-        ]*/
+        title: "Track 3: Data Science & Big Data Analytics",
+        points: [
+            "Scalable Big Data Architectures, Storage & Processing Frameworks",
+            "Data Integration, Quality, Governance & Compliance",
+            "Pattern Recognition, Frequent Patterns & Advanced Data Mining Methods",
+            "Anomaly Detection, Cybersecurity Analytics & Fraud Detection",
+            "Text, Web, Graph & Social Media Mining",
+            "Visual Analytics, Interactive Mining & Big Data Applications",
+            "Privacy, Security, Ethics & Trust in Big Data Systems"
+        ]
     },
     {
         id: 4,
-        title: "Track 4: Data Science & Big Data Analytics",
-      /*  points: [
-            "Advanced Techniques in Pattern Recognition",
-            "Scalable Algorithms for Big Data Mining",
-            "Anomaly Detection and Outlier Mining",
-            "Text Mining and Natural Language Processing",
-            "Graph Mining and Network Analysis",
-            "Mining Unstructured and Semi-Structured Data",
-            "Association Rules and Frequent Pattern Mining",
-            "Time Series Analysis and Forecasting",
-            "Web Mining and Social Media Analytics",
-            "Spatial and Temporal Data Mining",
-            "Data Mining for Cybersecurity and Fraud Detection",
-            "Ethics and Privacy in Data Mining",
-            "Knowledge Representation and Ontology Learning",
-            "Interactive Data Mining and Visual Analytics",
-            "Applications of Data Mining in Healthcare and Bioinformatics"
-        ]*/
+        title: "Track 4: Cloud Computing & IoT",
+        points: [
+            "Cloud‑Native Architectures, Serverless Computing & Modern Deployment Models",
+            "Hybrid, Multi‑Cloud & Distributed Cloud Ecosystems",
+            "Cloud Security, Privacy & Zero‑Trust Architectures",
+            "Automation, DevOps & Infrastructure Engineering in the Cloud",
+            "High‑Performance, Specialized & Next‑Gen Cloud Computing",
+            "Cloud Intelligence: AI/ML‑Powered Cloud Services",
+            "IoT, Edge & Cloud‑Connected Smart Systems"
+        ]
     },
     {
         id: 5,
-        title: "Track 5: Big Data Technologies",
-       /* points: [
-            "Distributed Systems for Big Data Processing",
-            "Data Storage and Management in Big Data Systems",
-            "Big Data Integration and Interoperability",
-            "Real-Time Data Streaming and Processing",
-            "Scalable Data Architectures and Infrastructures",
-            "Big Data Analytics and Visualization",
-            "Data Quality and Cleaning in Large-Scale Systems",
-            "Security and Privacy in Big Data",
-            "Cloud-Based Big Data Solutions",
-            "High-Performance Computing for Big Data",
-            "Machine Learning at Scale in Big Data",
-            "Big Data in the Internet of Things (IoT)",
-            "Energy-Efficient Big Data Solutions",
-            "Data Governance and Compliance in Big Data",
-            "Emerging Technologies and Trends in Big Data Engineering"
-        ]*/
+        title: "Track 5: Security & Privacy in Next-Gen Computing",
+        points: [
+            "Zero Trust Architectures and Next-Gen Security Models",
+            "Security in Cloud, Edge, IoT & Emerging Networked Environments",
+            "Privacy‑Preserving AI, Data Protection & Confidential Computing",
+            "Blockchain, Distributed Ledger Security & Decentralized Trust",
+            "Threat Detection, Incident Response & AI‑Driven Cyber Defence",
+            "Identity, Access Management & Secure Software Engineering",
+            "Regulatory Compliance, Privacy Governance & Ethical Security Challenges"
+        ]
     },
     {
         id: 6,
-        title: "Track 6: Cloud Computing & IoT",
-        /*points: [
-            "Serverless Computing and Function-as-a-Service (FaaS)",
-            "Edge Computing and Cloud-Edge Integration",
-            "Hybrid Cloud Architectures and Multi-Cloud Strategies",
-            "Cloud-Native Application Development",
-            "AI and Machine Learning in Cloud Computing",
-            "Cloud Security and Zero Trust Architectures",
-            "Cloud Automation and Infrastructure as Code (IaC)",
-            "High-Performance Computing (HPC) in the Cloud",
-            "Cloud-Based DevOps and Continuous Integration/Continuous Deployment (CI/CD)",
-            "Sustainable and Green Cloud Solutions",
-            "Quantum Computing in the Cloud",
-            "Blockchain and Distributed Ledger Technologies in the Cloud",
-            "Cloud Solutions for IoT and Smart Devices"
-        ]*/
+        title: "Track 6: Digital Transformation, E-Government & Interoperability",
+        points: [
+            "Strategies, Governance & Leadership in Digital Transformation",
+            "Interoperability Frameworks, Standards & Cross‑Agency Collaboration",
+            "E‑Government Services, Citizen Engagement & User‑Centric Design",
+            "Data Governance, Open Data & Transparency in Public Administration",
+            "Digital Identity, Trust Services & Secure Digital Wallets",
+            "AI, Analytics & Smart Governance Systems",
+            "Cybersecurity, Risk Management & Resilience in Digital Government"
+        ]
     },
     {
         id: 7,
-        title: "Track 7: Large Language Models (LLMs)",
-       /* points: [
-            "Architectures and Techniques for Training Large Language Models",
-            "Fine-Tuning and Transfer Learning in Large Language Models",
-            "Ethics, Bias, and Fairness in Large Language Models",
-            "Applications of Large Language Models in Natural Language Processing",
-            "Scaling Challenges and Solutions in Large Language Models",
-            "Interpretability and Explainability in Large Language Models",
-            "Multimodal Learning with Large Language Models",
-            "Efficiency and Optimization in Training Large Language Models",
-            "Real-World Deployments and Case Studies of Large Language Models",
-            "Security and Privacy Concerns in Large Language Models",
-            "Language Model Personalization and Customization",
-            "Ethical Considerations in Large Language Model Development and Deployment",
-            "Future Directions and Innovations in Large Language Models"
-        ] */
+        title: "Track 7: Sustainable Computing & Green IT",
+        points: [
+            "Energy‑Efficient Computing, Data Centres & Green Cloud Infrastructure",
+            "Sustainable Software Engineering, Algorithms & AI Models",
+            "Green Networking, Communication Technologies & Edge Sustainability",
+            "Carbon Footprint Measurement, Reduction & Lifecycle Assessment",
+            "Sustainable Resource Management, Optimization & Workload Orchestration",
+            "Renewable Energy Integration in Digital Infrastructure & Eco‑Friendly Hardware",
+            "Green IT Policies, Regulations & Sustainable Supply Chains"
+        ]
     },
     {
         id: 8,
-        title: "Track 8: Security & Privacy in Next-Gen Computing",
-      /*  points: [
-            "Zero Trust Architectures and Next-Gen Security Models",
-            "Security Challenges in Cloud Computing and Edge Networks",
-            "Privacy-Preserving Machine Learning and AI",
-            "Cybersecurity in Internet of Things (IoT) and Smart Devices",
-            "Blockchain and Distributed Ledger Security",
-            "Data Anonymization and Privacy Enhancing Technologies",
-            "Threat Detection and Response in Modern IT Infrastructures",
-            "Security in 5G and Next-Gen Mobile Networks",
-            "Identity Management and Access Control in Next-Gen Systems",
-            "Privacy and Security in Augmented and Virtual Reality",
-            "Secure Software Development and DevSecOps",
-            "Compliance and Regulatory Issues in Next-Gen Computing",
-            "AI-Driven Security and Automated Threat Mitigation",
-            "Emerging Threats and Security Trends in Next-Gen Computing"
-        ]*/
-    },
-    {
-        id: 9,
-        title: "Track 9: HEmerging Technologies & Future Trends",
-       /* points: [
-            "Generative AI",
-            "Quantum Computing",
-            "5G and Beyond",
-            "Blockchain and Decentralized Technologies",
-            "Augmented Reality (AR) and Virtual Reality (VR)",
-            "Next-Generation Cybersecurity Solutions",
-            "Human-Computer Interaction in Emerging Technologies",
-            "Autonomous Systems and Robotics",
-            "Edge Computing and IoT Integration",
-            "Smart Cities and Urban Technologies",
-            "Digital Twins and Simulation Technologies",
-            "Wearable Technology and Health Monitoring",
-            "Space Technology and Exploration"
-        ]*/
-    },
-    {
-        id: 10,
-        title: "Track 10: Digital Transformation, E-Government & Interoperability",
-       /* points: [
-            "Strategies for Successful Digital Transformation",
-            "Innovation in Digital Business Models",
-            "Interoperability Standards and Frameworks",
-            "E-Government Strategies and Best Practices",
-            "Citizen-Centric Digital Services and Engagement",
-            "Data Governance and Open Data Initiatives",
-            "Cloud Computing in Public Sector Transformation",
-            "Digital Identity and Access Management for Citizens",
-            "AI and Analytics for Public Policy Decision Making",
-            "Cybersecurity in Government Digital Initiatives",
-            "Interoperability Between Government Agencies",
-            "Smart Cities: Integrating Technology into Urban Governance",
-            "Blockchain Applications for Transparency and Accountability",
-            "Digital Literacy and Skills Development in Public Services",
-            "Innovative Funding Models for Digital Initiatives"
-        ]*/
-    },
-    {
-        id: 11,
-        title: "Track 11: Model-Driven Software Engineering",
-    }    
+        title: "Track 8: Emerging Technologies & Future Trends",
+        points: [
+            "Generative AI, Intelligent Systems & Human–Machine Collaboration",
+            "Quantum Computing, Advanced Materials & Post‑Classical Technologies",
+            "Next‑Generation Connectivity: 5G, 6G & Beyond",
+            "Blockchain, Decentralized Systems & Digital Trust Technologies",
+            "Immersive Technologies: AR/VR, Metaverse & Digital Twins",
+            "Robotics, Autonomous Systems & Cyber‑Physical Intelligence",
+            "Emerging Smart Ecosystems: IoT, Edge, Wearables, Smart Cities & Space Tech"
+        ]
+    }
 ];
 
 const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isOpen: boolean, toggle: () => void }) => {
@@ -209,49 +116,53 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
             layout
             initial={false}
             animate={{
-                scale: isOpen ? 1.02 : 1,
-                boxShadow: isOpen ? "0 20px 40px rgba(0,0,0,0.2)" : "0 4px 6px rgba(0,0,0,0.05)",
+                scale: isOpen ? 1 : 1,
+                boxShadow: isOpen ? "0 10px 30px rgba(0,0,0,0.1)" : "0 4px 6px rgba(0,0,0,0.05)",
                 zIndex: isOpen ? 10 : 1
             }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className={`bg-white rounded-xl overflow-hidden border ${isOpen ? 'border-blue-200' : 'border-gray-100 hover:shadow-md'}`}
+            className={`bg-white rounded-xl overflow-hidden border transition-colors cursor-pointer ${isOpen ? 'border-blue-500 ring-1 ring-blue-500' : 'border-gray-100 hover:border-blue-200'}`}
+            onClick={toggle}
         >
             <motion.div
                 layout="position"
                 className={`w-full px-6 py-4 flex items-center justify-between text-left`}
             >
                 <div className="flex items-center gap-4">
-                    <span className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed">
+                    <span className={`text-base sm:text-lg md:text-xl font-medium leading-relaxed transition-colors ${isOpen ? 'text-blue-600' : 'text-gray-700'}`}>
                         {track.title}
                     </span>
                 </div>
-                {/* {isOpen ? <ChevronUp className="text-blue-600" /> : <ChevronDown className="text-gray-400" />} */}
+                {isOpen ? <ChevronUp className="text-blue-600 w-5 h-5" /> : <ChevronDown className="text-gray-400 w-5 h-5" />}
             </motion.div>
+            <AnimatePresence>
+                {isOpen && (
                     <motion.div
-                        style={{
-                            background: "rgba(255, 255, 255, 0.15)",
-                            backdropFilter: "blur(12px)",
-                            WebkitBackdropFilter: "blur(12px)",
-                            borderRadius: "16px",
-                            border: "1px solid rgba(255, 255, 255, 0.3)",
-                            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)"
-                        }}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
                     >
-                        {/*<div className="px-2 py-1.5 grid grid-cols-1 gap-1">
-                            {track.points.map((point, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: idx * 0.05 }}
-                                    className="flex items-start gap-2 text-sm text-gray-600 p-1 rounded hover:bg-white hover:shadow-sm transition-all"
-                                >
-                                    <span className="w-1.5 h-1.5 mt-1.5 rounded-full bg-blue-400 flex-shrink-0" />
-                                    <span>{point}</span>
-                                </motion.div>
-                            ))}
-                        </div>*/}
+                        <div className="px-6 pb-6 pt-2">
+                            <div className="space-y-2">
+                                {track.points.map((point, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: idx * 0.05 }}
+                                        className="flex items-start gap-3 text-sm sm:text-base text-gray-600 group"
+                                    >
+                                        <span className="w-1.5 h-1.5 mt-2 rounded-full bg-blue-400 group-hover:bg-blue-600 transition-colors flex-shrink-0" />
+                                        <span>{point}</span>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
                     </motion.div>
+                )}
+            </AnimatePresence>
         </motion.div>
     );
 };
