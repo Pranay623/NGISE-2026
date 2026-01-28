@@ -237,7 +237,7 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
                             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)"
                         }}
                     >
-                        <div className="px-2 py-1.5 grid grid-cols-1 gap-1">
+                    <div className="px-2 py-1.5 grid grid-cols-1 gap-1">
                             {track.points.map((point, idx) => (
                                 <motion.div
                                     key={idx}
@@ -250,7 +250,7 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
                                     <span>{point}</span>
                                 </motion.div>
                             ))}
-                        </div>
+                    </div>
                     </motion.div>
         </motion.div>
     );
