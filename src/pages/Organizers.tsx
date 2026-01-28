@@ -64,20 +64,13 @@ export default function Organizers() {
           <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">International Program Committee</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
-              ["Dr. Riina Palu", "Director (Deputy Head), Digital Society Research Group, Taltech, Estonia"],
-              ["Dr. Rozha Ahmed", "Computer Science Department, Sulaimani Polytechnic University, Iraq"],
-              ["Dr. Markus Bertl", "Research Staff, WU Vienna University of Economics & Business, Austria"],
-              ["Mr. Salvatore Sinno", "Vice President of ECS Innovations at Unisys, UK"],
+              ["Dr. Riina Palu", "Digital Society Research Group, Taltech, Estonia"],
+              ["Dr. Rozha Ahmed", "Sulaimani Polytechnic University, Iraq"],
+              ["Mr. Salvatore Sinno", "Innovations at Unisys, UK"],
               ["Dr. Arun Kumar Sangaiah", "National Yunlin University of Science and Technology, Taiwan"],
+              ["Dr. Silvia Lips", "e-Governance Research Team, e-Governance Academy, Estonia"],
               ["Dr. Minakshi Kaushik", "Karlsruhe Institute of Technology, Germany"],
               ["Mr. Sijo Arakkal Peious", "Tallinn University of Technology, Tallinn, Estonia"],
-              ["Dr. Anupama Sharma", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
-              ["Dr. Ruchi Gupta", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
-              ["Dr. Silvia Lips", "e-Governance Research Team, e-Governance Academy, Estonia"],
-          // ["Dr. Sunil Kumar", "Ajay Kumar Garg Engineering College, India"],
-          // ["Dr. Aditya Pratap Singh", "Ajay Kumar Garg Engineering College, India"],
-              ["Dr. Anju Mishra", "Ajay Kumar Garg Engineering College, India"],
-          // ["Dr. Shivani Aggarwal", "Ajay Kumar Garg Engineering College, India"],
             ].map(([name, affiliation], idx) => (
               <div
                 key={idx}
@@ -88,8 +81,28 @@ export default function Organizers() {
               </div>
             ))}
           </div>
+            {/* National Program Committee */}
+            <h4 className="text-xl font-bold text-gray-700 mb-4 text-center mt-12">National Program Committee</h4>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {[
+                ["Dr. Ruchi Gupta", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
+                ["Dr. Sunil Kumar", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
+                ["Dr. Aditya Pratap Singh", "Ajay Kumar Garg Engineering College, India"],
+                ["Dr. Shivani Aggarwal", "Ajay Kumar Garg Engineering College, India"],
+                ["Dr. Anju Mishra", "Ajay Kumar Garg Engineering College, India"],
+              ].map(([name, affiliation], idx) => (
+                <div
+                  key={idx}
+                  className="p-4 bg-white shadow rounded-xl border border-gray-100"
+                >
+                  <p className="font-medium text-center">{name}</p>
+                  <p className="text-gray-600 text-sm text-center">{affiliation}</p>
+                </div>
+              ))}
+            </div>
         </motion.div>
       </div>
+      
     </div>
   );
 }
