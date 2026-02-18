@@ -25,10 +25,10 @@ export default function Organizers() {
             {[
               ["Prof. Ingrid Pappel", "Information Society Technologies, Tallinn University of Technology (TalTech), Estonia"],
               ["Prof. Amita Dev", "Advisor, Ajay Kumar Garg Engineering College, Ghaziabad, India"],
-              ["Prof. A Min Tjoa", "Institute of Software Technology & Interactive Systems, TU Wien, Austria"],
+              // ["Prof. A Min Tjoa", "Institute of Software Technology & Interactive Systems, TU Wien, Austria,Dr. Gabriela Kotsis"],
               ["Prof. Chuan-Yu Chang", "Machine Intelligence & Pattern Recognition Lab, National Yunlin University of Science & Technology, Taiwan"],
-              ["Prof. Colin Atkinson", "Software Engineering Group, University of Mannheim, Germany"],
-              ["Dr. Gabriela Kotsis", "Institute of Tele-cooperation, Johannes Kepler University Linz (JKU), Austria"],
+              // ["Prof. Colin Atkinson", "Software Engineering Group, University of Mannheim, Germany"],
+              // ["Dr. Gabriela Kotsis", "Institute of Tele-cooperation, Johannes Kepler University Linz (JKU), Austria"],
               ["Prof. Tania Cerquitelli", "Department of Control and Computer Engineering, Politecnico di Torino, Italy"],
             ].map(([name, affiliation], idx) => (
               <div
