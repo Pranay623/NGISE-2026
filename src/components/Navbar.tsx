@@ -11,10 +11,12 @@ export default function Navbar() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
   const [committee, setCommittee] = useState(false);
+  const [speakersOpen, setSpeakersOpen] = useState(false);
 
   // mobile submenu states
   const [mobileCommitteeOpen, setMobileCommitteeOpen] = useState(false);
   const [mobileLocaleOpen, setMobileLocaleOpen] = useState(false);
+  const [mobileSpeakersOpen, setMobileSpeakersOpen] = useState(false);
 
   const linkClass = (path: string) =>
     location.pathname === path
@@ -50,9 +52,43 @@ export default function Navbar() {
             <Link to="/venue" className={linkClass("/venue")}>
               Venue
             </Link>
-            {/* <Link to="/speakers" className={linkClass("/speakers")}>
-              Speakers
-            </Link> */}
+
+            {/* Speakers dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setSpeakersOpen(true)}
+              onMouseLeave={() => setSpeakersOpen(false)}
+            >
+              <button
+                className={`flex items-center space-x-1 ${location.pathname.startsWith("/speakers")
+                  ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                  : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
+                  }`}
+              >
+                <span>Program</span>
+                <ChevronDown className="w-4 h-4 mt-0.5" />
+              </button>
+
+              <AnimatePresence>
+                {speakersOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
+                  >
+                    <Link
+                      to="/speakers/keynote-speakers"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setSpeakersOpen(false)}
+                    >
+                      Keynote Speakers
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Committee dropdown */}
             <div
@@ -173,7 +209,22 @@ export default function Navbar() {
                   <Link to="/" onClick={() => setIsSheetOpen(false)}>Home</Link>
                   <Link to="/call-for-papers" onClick={() => setIsSheetOpen(false)}>Call for Papers</Link>
                   <Link to="/venue" onClick={() => setIsSheetOpen(false)}>Venue</Link>
-                  {/* <Link to="/speakers" onClick={() => setIsSheetOpen(false)}>Speakers</Link> */}
+
+                  {/* Speakers (expandable) */}
+                  <button
+                    className="flex justify-between items-center"
+                    onClick={() => setMobileSpeakersOpen(!mobileSpeakersOpen)}
+                  >
+                    Speakers
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileSpeakersOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {mobileSpeakersOpen && (
+                    <div className="ml-4 flex flex-col gap-y-2">
+                      <Link to="/speakers/keynote-speakers" onClick={() => setIsSheetOpen(false)}>
+                        Keynote Speakers
+                      </Link>
+                    </div>
+                  )}
 
                   {/* Committee (expandable) */}
                   <button

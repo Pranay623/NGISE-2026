@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHeader from "../PageHeader";
 
+/*
 const tracksData = [
     {
         id: 1,
@@ -106,6 +107,75 @@ const tracksData = [
             "Immersive Technologies: AR/VR, Metaverse & Digital Twins",
             "Robotics, Autonomous Systems & Cyber‑Physical Intelligence",
             "Emerging Smart Ecosystems: IoT, Edge, Wearables, Smart Cities & Space Tech"
+        ]
+    }
+];
+*/
+
+const tracksData = [
+    {
+        id: 1,
+        title: "Track 1: Artificial Intelligence, Machine Learning, and Neuro-Symbolic AI",
+        points: [
+            "Neural Networks, Deep Learning, Generative Models",
+            "Large Language Models: Foundations, Training and Optimization",
+            "Reinforcement Learning, Autonomous Systems and Intelligent Agents",
+            "Neuro-Symbolic AI",
+            "Graph-Neural Networks",
+            "Kolmogorov-Arnold Networks"
+        ]
+    },
+    {
+        id: 2,
+        title: "Track 2: Cloud Computing, Edge Computing, and Big Data",
+        points: [
+            "Hybrid, Multi Cloud, and Distributed Cloud Ecosystems",
+            "Cloud Native Architectures",
+            "Serverless Computing",
+            "Cloud Security and Privacy",
+            "Automation, DevOps and Infrastructure Engineering in the Cloud",
+            "IoT, Edge, and Cloud Connected Smart Systems",
+            "Autonomous Systems and Cyber Physical Intelligence",
+            "Scalable Big Data Architectures",
+            "Advanced Data Mining Methods",
+            "Anomaly Detection, Cybersecurity Analytics, and Fraud Detection"
+        ]
+    },
+    {
+        id: 3,
+        title: "Track 3: Information Systems Modeling",
+        points: [
+            "Enterprise Architecture and Systems Integration",
+            "Business Process Management and Re-engineering",
+            "Human-Computer Interaction",
+            "Digital Twins"
+        ]
+    },
+    {
+        id: 4,
+        title: "Track 4: Digital Transformation, Information Society",
+        points: [
+            "IT Governance and Compliance",
+            "e-Government and GovTech",
+            "Smart Cities",
+            "AI Ethics & Trustworthy AI",
+            "Interoperability Frameworks, Standards, and Cross Agency Collaboration",
+            "E Government Services and Citizen Engagement",
+            "Digital Identity, Trust Services & Secure Digital Wallets",
+            "Smart Governance Systems",
+            "Cybersecurity, Risk Management, and Resilience in Digital Government"
+        ]
+    },
+    {
+        id: 5,
+        title: "Track 5: Emerging Technologies",
+        points: [
+            "Quantum Computing",
+            "Sustainable Computing",
+            "Green IT",
+            "High Performance Computing",
+            "Blockchain, Decentralized Autonomous Organization, and Web3",
+            "Immersive Technologies: AR/VR, Wearables, Metaverse"
         ]
     }
 ];
