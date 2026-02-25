@@ -215,7 +215,7 @@ export default function Navbar() {
                     className="flex justify-between items-center"
                     onClick={() => setMobileSpeakersOpen(!mobileSpeakersOpen)}
                   >
-                    Speakers
+                    Programs
                     <ChevronDown className={`w-4 h-4 transition-transform ${mobileSpeakersOpen ? "rotate-180" : ""}`} />
                   </button>
                   {mobileSpeakersOpen && (
@@ -245,7 +245,7 @@ export default function Navbar() {
                     </div>
                   )}
 
-                  <Link to="/program" onClick={() => setIsSheetOpen(false)}>Program</Link>
+                  {/* <Link to="/program" onClick={() => setIsSheetOpen(false)}>Program</Link> */}
                   <Link to="/registrations" onClick={() => setIsSheetOpen(false)}>Registration</Link>
 
                   {/* Locale (expandable) */}
