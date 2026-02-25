@@ -20,6 +20,7 @@ import CallForPapersPage from "./pages/CallForPapersPage";
 import TechnicalOrgannizers from "./pages/TechnicalOrgannizers";
 import NearByCity from "./pages/NearByCity";
 import VisaInformation from "./pages/Visa";
+import KeynoteSpeakers from "./pages/KeynoteSpeakers";
 
 
 function App() {
@@ -56,12 +57,13 @@ function App() {
                     <Route path="/tracks" element={<TracksPage />} />
                     <Route path="/dates" element={<DatesPage />} />
                     <Route path="/speakers" element={<SpeakersPage />} />
+                    <Route path="/speakers/keynote-speakers" element={<KeynoteSpeakers />} />
                     <Route path="/contact" element={<VenuePage />} />
                     <Route path="/registrations" element={<Registration />} />
                     <Route path="/locale/about-city" element={<City />} />
                     <Route path="/locale/hotels" element={<NearByCity />} />
                     <Route path="/locale/visa" element={<VisaInformation />} />
-                    
+
                     <Route
                       path="/committee/oragnizers"
                       element={<Organizers />}
