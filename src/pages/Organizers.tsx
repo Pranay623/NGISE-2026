@@ -66,7 +66,7 @@ export default function Organizers() {
             {[
               ["Dr. Riina Palu", "Digital Society Research Group, Taltech, Estonia"],
               ["Dr. Rozha Ahmed", "Sulaimani Polytechnic University, Iraq"],
-              ["Mr. Salvatore Sinno", "Innovations at Unisys, UK"],
+              // ["Mr. Salvatore Sinno", "Innovations at Unisys, UK"],
               ["Dr. Arun Kumar Sangaiah", "National Yunlin University of Science and Technology, Taiwan"],
               ["Dr. Silvia Lips", "e-Governance Research Team, e-Governance Academy, Estonia"],
               ["Dr. Minakshi Kaushik", "Karlsruhe Institute of Technology, Germany"],
