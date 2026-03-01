@@ -15,7 +15,7 @@ const Registration = () => {
 
 
           {/* Indian Authors Table */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -55,7 +55,7 @@ const Registration = () => {
             <p className="text-sm text-gray-600 px-6 py-3 bg-gray-50">
               Extra Page (over 12) Additional charges <strong>INR 1000 per page</strong>
             </p>
-          </motion.div>
+          </motion.div> */}
 
           {/* Foreign Authors Table */}
           <motion.div
@@ -65,7 +65,7 @@ const Registration = () => {
             className="bg-white rounded-2xl shadow-lg overflow-hidden"
           >
             <div className="bg-blue-600 text-white px-6 py-3 text-xl font-semibold">
-              Full Paper (Foreign Authors)
+              Full Paper //(Foreign Authors)
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
