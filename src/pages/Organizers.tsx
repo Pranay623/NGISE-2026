@@ -23,13 +23,13 @@ export default function Organizers() {
           <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Advisory Committee</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
-              ["Prof. Ingrid Pappel", "Information Society Technologies, Tallinn University of Technology (TalTech), Estonia"],
-              ["Prof. Amita Dev", "Advisor, Ajay Kumar Garg Engineering College, Ghaziabad, India"],
+              ["Ingrid Pappel", "Information Society Technologies, Tallinn University of Technology (TalTech), Estonia"],
+              ["Amita Dev", "Advisor, Ajay Kumar Garg Engineering College, Ghaziabad, India"],
               // ["Prof. A Min Tjoa", "Institute of Software Technology & Interactive Systems, TU Wien, Austria,Dr. Gabriela Kotsis"],
-              ["Prof. Chuan-Yu Chang", "Machine Intelligence & Pattern Recognition Lab, National Yunlin University of Science & Technology, Taiwan"],
+              // ["Prof. Chuan-Yu Chang", "Machine Intelligence & Pattern Recognition Lab, National Yunlin University of Science & Technology, Taiwan"],
               // ["Prof. Colin Atkinson", "Software Engineering Group, University of Mannheim, Germany"],
               // ["Dr. Gabriela Kotsis", "Institute of Tele-cooperation, Johannes Kepler University Linz (JKU), Austria"],
-              ["Prof. Tania Cerquitelli", "Department of Control and Computer Engineering, Politecnico di Torino, Italy"],
+              // ["Prof. Tania Cerquitelli", "Department of Control and Computer Engineering, Politecnico di Torino, Italy"],
             ].map(([name, affiliation], idx) => (
               <div
                 key={idx}
@@ -46,13 +46,13 @@ export default function Organizers() {
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <div className="p-4 bg-white shadow rounded-xl border border-gray-100">
               <img src={drik} alt="Prof. (Dr.) Dirk Draheim" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
-              <p className="font-medium text-center">Prof. (Dr.) Dirk Draheim</p>
+              <p className="font-medium text-center">Dirk Draheim</p>
               <p className="text-gray-600 text-sm text-center">
                 Tallinn University of Technology, Estonia
               </p>
             </div>
             <div className="p-4 bg-white shadow rounded-xl border border-gray-100">
-              <img src={rahul} alt="Prof. (Dr.) Rahul Sharma" className="w-32 h-32 object-cover object-right rounded-full mx-auto mb-4" />
+              <img src={rahul} alt="Rahul Sharma" className="w-32 h-32 object-cover object-right rounded-full mx-auto mb-4" />
               <p className="font-medium text-center">Prof. (Dr.) Rahul Sharma</p>
               <p className="text-gray-600 text-sm text-center">
                 Karlsruhe Institute of Technology, Germany
@@ -64,13 +64,13 @@ export default function Organizers() {
           <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">International Program Committee</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
-              ["Dr. Riina Palu", "Digital Society Research Group, Taltech, Estonia"],
-              ["Dr. Rozha Ahmed", "Sulaimani Polytechnic University, Iraq"],
+              ["Riina Palu", "Digital Society Research Group, Taltech, Estonia"],
+              ["Rozha Ahmed", "Sulaimani Polytechnic University, Iraq"],
               // ["Mr. Salvatore Sinno", "Innovations at Unisys, UK"],
-              ["Dr. Arun Kumar Sangaiah", "National Yunlin University of Science and Technology, Taiwan"],
-              ["Dr. Silvia Lips", "e-Governance Research Team, e-Governance Academy, Estonia"],
-              ["Dr. Minakshi Kaushik", "Karlsruhe Institute of Technology, Germany"],
-              ["Mr. Sijo Arakkal Peious", "Tallinn University of Technology, Tallinn, Estonia"],
+              ["Arun Kumar Sangaiah", "National Yunlin University of Science and Technology, Taiwan"],
+              ["Silvia Lips", "e-Governance Research Team, e-Governance Academy, Estonia"],
+              ["Minakshi Kaushik", "Karlsruhe Institute of Technology, Germany"],
+              ["Sijo Arakkal Peious", "Tallinn University of Technology, Tallinn, Estonia"],
             ].map(([name, affiliation], idx) => (
               <div
                 key={idx}
@@ -85,15 +85,15 @@ export default function Organizers() {
             <h4 className="text-xl font-bold text-gray-700 mb-4 text-center mt-12">National Program Committee</h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {[
-                ["Dr. Ruchi Gupta", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
-                ["Dr. Sunil Kumar", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
-                ["Dr. Aditya Pratap Singh", "Ajay Kumar Garg Engineering College,Ghaziabad, India"],
-                ["Dr. Shivani Aggarwal", "Ajay Kumar Garg Engineering College,Ghaziabad, India"],
-                ["Dr. Anju Mishra", "Ajay Kumar Garg Engineering College,Ghaziabad, India"],
-                ["Dr Shelly Sachdeva", "NIT delhi"],
-                ["Dr Dolly Sharma", " Shiv Nadar University"],
-                ["Dr Abhay Bansal", " Bennett University "],
-                ["Dr Gaurav", "NSUT, Delhi "],
+                ["Ruchi Gupta", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
+                ["Sunil Kumar", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
+                ["Aditya Pratap Singh", "Ajay Kumar Garg Engineering College,Ghaziabad, India"],
+                ["Shivani Aggarwal", "Ajay Kumar Garg Engineering College,Ghaziabad, India"],
+                ["Anju Mishra", "Ajay Kumar Garg Engineering College,Ghaziabad, India"],
+                ["Shelly Sachdeva", "NIT delhi"],
+                ["Dolly Sharma", " Shiv Nadar University"],
+                ["Abhay Bansal", " Bennett University "],
+                // ["Gaurav", "NSUT, Delhi "],
               ].map(([name, affiliation], idx) => (
                 <div
                   key={idx}
