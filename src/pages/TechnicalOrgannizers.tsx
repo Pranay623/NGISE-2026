@@ -5,8 +5,8 @@ export default function TechnicalOrgannizers() {
     return (
         <div className="bg-gray-50 min-h-screen">
             <PageHeader
-                title="Technical Program Committee"
-                description="Our distinguished technical committee members from around the globe"
+                title="Program Committee"
+                description="Our distinguished program committee members from around the globe"
             />
             <div className="max-w-7xl mx-auto px-4 py-12">
 
@@ -29,7 +29,7 @@ export default function TechnicalOrgannizers() {
                     </div> */}
                     {/* Technical Program Committee Co-Chair */}
                     <div className="max-w-4xl mx-auto mb-10">
-                        <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Technical Program Committee Co-Chair</h4>
+                        <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee Chair</h4>
                         <div className="p-6 bg-white shadow-sm rounded-xl border border-gray-100 text-center">
                             <p className="font-semibold text-gray-900 text-lg">Dr. Anupama Sharma</p>
                             <p className="text-gray-500 text-sm">Ajay Kumar Garg Engineering College, Ghaziabad, India</p>
@@ -37,7 +37,7 @@ export default function TechnicalOrgannizers() {
                     </div>
 
                     {/* Technical Program Committee */}
-                    <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Technical Program Committee</h4>
+                    <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee</h4>
                     <div className="max-w-4xl mx-auto py-8 bg-white shadow-sm rounded-xl border border-gray-100">
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 px-8">
                             {[
