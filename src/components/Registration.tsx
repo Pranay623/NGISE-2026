@@ -65,7 +65,7 @@ const Registration = () => {
             className="bg-white rounded-2xl shadow-lg overflow-hidden"
           >
             <div className="bg-blue-600 text-white px-6 py-3 text-xl font-semibold">
-              Full Paper //(Foreign Authors)
+              Full Paper
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
