@@ -53,7 +53,7 @@ export default function Organizers() {
             </div>
             <div className="p-4 bg-white shadow rounded-xl border border-gray-100">
               <img src={rahul} alt="Rahul Sharma" className="w-32 h-32 object-cover object-right rounded-full mx-auto mb-4" />
-              <p className="font-medium text-center">Prof. (Dr.) Rahul Sharma</p>
+              <p className="font-medium text-center">Rahul Sharma</p>
               <p className="text-gray-600 text-sm text-center">
                 Karlsruhe Institute of Technology, Germany
               </p>
