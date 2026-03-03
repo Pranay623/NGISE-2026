@@ -33,9 +33,9 @@ export default function TechnicalOrgannizers() {
                         <div className="p-6 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
                             {/*<p className="font-semibold text-gray-900 text-lg">Markus Bertl</p>*/}
                             <p className="text-sm">Dirk Draheim, Tallinn University of Technology, Estonia</p>
-                            <p className="text-gray-500 text-sm">Minakshi Kaushik, Karlsruhe Institute of Technology, Germany</p>
-                            <p className="text-gray-500 text-sm">Silvia Lips, Tallinn University of Technology, Estonia</p>
-                            <p className="text-gray-500 text-sm">Rahul Sharma, Karlsruhe Institute of Technology, Germany</p>
+                            <p className="text-sm">Minakshi Kaushik, Karlsruhe Institute of Technology, Germany</p>
+                            <p className="text-sm">Silvia Lips, Tallinn University of Technology, Estonia</p>
+                            <p className="text-sm">Rahul Sharma, Karlsruhe Institute of Technology, Germany</p>
                         </div>
                     </div>
 
