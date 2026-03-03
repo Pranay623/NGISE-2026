@@ -21,20 +21,20 @@ export default function TechnicalOrgannizers() {
 
                     {/* Technical Program Committee Chair */}
                     {/* <div className="max-w-4xl mx-auto mb-10">
-                        <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Technical Program Committee Chair</h4>
-                        <div className="p-6 bg-white shadow-sm rounded-xl border border-gray-100 text-center">
+                        <h4 className="text-xl font-bold text-gray-700 mb-6 text-left">Technical Program Committee Chair</h4>
+                        <div className="p-6 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
                             <p className="font-semibold text-gray-900 text-lg">Dr. Markus Bertl</p>
                             <p className="text-gray-500 text-sm">WU Vienna University of Economics & Business, Austria</p>
                         </div>
                     </div> */}
                     {/* Technical Program Committee Co-Chair */}
-                    <div className="max-w-4xl mx-auto mb-10">
-                        <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee Chair</h4>
-                        <div className="p-6 bg-white shadow-sm rounded-xl border border-gray-100 text-center">
+                    {/* <div className="max-w-4xl mx-auto mb-10">
+                        <h4 className="text-xl font-bold text-gray-700 mb-6 text-left">Program Committee Chair</h4>
+                        <div className="p-6 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
                             <p className="font-semibold text-gray-900 text-lg">Dr. Anupama Sharma</p>
                             <p className="text-gray-500 text-sm">Ajay Kumar Garg Engineering College, Ghaziabad, India</p>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Technical Program Committee */}
                     <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee</h4>
@@ -246,7 +246,7 @@ export default function TechnicalOrgannizers() {
                                 // "Ms. Nikita Jain, India",
                                 // "Ms. Kanak Meena, India"
                             ].map((member, idx) => (
-                                <li key={idx} className="py-1 text-center">
+                                <li key={idx} className="py-1 text-left">
                                     <span className="text-gray-700 font-medium text-sm sm:text-base">{member}</span>
                                 </li>
                             ))}
