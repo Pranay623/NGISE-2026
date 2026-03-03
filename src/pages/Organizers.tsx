@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import drik from "../public/drik.png";
 import rahul from "../public/Prof. Rahul.jpg1.jpeg";
 import PageHeader from "@/components/PageHeader";
+import amin from "../public/amin.jpeg";
 
 
 export default function Organizers() {
@@ -19,7 +20,39 @@ export default function Organizers() {
           viewport={{ once: true }}
           className="mb-10"
         >
-          {/* Advisory Committee */}
+          {/* Honorary Chairs */}
+          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Honorary Chairs</h4>
+          <div className="flex justify-center mb-8">
+            <div className="p-4 bg-white shadow rounded-xl border border-gray-100 max-w-sm w-full">
+              <img src={amin} alt="A Min Tjoa" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
+              <p className="font-medium text-center">A Min Tjoa</p>
+              <p className="text-gray-600 text-sm text-center">
+                Technical University Vienna, Austria
+              </p>
+            </div>
+          </div>
+
+
+          {/* Conference Chairs */}
+          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Conference Chairs</h4>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="p-4 bg-white shadow rounded-xl border border-gray-100">
+              <img src={drik} alt="Prof. (Dr.) Dirk Draheim" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
+              <p className="font-medium text-center">Dirk Draheim</p>
+              <p className="text-gray-600 text-sm text-center">
+                Tallinn University of Technology, Estonia
+              </p>
+            </div>
+            <div className="p-4 bg-white shadow rounded-xl border border-gray-100">
+              <img src={rahul} alt="Rahul Sharma" className="w-32 h-32 object-cover object-right rounded-full mx-auto mb-4" />
+              <p className="font-medium text-center">Rahul Sharma</p>
+              <p className="text-gray-600 text-sm text-center">
+                Karlsruhe Institute of Technology, Germany
+              </p>
+            </div>
+          </div>
+
+          {/** Advisory Committee */}
           <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Advisory Committee</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
@@ -41,27 +74,8 @@ export default function Organizers() {
             ))}
           </div>
 
-          {/* Conference Chairs */}
-          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Conference Chairs</h4>
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="p-4 bg-white shadow rounded-xl border border-gray-100">
-              <img src={drik} alt="Prof. (Dr.) Dirk Draheim" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
-              <p className="font-medium text-center">Dirk Draheim</p>
-              <p className="text-gray-600 text-sm text-center">
-                Tallinn University of Technology, Estonia
-              </p>
-            </div>
-            <div className="p-4 bg-white shadow rounded-xl border border-gray-100">
-              <img src={rahul} alt="Rahul Sharma" className="w-32 h-32 object-cover object-right rounded-full mx-auto mb-4" />
-              <p className="font-medium text-center">Rahul Sharma</p>
-              <p className="text-gray-600 text-sm text-center">
-                Karlsruhe Institute of Technology, Germany
-              </p>
-            </div>
-          </div>
-
           {/* International Program Committee */}
-          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">International Program Committee</h4>
+          {/* <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">International Program Committee</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
               ["Riina Palu", "Digital Society Research Group, Taltech, Estonia"],
@@ -80,9 +94,9 @@ export default function Organizers() {
                 <p className="text-gray-600 text-sm text-center">{affiliation}</p>
               </div>
             ))}
-          </div>
-            {/* National Program Committee */}
-            <h4 className="text-xl font-bold text-gray-700 mb-4 text-center mt-12">National Program Committee</h4>
+          </div> */}
+          {/* National Program Committee */}
+          {/* <h4 className="text-xl font-bold text-gray-700 mb-4 text-center mt-12">National Program Committee</h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {[
                 ["Ruchi Gupta", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
@@ -103,10 +117,10 @@ export default function Organizers() {
                   <p className="text-gray-600 text-sm text-center">{affiliation}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
         </motion.div>
       </div>
-      
+
     </div>
   );
 }

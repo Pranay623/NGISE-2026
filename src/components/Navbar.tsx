@@ -240,7 +240,7 @@ export default function Navbar() {
                         Organizing Committee
                       </Link>
                       <Link to="/committee/program-committee" onClick={() => setIsSheetOpen(false)}>
-                        Technical Program Committee
+                        Program Committee
                       </Link>
                     </div>
                   )}
