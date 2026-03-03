@@ -43,7 +43,8 @@ export default function TechnicalOrgannizers() {
                     {/* Technical Program Committee */}
                     <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee</h4>
                     <div className="max-w-4xl mx-auto py-8 bg-white shadow-sm rounded-xl border border-gray-100">
-                        <ul className="grid grid-cols-1 gap-y-0.5 px-8">
+                         <p className="text-base">Rozha Kamal Ahmed, Sulaimani Polytechnic University, Iraq</p>
+                        {/*<ul className="grid grid-cols-1 gap-y-0.5 px-8">
                             {[
                                 "Rozha Kamal Ahmed, Sulaimani Polytechnic University, Iraq",
                                 "Colin Atkinson, Software Engineering Group, University of Mannheim, Germany",
@@ -79,7 +80,7 @@ export default function TechnicalOrgannizers() {
                                     <span className="text-gray-700 font-medium text-sm sm:text-base">{member}</span>
                                 </li>
                             ))}
-                        </ul>
+                        </ul>*/}
                     </div>
                 </motion.div>
             </div>
