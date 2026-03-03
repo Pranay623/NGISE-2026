@@ -32,7 +32,7 @@ export default function TechnicalOrgannizers() {
                         <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee Chairs</h4>
                         <div className="p-6 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
                             {/*<p className="font-semibold text-gray-900 text-lg">Markus Bertl</p>*/}
-                            <p className="text-gray-500 text-sm">Dirk Draheim, Tallinn University of Technology, Estonia</p>
+                            <p className="text-sm">Dirk Draheim, Tallinn University of Technology, Estonia</p>
                             <p className="text-gray-500 text-sm">Minakshi Kaushik, Karlsruhe Institute of Technology, Germany</p>
                             <p className="text-gray-500 text-sm">Silvia Lips, Tallinn University of Technology, Estonia</p>
                             <p className="text-gray-500 text-sm">Rahul Sharma, Karlsruhe Institute of Technology, Germany</p>
