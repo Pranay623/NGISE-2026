@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import drik from "../public/drik.png";
 import rahul from "../public/Prof. Rahul.jpg1.jpeg";
 import PageHeader from "@/components/PageHeader";
-import amin from "../public/amin.jpeg";
+import amin from "../public/Amin.jpeg";
 
 
 export default function Organizers() {
