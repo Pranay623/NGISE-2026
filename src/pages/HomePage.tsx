@@ -7,10 +7,11 @@ const HomePage = () => {
   return (
     <div>
       <Hero />
-      <ImpDates />
+      {/*<ImpDates />*/}
       <AboutSection />
-      <div className="mb-12">
-        <ConferenceTracks />
+      <ImpDates />
+      {/*<div className="mb-12">
+        <ConferenceTracks />*/}
       </div>
     </div>
   );
