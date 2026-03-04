@@ -42,9 +42,8 @@ export default function TechnicalOrgannizers() {
 
                     {/* Technical Program Committee */}
                     <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee</h4>
-                    <div className="p-6 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
-                        {/*<div className="max-w-4xl mx-auto py-8 bg-white shadow-sm rounded-xl border border-gray-100 text-left">*/}
-                         <p className="text-base">Rozha Kamal Ahmed, Sulaimani Polytechnic University, Iraq</p>
+                        <div className="max-w-4xl mx-auto py-8 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
+                            {/*<p className="text-base">Rozha Kamal Ahmed, Sulaimani Polytechnic University, Iraq</p>
                          <p className="text-base">Colin Atkinson, Software Engineering Group, University of Mannheim, Germany</p>
                          <p className="text-base">Edward Bernroider, WU Wien, Vienna Uiversity of Economics, Austria</p>
                          <p className="text-base">Sidra Azmat Butt, Tallinn University of Technology, Estonia</p>
@@ -72,8 +71,8 @@ export default function TechnicalOrgannizers() {
                          <p className="text-base">Shweta Suran, Max-Planck Institute, Berlin, Germany</p>
                          <p className="text-base">Kuldar Taveter, University of Tartu, Estonia</p>
                          <p className="text-base">A Min Tjoa, Technical University Vienna, Austria</p>
-                         <p className="text-base">Thomas Ziebermayer, University of Applied Sciences Upper Austria, Hagenberg, Austria</p>
-                        {/*<ul className="grid grid-cols-1 gap-y-0.5 px-8">
+                         <p className="text-base">Thomas Ziebermayer, University of Applied Sciences Upper Austria, Hagenberg, Austria</p>*/}
+                        <ul className="grid grid-cols-1 gap-y-0.5 px-8">
                             {[
                                 "Rozha Kamal Ahmed, Sulaimani Polytechnic University, Iraq",
                                 "Colin Atkinson, Software Engineering Group, University of Mannheim, Germany",
@@ -109,7 +108,7 @@ export default function TechnicalOrgannizers() {
                                     <span className="text-gray-700 font-medium text-sm sm:text-base">{member}</span>
                                 </li>
                             ))}
-                        </ul>*/}
+                        </ul>
                     </div>
                 </motion.div>
             </div>
