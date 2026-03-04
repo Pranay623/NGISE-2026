@@ -21,7 +21,7 @@ export default function Organizers() {
           className="mb-10"
         >
           {/* Honorary Chairs */}
-          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Honorary Chairs</h4>
+          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Honorary Chair</h4>
           <div className="flex justify-center mb-8">
             <div className="p-4 bg-white shadow rounded-xl border border-gray-100 max-w-sm w-full">
               <img src={amin} alt="A Min Tjoa" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
