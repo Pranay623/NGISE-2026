@@ -56,7 +56,7 @@ export default function City() {
             className="text-lg text-gray-600 max-w-2xl mx-auto"
             variants={fadeInUp}
           >
-            Explore Delhi, a city blending history, culture, and modernity. Here
+            Explore Delhi, a city of blending history, culture, and modernity. Here
             are some of the must-visit places during your stay.
           </motion.p>
         </motion.div>
