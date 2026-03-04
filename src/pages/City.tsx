@@ -29,7 +29,7 @@ export default function City() {
     <div className="bg-gray-50 min-h-screen">
       <PageHeader
         title="About the City"
-        description="Ajay Kumar Garg Engineering College is located on Delhi - Meerut Expressway, Ghaziabad, Uttar Pradesh, India. Ghaziabad is a key industrial hub in Uttar Pradesh and also a part of Delhi NCR, which includes Faridabad, Gurgaon, Noida, and Delhi."
+        description="Ajay Kumar Garg Engineering College is located in Delhi, Ghaziabad, Uttar Pradesh, India. Ghaziabad is the key industrial hub in Uttar Pradesh and also a part of Delhi NCR (National Capital Region)."
       />
       <div className="max-w-7xl mx-auto px-6 py-16">
 
