@@ -33,7 +33,7 @@ const OnPaperCall = () => {
 NGISE welcomes papers that work away from the beaten track by
                 {/*All submissions will be peer reviewed and evaluated based on originality, technical and/or research content/depth, correctness and relevance to conference scope. 
 Topics of interest include, but are not limited to the following:*/}
-            </p>
+</p>
             <ul className="list-disc pl-6">
                   <li>pursuing fundamentally new approaches, orFirst point</li>
                   <li>•	utilizing currently emerging technologies</li>
