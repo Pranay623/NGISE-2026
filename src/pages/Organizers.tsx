@@ -56,8 +56,8 @@ export default function Organizers() {
           <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Advisory Committee</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
-              ["Ingrid Pappel", "Information Society Technologies, Tallinn University of Technology (TalTech), Estonia"],
-              ["Amita Dev", "Advisor, Ajay Kumar Garg Engineering College, Ghaziabad, India"],
+              ["Ingrid Pappel", "Tallinn University of Technology (TalTech), Estonia"],
+              ["Amita Dev", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
               // ["Prof. A Min Tjoa", "Institute of Software Technology & Interactive Systems, TU Wien, Austria,Dr. Gabriela Kotsis"],
               // ["Prof. Chuan-Yu Chang", "Machine Intelligence & Pattern Recognition Lab, National Yunlin University of Science & Technology, Taiwan"],
               // ["Prof. Colin Atkinson", "Software Engineering Group, University of Mannheim, Germany"],
