@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import ConferenceTracks from "../ConferenceTracks/ConferenceTracks";
 import OnPaperCall from "./OnPaperCall";
+import InnovativeTopics from "./InnovativeTopics";
 import Onpaper from "./Onpaper";
 import PageHeader from "../PageHeader";
 
@@ -19,6 +20,7 @@ const CallForPapers = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <OnPaperCall />
+                        <InnovativeTopics />
                         <ConferenceTracks />
                         <Onpaper />
                     </motion.div>

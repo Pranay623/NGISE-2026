@@ -19,6 +19,20 @@ const Onpaper = () => {
                 <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
                     Authors are invited to submit original, high-quality papers that have not been previously submitted or published elsewhere. The NGISE-2026 reviewing process is comitted to deliver constructive feedback to authors, through rigorous double-blind peer reviews by field experts with extensive experience. Accepted papers are required to incorporate revisions based on referees' comments and suggestions in their Camera Ready submissions prior to inclusion in the conference proceedings. </p>
             </div>
+            <div className="mt-16 mb-12 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    NGISE Charter on Scientific Reproducibility 
+                </h2>
+                <motion.div
+                    className="w-24 h-1 bg-blue-600 mx-auto"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 96 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                />
+                <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
+                  Given the highly innovative nature of the conference, we take particular care of scientific reproducibility. We value papers that make available their code, models and data as open source in a public repository. We suggest authors to add a section “Code and Data Policy” to the paper, in which they summarize where their assets have been made available or otherwise provide a short explanation why certain assets are not made available (conflict-of-interest, IP-or licensing-related issues, statewise classification etc.). </p>
+            </div>
 
             <div className="mt-16 mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -34,7 +48,7 @@ const Onpaper = () => {
                 />
 
                 <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
-                    Submitted papers must present original work by the authors, supported by adequate, proper, and scholarly citations to others' contributions. Our plagiarism policy enforces the highest standards of academic integrity, with all submissions required to be original and correctly cited. Any detected plagiarism will lead to rejection or corrective measures.
+                      Submitted papers must present original work by the authors, supported by adequate, proper, and scholarly citations to others' contributions. Our plagiarism policy enforces the highest standards of academic integrity, with all submissions required to be original and correctly cited. Any detected plagiarism will lead to rejection or corrective measures.
                 </p>
 
                 {/* Submission Guidelines */}
@@ -60,10 +74,10 @@ const Onpaper = () => {
                                 "As per the copyright transfer agreement, authors bear both individual and collective responsibility for the published content.",
                               //  "Every author must maintain the highest ethical standards to avoid plagiarism.",
                                 "Allowable pages in the camera-ready paper: for short papers (6-8 pages), and for long papers (10-12 pages).",
-                              //  <>Strictly follow the Springer manuscript preparation guidelines <br /><a href="https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium">https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings</a>.</>,
-                              //   "To download Springer template:",
-                              //  <>MS WORD: <a href="/src/public/splnproc1703.doc" download className="text-blue-600 hover:text-blue-800 underline font-medium">MS Word Template</a></>,
-                              //  <>LaTeX: <a href="/zip/LaTeX2e+Proceedings+Templates.zip" download className="text-blue-600 hover:text-blue-800 underline font-medium">LaTeX Template</a></>,
+                               <>Strictly follow the Springer manuscript preparation guidelines <br /><a href="https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium">https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings</a>.</>,
+                                "To download Springer template:",
+                               <>MS WORD: <a href="/src/public/splnproc1703.doc" download className="text-blue-600 hover:text-blue-800 underline font-medium">MS Word Template</a></>,
+                               <>LaTeX: <a href="/zip/LaTeX2e+Proceedings+Templates.zip" download className="text-blue-600 hover:text-blue-800 underline font-medium">LaTeX Template</a></>,
 
 
                             ].map((item, index) => (
