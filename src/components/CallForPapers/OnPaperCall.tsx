@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const OnPaperCall = () => {
   return (
-    <section className="pt-20 md:pt-32 pb-12 md:pb-20">
+    <section className="pt-2 md:pt-9 pb-4">
       <motion.div
         className="text-center mb-10"
         initial="hidden"

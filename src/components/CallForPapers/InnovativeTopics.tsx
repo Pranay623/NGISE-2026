@@ -50,7 +50,7 @@ const topics = [
 
 const InnovativeTopics = () => {
     return (
-        <section className="py-12 md:py-16 px-4 md:px-8 bg-white rounded-3xl my-8 md:my-16">
+        <section className="py-8 px-4 md:px-8 bg-white rounded-3xl my-0">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

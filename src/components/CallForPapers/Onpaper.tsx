@@ -80,10 +80,10 @@ const Onpaper = () => {
 
                             ].map((item, index) => (
                                 <li key={index} className="flex items-start gap-3 md:gap-4 p-2 rounded-lg hover:bg-blue-50/50 transition-colors">
-                                    <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-500 mt-1 shrink-0" />
-                                    <span className="text-gray-700 text-base md:text-lg leading-relaxed">
+                                    <ul className="w-5 h-5 md:w-6 md:h-6 text-green-500 mt-1 shrink-0" />
+                                    <li className="text-gray-700 text-base md:text-lg leading-relaxed">
                                         {item}
-                                    </span>
+                                    </li>
                                 </li>
                             ))}
                         </ul>

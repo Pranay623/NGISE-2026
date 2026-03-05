@@ -65,7 +65,7 @@ function App() {
                     <Route path="/locale/visa" element={<VisaInformation />} />
 
                     <Route
-                      path="/committee/oragnizers"
+                      path="/committee/organizers"
                       element={<Organizers />}
                     />
                     <Route

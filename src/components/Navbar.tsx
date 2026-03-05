@@ -116,7 +116,7 @@ export default function Navbar() {
                     className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
                   >
                     <Link
-                      to="/committee/oragnizers"
+                      to="/committee/organizers"
                       className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
                     >
                       Organizing Committee
@@ -236,7 +236,7 @@ export default function Navbar() {
                   </button>
                   {mobileCommitteeOpen && (
                     <div className="ml-4 flex flex-col gap-y-2">
-                      <Link to="/committee/oragnizers" onClick={() => setIsSheetOpen(false)}>
+                      <Link to="/committee/organizers" onClick={() => setIsSheetOpen(false)}>
                         Organizing Committee
                       </Link>
                       <Link to="/committee/program-committee" onClick={() => setIsSheetOpen(false)}>
