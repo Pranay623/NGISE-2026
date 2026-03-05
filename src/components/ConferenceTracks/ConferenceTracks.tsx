@@ -196,14 +196,14 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
         >
             <motion.div
                 layout="position"
-                className={`w-full px-6 py-4 flex items-center justify-between text-left`}
+                className={`w-full px-4 md:px-6 py-3 md:py-4 flex items-center justify-between text-left`}
             >
                 <div className="flex items-center gap-4">
-                    <span className={`text-base sm:text-lg md:text-xl font-medium leading-relaxed transition-colors ${isOpen ? 'text-blue-600' : 'text-gray-700'}`}>
+                    <span className={`text-base md:text-lg lg:text-xl font-medium leading-relaxed transition-colors ${isOpen ? 'text-blue-600' : 'text-gray-700'}`}>
                         {track.title}
                     </span>
                 </div>
-                {isOpen ? <ChevronUp className="text-blue-600 w-5 h-5" /> : <ChevronDown className="text-gray-400 w-5 h-5" />}
+                {isOpen ? <ChevronUp className="text-blue-600 w-5 h-5 shrink-0" /> : <ChevronDown className="text-gray-400 w-5 h-5 shrink-0" />}
             </motion.div>
             <AnimatePresence>
                 {isOpen && (
@@ -214,7 +214,7 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <div className="px-6 pb-6 pt-2">
+                        <div className="px-4 md:px-6 pb-5 md:pb-6 pt-1 md:pt-2">
                             <div className="space-y-2">
                                 {track.points.map((point, idx) => (
                                     <motion.div
@@ -222,7 +222,7 @@ const TrackCard = ({ track, isOpen, toggle }: { track: typeof tracksData[0], isO
                                         initial={{ opacity: 0, x: -10 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: idx * 0.05 }}
-                                        className="flex items-start gap-3 text-sm sm:text-base text-gray-600 group"
+                                        className="flex items-start gap-3 text-sm md:text-base text-gray-600 group"
                                     >
                                         <span className="w-1.5 h-1.5 mt-2 rounded-full bg-blue-400 group-hover:bg-blue-600 transition-colors flex-shrink-0" />
                                         <span>{point}</span>
@@ -245,13 +245,12 @@ const ConferenceTracks = () => {
     };
 
     return (
-        <>
-            <div className=" mb-12 text-center">
-                <PageHeader
-                    title="Conference Tracks"
-                    description="The conference invites high-quality, original, and unpublished papers on topics including, but are not limited to, the following:"
-                />
-                {/* <motion.div
+        <section className="w-full">
+            <PageHeader
+                title="Conference Tracks"
+                description="The conference invites high-quality, original, and unpublished papers on topics including, but are not limited to, the following:"
+            />
+            {/* <motion.div
                     className="w-24 h-1 bg-blue-600 mx-auto"
                     initial={{ width: 0 }}
                     whileInView={{ width: 96 }}
@@ -261,9 +260,7 @@ const ConferenceTracks = () => {
                 <p className="text-lg text-gray-700 mt-8 max-w-4xl mx-auto px-4">
                     The conference invites high-quality, original, and unpublished papers on topics including, but are not limited to, the following:
                 </p> */}
-            </div>
-
-            <div className="max-w-3xl mx-auto flex flex-col gap-4">
+            <div className="max-w-3xl mx-auto flex flex-col gap-4 px-4 py-12 md:py-16">
                 {tracksData.map((track) => (
                     <TrackCard
                         key={track.id}
@@ -273,7 +270,7 @@ const ConferenceTracks = () => {
                     />
                 ))}
             </div>
-        </>
+        </section>
     );
 };
 
