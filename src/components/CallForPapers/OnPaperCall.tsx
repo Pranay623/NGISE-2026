@@ -29,7 +29,7 @@ const OnPaperCall = () => {
             className="text-center"
         >
             <p className="text-lg text-gray-700 leading-relaxed max-w-6xl mx-auto px-4 md:px-12 mb-12 text-justify">
-                Information systems are the nexus of today’s viable organizations. The International Conference on Next Generation Information System Engineering (NGISE-2026) offers a collaborative platform for bringing advanced technologies to systematically engineered information systems.
+                Information systems are the nexus of today’s viable organizations. The International Conference on Next Generation Information Systems Engineering (NGISE-2026) offers a collaborative platform for bringing advanced technologies to systematically engineered information systems.
 NGISE welcomes papers that work away from the beaten track by
                 •	pursuing fundamentally new approaches, orFirst point
                 •	utilizing currently emerging technologies
