@@ -31,13 +31,12 @@ const OnPaperCall = () => {
             <p className="text-lg text-gray-700 leading-relaxed max-w-6xl mx-auto px-4 md:px-12 mb-12 text-justify">
                 Information systems are the nexus of today’s viable organizations. The International Conference on Next Generation Information System Engineering (NGISE-2026) offers a collaborative platform for bringing advanced technologies to systematically engineered information systems.
 NGISE welcomes papers that work away from the beaten track by
+                •	pursuing fundamentally new approaches, orFirst point
+                •	utilizing currently emerging technologies
+                
                 {/*All submissions will be peer reviewed and evaluated based on originality, technical and/or research content/depth, correctness and relevance to conference scope. 
 Topics of interest include, but are not limited to the following:*/}
 </p>
-            <ul className="list-disc pl-6">
-                  <li>pursuing fundamentally new approaches, orFirst point</li>
-                  <li>•	utilizing currently emerging technologies</li>
-            </ul>
         </motion.div>
     </>
 );
