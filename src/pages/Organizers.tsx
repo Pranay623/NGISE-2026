@@ -21,7 +21,7 @@ export default function Organizers() {
           className="mb-10"
         >
           {/* Honorary Chairs */}
-          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Honorary Chairs</h4>
+          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Honorary Chair</h4>
           <div className="flex justify-center mb-8">
             <div className="p-4 bg-white shadow rounded-xl border border-gray-100 max-w-sm w-full">
               <img src={amin} alt="A Min Tjoa" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
@@ -56,10 +56,10 @@ export default function Organizers() {
           <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Advisory Committee</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
-              ["Ingrid Pappel", "Information Society Technologies, Tallinn University of Technology (TalTech), Estonia"],
-              ["Amita Dev", "Advisor, Ajay Kumar Garg Engineering College, Ghaziabad, India"],
+              ["Ingrid Pappel", "Tallinn University of Technology (TalTech), Estonia"],
+              ["Amita Dev", "Ajay Kumar Garg Engineering College, Ghaziabad, India"],
+              ["Chuan-Yu Chang", "National Yunlin University of Science and Technology, Taiwan"],
               // ["Prof. A Min Tjoa", "Institute of Software Technology & Interactive Systems, TU Wien, Austria,Dr. Gabriela Kotsis"],
-              // ["Prof. Chuan-Yu Chang", "Machine Intelligence & Pattern Recognition Lab, National Yunlin University of Science & Technology, Taiwan"],
               // ["Prof. Colin Atkinson", "Software Engineering Group, University of Mannheim, Germany"],
               // ["Dr. Gabriela Kotsis", "Institute of Tele-cooperation, Johannes Kepler University Linz (JKU), Austria"],
               // ["Prof. Tania Cerquitelli", "Department of Control and Computer Engineering, Politecnico di Torino, Italy"],
