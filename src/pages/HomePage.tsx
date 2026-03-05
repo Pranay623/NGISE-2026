@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
 import AboutSection from "../components/About";
-import ConferenceTracks from "../components/ConferenceTracks/ConferenceTracks";
+// import ConferenceTracks from "../components/ConferenceTracks/ConferenceTracks";
 import ImpDates from "../components/ImpDates";
 
 const HomePage = () => {
@@ -11,8 +11,8 @@ const HomePage = () => {
       <AboutSection />
       <ImpDates />
       {/*<div className="mb-12">
-        <ConferenceTracks />*/}
-      </div>
+        <ConferenceTracks />
+      </div>*/}
     </div>
   );
 };
