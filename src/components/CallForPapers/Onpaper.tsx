@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 
 const Onpaper = () => {
 
