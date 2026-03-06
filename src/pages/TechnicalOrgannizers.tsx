@@ -6,7 +6,7 @@ export default function TechnicalOrgannizers() {
         <div className="bg-gray-50 min-h-screen">
             <PageHeader
                 title="Program Committee"
-                description="Our distinguished program committee members from around the globe"
+                {/*description="Our distinguished program committee members from around the globe"*/}
             />
             <div className="max-w-7xl mx-auto px-4 py-12">
 
