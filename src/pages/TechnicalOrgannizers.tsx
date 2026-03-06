@@ -37,7 +37,7 @@ export default function TechnicalOrgannizers() {
                     </div> */}
 
                     {/* Technical Program Committee */}
-                    <h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee</h4>
+                    {/*<h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee</h4>*/}
                         <div className="max-w-4xl mx-auto py-8 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
                             {/*<p className="text-base">Rozha Kamal Ahmed, Sulaimani Polytechnic University, Iraq</p>
                          <p className="text-base">Colin Atkinson, Software Engineering Group, University of Mannheim, Germany</p>
