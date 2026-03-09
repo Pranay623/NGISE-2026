@@ -129,14 +129,15 @@ const Registration = () => {
                         <>
                           Reduced fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, and coffee breaks. The reduced fee is sponsored by the <strong>NGISE/AKGEC Dr. Ramesh Kumar Agrawal Young Scholar's Scholarship</strong>.
                         </>
-                      ) The intention of the reduced fee is to enable young scholars to attend the conference. It is granted upon application to a limited number of applicants, according to availability of funds.",
+                      ),
+                      "The intention of the reduced fee is to enable young scholars to attend the conference. It is granted upon application to a limited number of applicants, according to availability of funds.",
 
                       (
                         <>
                           As application, it is sufficient to send your CV (including ORCID and Google Scholar link) to info@ngise.org (subject: <strong>Reduced Fee</strong>). Researchers at all career stages can apply. Applicants will be selected according to scientific age and achievements.
                         </>
-                      )
-                      "The additional dinner ticket can be bought for anyone not attending the conference (spouses, collaegues, NGISE friends etc). The additional dinner can be bought by participants attending with a reduced fee (the conference dinner is not included in the reduced fee)."
+                      ),
+                      "The additional dinner ticket can be bought for anyone not attending the conference (spouses, collaegues, NGISE friends etc). The additional dinner can be bought by participants attending with a reduced fee (the conference dinner is not included in the reduced fee).",
                       "Registration fee is non-refundable, non-transferable and includes 18% GST."
                     ].map((note, index) => (
                       <li key={index} className="flex items-start gap-3 bg-white/50 p-3 rounded-lg border border-blue-100/50">
