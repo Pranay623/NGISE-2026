@@ -78,26 +78,31 @@ const Registration = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   <tr>
-                    <td className="py-4 px-6">Regular (Faculty/Industry Professional)</td>
-                    <td className="py-4 px-6">USD 420 / EUR 362</td>
-                    <td className="py-4 px-6">USD 400 / EUR 344</td>
+                    <td className="py-4 px-6">Standard</td>
+                    <td className="py-4 px-6">USD 400 / EUR 350</td>
+                    <td className="py-4 px-6">USD 600 / EUR 500</td>
                   </tr>
                   <tr>
-                    <td className="py-4 px-6">Student/Research Scholar</td>
-                    <td className="py-4 px-6">USD 400 / EUR 344</td>
-                    <td className="py-4 px-6">USD 420 / EUR 362</td>
+                    <td className="py-4 px-6">Reduced (via NGISE/AKGEC Scholarship)</td>
+                    <td className="py-4 px-6">USD 60 / EUR 50</td>
+                    <td className="py-4 px-6">USD 90 / EUR 75</td>
                   </tr>
                   <tr>
-                    <td className="py-4 px-6">Delegates</td>
-                    <td className="py-4 px-6">USD 340 / EUR 292</td>
-                    <td className="py-4 px-6">USD 360 / EUR 310</td>
+                    <td className="py-4 px-6">Extra Page (up to two pages)</td>
+                    <td className="py-4 px-6">USD 60 / EUR 50 per page</td>
+                    <td className="py-4 px-6">USD 90 / EUR 75 per page</td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6">​​​​​​​Additional Dinner Ticket</td>
+                    <td className="py-4 px-6">USD 60 / EUR 50</td>
+                    <td className="py-4 px-6">USD 90 / EUR 75</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p className="text-sm text-gray-600 px-6 py-3 bg-gray-50">
+            {/*<p className="text-sm text-gray-600 px-6 py-3 bg-gray-50">
               Extra Page (over 12) Additional charges <strong>USD 50 or EUR 43 per page</strong>
-            </p>
+            </p>*/}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -113,14 +118,26 @@ const Registration = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                    Important Notes
+                    Terms and Conditions
                   </h3>
                   <ul className="grid gap-3 text-gray-700">
                     {[
-                      "Registration fee is non-refundable, non-transferable and includes 18% GST.",
-                      "Certificate will be issued only to the presenter of the paper (during oral presentation). At least one author must register and pay the registration fee.",
-                      "All the registered papers must be presented; only presented papers will be forwarded for final publication.",
-                      "If more than one authors are willing to attend the conference for a paper presentation, then all the authors must register separately."
+                      "For each accepted paper, at least one author needs to register to the NGISE conference.",
+                      "NGISE is a hybrid conference, whereas on-site attendance is highly encouraged and considered the preferred mode of participation by the NGISE organizers. Papers that are not be presented on-site, must be sent as a pre-recorded presentation (mp4 and youtube link) before 20 October to info@NGISE.org. Papers that are not presented on-site and fail to submit a pre-recorded meeting to the NGISE organizaers will not be forwarded to final publication. Only on-site participants will receive a certificate of participation. Only on-site participants will receive the conference kit.",
+                      "Standard registration fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, coffee breaks, and conferece dinner.",
+                      (
+                        <>
+                          Reduced fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, and coffee breaks. The reduced fee is sponsored by the <strong>NGISE/AKGEC Dr. Ramesh Kumar Agrawal Young Scholar's Scholarship</strong>.
+                        </>
+                      ) The intention of the reduced fee is to enable young scholars to attend the conference. It is granted upon application to a limited number of applicants, according to availability of funds.",
+
+                      (
+                        <>
+                          As application, it is sufficient to send your CV (including ORCID and Google Scholar link) to info@ngise.org (subject: <strong>Reduced Fee</strong>). Researchers at all career stages can apply. Applicants will be selected according to scientific age and achievements.
+                        </>
+                      )
+                      "The additional dinner ticket can be bought for anyone not attending the conference (spouses, collaegues, NGISE friends etc). The additional dinner can be bought by participants attending with a reduced fee (the conference dinner is not included in the reduced fee)."
+                      "Registration fee is non-refundable, non-transferable and includes 18% GST."
                     ].map((note, index) => (
                       <li key={index} className="flex items-start gap-3 bg-white/50 p-3 rounded-lg border border-blue-100/50">
                         <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-600 mt-2" />
