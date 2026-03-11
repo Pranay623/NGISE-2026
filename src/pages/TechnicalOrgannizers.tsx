@@ -6,7 +6,7 @@ export default function TechnicalOrgannizers() {
         <div className="bg-gray-50 min-h-screen">
             <PageHeader
                 title="Program Committee"
-                // {description="Our distinguished program committee members from around the globe"}
+            // {description="Our distinguished program committee members from around the globe"}
             />
             <div className="max-w-7xl mx-auto px-4 py-12">
 
@@ -38,8 +38,8 @@ export default function TechnicalOrgannizers() {
 
                     {/* Technical Program Committee */}
                     {/*<h4 className="text-xl font-bold text-gray-700 mb-6 text-center">Program Committee</h4>*/}
-                        <div className="max-w-4xl mx-auto py-8 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
-                            {/*<p className="text-base">Rozha Kamal Ahmed, Sulaimani Polytechnic University, Iraq</p>
+                    <div className="max-w-4xl mx-auto py-8 bg-white shadow-sm rounded-xl border border-gray-100 text-left">
+                        {/*<p className="text-base">Rozha Kamal Ahmed, Sulaimani Polytechnic University, Iraq</p>
                          <p className="text-base">Colin Atkinson, Software Engineering Group, University of Mannheim, Germany</p>
                          <p className="text-base">Edward Bernroider, WU Wien, Vienna Uiversity of Economics, Austria</p>
                          <p className="text-base">Sidra Azmat Butt, Tallinn University of Technology, Estonia</p>
