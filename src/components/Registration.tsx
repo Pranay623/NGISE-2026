@@ -84,8 +84,8 @@ const Registration = () => {
                   </tr>
                   <tr>
                     <td className="py-4 px-6">Reduced (via NGISE/AKGEC Scholarship)</td>
-                    <td className="py-4 px-6">USD 60 / EUR 50</td>
-                    <td className="py-4 px-6">USD 90 / EUR 75</td>
+                    <td className="py-4 px-6">USD 130 / EUR 110</td>
+                    <td className="py-4 px-6">USD 150 / EUR 120</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-6">Extra Page (up to two pages)</td>
