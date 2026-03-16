@@ -65,7 +65,7 @@ export default function Navbar() {
                   : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
                   }`}
               >
-                <span>Program</span>
+                <span>Programme</span>
                 <ChevronDown className="w-4 h-4 mt-0.5" />
               </button>
 
@@ -84,6 +84,27 @@ export default function Navbar() {
                       onClick={() => setSpeakersOpen(false)}
                     >
                       Keynote Speakers
+                    </Link>
+                    <Link
+                      to="/speakers/panel"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setSpeakersOpen(false)}
+                    >
+                      Panel
+                    </Link>
+                    <Link
+                      to="/speakers/best-paper-award"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setSpeakersOpen(false)}
+                    >
+                      Best Paper Award
+                    </Link>
+                    <Link
+                      to="/speakers/student-best-paper-award"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setSpeakersOpen(false)}
+                    >
+                      Student Best Paper Award
                     </Link>
                   </motion.div>
                 )}
@@ -222,6 +243,15 @@ export default function Navbar() {
                     <div className="ml-4 flex flex-col gap-y-2">
                       <Link to="/speakers/keynote-speakers" onClick={() => setIsSheetOpen(false)}>
                         Keynote Speakers
+                      </Link>
+                      <Link to="/speakers/panel" onClick={() => setIsSheetOpen(false)}>
+                        Panel
+                      </Link>
+                      <Link to="/speakers/best-paper-award" onClick={() => setIsSheetOpen(false)}>
+                        Best Paper Award
+                      </Link>
+                      <Link to="/speakers/student-best-paper-award" onClick={() => setIsSheetOpen(false)}>
+                        Student Best Paper Award
                       </Link>
                     </div>
                   )}
