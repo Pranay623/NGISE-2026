@@ -127,7 +127,7 @@ const Registration = () => {
                       "Standard registration fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, coffee breaks, and conferece dinner.",
                       (
                         <>
-                          Reduced fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, and coffee breaks. The reduced fee is sponsored by the <strong>NGISE/AKGEC Dr. Ramesh Kumar Agrawal Young Scholar's Scholarship</strong>.
+                          Reduced fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, and coffee breaks. The reduced fee is sponsored by the <strong>NGISE/AKGEC Dr. Ramesh Kumar Agrawal Young Scholar's Scholarship</strong>.The intention of the reduced fee is to enable young scholars to attend the conference. It is granted upon application to a limited number of applicants, according to availability of funds.
                         </>
                       ),
                       "The intention of the reduced fee is to enable young scholars to attend the conference. It is granted upon application to a limited number of applicants, according to availability of funds.",
