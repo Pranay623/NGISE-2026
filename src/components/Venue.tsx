@@ -5,6 +5,7 @@ import img2 from "../public/image2.jpg";
 import img3 from "../public/image3.jpg";
 import img4 from "../public/image4.jpg";
 import CardSwap, { Card } from './CardSwap'
+import PageHeader from "./PageHeader";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -41,34 +42,13 @@ export default function Venue() {
   }, []);
 
   return (
-    <section id="venue" className="py-20   bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <motion.div
-          className="text-center mb-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-            // variants={itemVariants}
-          >
-            Conference Venue
-          </motion.h2>
-          <motion.div
-            className="w-24 h-1 bg-blue-600 mx-auto mb-5"
-            initial={{ width: 0 }}
-            whileInView={{ width: 96 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          />
-          <motion.p
-            className="text-lg text-gray-600 max-w-2xl mx-auto font-semibold"
-            // variants={itemVariants}
-          >
-            AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD, INDIA
-          </motion.p>
-        </motion.div>
+    <div className="bg-gray-50 min-h-screen">
+      <PageHeader 
+        title="Conference Venue" 
+        description="AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD, INDIA" 
+      />
+      <section id="venue" className="py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Slideshow */}
         {/* <div className="relative w-full">
@@ -161,7 +141,8 @@ export default function Venue() {
   </div>
 </div>
 
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 }

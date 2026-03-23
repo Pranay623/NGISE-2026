@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import PageHeader from "@/components/PageHeader";
 
 const OnPaperCall = () => {
   return (
@@ -9,18 +10,19 @@ const OnPaperCall = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
-        <motion.h2
+        {/* <motion.h2
           className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
         // variants={itemVariants}
         >
           Call For Papers
-        </motion.h2>
-        <motion.div
+        </motion.h2> */}
+        <PageHeader title={" Call For Papers"}/>
+        {/* <motion.div
           className="w-24 h-1 bg-blue-600 mx-auto mb-5"
           initial={{ width: 0 }}
           whileInView={{ width: 96 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-        />
+        /> */}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}

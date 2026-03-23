@@ -14,7 +14,7 @@ export default function Organizers() {
     <div className="bg-gray-50 min-h-screen">
       <PageHeader
         title="Organizing Committee"
-        description="Organizing and technical committees bringing together experts from leading institutions worldwide"
+        // description="Organizing and technical committees bringing together experts from leading institutions worldwide"
       />
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Organizing Committee Section */}
