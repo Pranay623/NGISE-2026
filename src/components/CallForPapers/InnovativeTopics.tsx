@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Lightbulb, Rocket, Zap, Cpu, Database, Network, Shield, Users, Brain, Globe, Layers, BarChart, FileCode, Beaker } from "lucide-react";
+import {  Rocket, Zap, Cpu, Database, Network, Shield, Users, Brain, Globe, Layers, BarChart, FileCode, Beaker } from "lucide-react";
 
 const topics = [
     { title: "Self-Evolving Enterprise Information Systems", icon: <Rocket className="w-5 h-5" /> },
@@ -84,20 +84,23 @@ const InnovativeTopics = () => {
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-3 sm:gap-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-x-8 lg:gap-x-12 gap-y-3 sm:gap-y-4">
                     {topics.map((topic, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.4, delay: index * 0.01 }}
-                            viewport={{ once: true }}
+                            // initial={{ opacity: 0, x: -20 }}
+                            // whileInView={{ opacity: 1, x: 0 }}
+                            // transition={{ duration: 0.4, delay: index * 0.01 }}
+                            // viewport={{ once: true }}
                             className="flex items-start gap-3 group py-1"
                         >
-                            <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform flex-shrink-0" />
-                            <span className="text-gray-700 text-base md:text-lg leading-snug group-hover:text-blue-700 transition-colors">
+                            <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500  transition-transform flex-shrink-0" />
+                            <span className="text-gray-700 text-base md:text-lg leading-snug ">
                                 {topic.title}
                             </span>
+                            {/* <span className="text-gray-700 text-base md:text-lg leading-snug group-hover:text-blue-700 transition-colors">
+                                {topic.title}
+                            </span> */}
                         </motion.div>
                     ))}
                 </div>
