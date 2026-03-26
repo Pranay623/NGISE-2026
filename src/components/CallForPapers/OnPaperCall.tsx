@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 
 const OnPaperCall = () => {
   return (
-    <section className="pt-2 md:pt-9 pb-1">
+    <section className="pt-0 md:pt-0 ">
       <motion.div
         className="text-center mb-10"
         initial="hidden"
@@ -35,10 +35,10 @@ const OnPaperCall = () => {
         </p>
         <h1 className="text-lg text-gray-700 leading-relaxed max-w-6xl mx-auto px-8 md:px-12 text-left md:text-justify font-medium" > NGISE welcomes papers that work away from the beaten track by</h1>
         
-        <h1 className="list-disc mt-1 pl-8 text-lg text-gray-700 leading-relaxed max-w-6xl mx-auto px-6 md:px-[3rem] mb-2 md:mb-1 text-left md:text-justify ">
-          <p>pursuing fundamentally new approaches</p>
-          <p>utilizing currently emerging technologies</p>
-        </h1>
+        <ul className=" list-none  pl-8 text-lg text-gray-700 leading-relaxed max-w-6xl mx-auto px-6 md:px-[3rem]   text-left md:text-justify">
+          <li>pursuing fundamentally new approaches</li>
+          <li>utilizing currently emerging technologies</li>
+        </ul>
       </motion.div>
     </section>
   );
