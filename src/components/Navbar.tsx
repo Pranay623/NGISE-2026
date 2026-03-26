@@ -123,7 +123,7 @@ export default function Navbar() {
                   : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
                   }`}
               >
-                <span>Committee</span>
+                <span>Committees</span>
                 <ChevronDown className="w-4 h-4 mt-0.5" />
               </button>
 
@@ -140,7 +140,7 @@ export default function Navbar() {
                       to="/committee/organizers"
                       className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
                     >
-                      Organizing Committee
+                      Steering Committee
                     </Link>
                     <Link
                       to="/committee/program-committee"

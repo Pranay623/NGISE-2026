@@ -50,14 +50,14 @@ const topics = [
 
 const InnovativeTopics = () => {
     return (
-        <section className="py-8 px-4 md:px-8 bg-white rounded-3xl my-0">
+        <section className="py-2 px-4 md:px-8 bg-white rounded-3xl my-0">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="mb-10 md:mb-12"
+                    className="mb-10 md:mb-4 ml-4 md:ml-11"
                 >
                     {/* <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-3 mb-6">
                         <div className="p-2 bg-blue-100 rounded-lg w-fit">
@@ -68,7 +68,7 @@ const InnovativeTopics = () => {
                         </h2>
                     </div> */}
 
-                    <div className="space-y-4 md:space-y-6 text-gray-700">
+                    <div className="space-y-4 md:space-y-2 text-gray-700">
                         {/* <p className="text-xl font-medium italic border-l-4 border-blue-600 pl-4 py-1">
                         </p> */}
                         <p className="text-lg leading-relaxed text-justify md:text-left">
@@ -78,13 +78,13 @@ const InnovativeTopics = () => {
                             Given the highly innovative nature of the conference, we take particular care of scientific reproducibility.
                             NGISE attendees benefit from networking opportunities that spur scientific collaborations and industry-academia partnerships through a rich tapestry of various kinds of high-level presentations and discussions.
                         </p>
-                        <p className="text-lg font-bold text-gray-900 mt-6 md:mt-8 mb-4">
+                        <p className="text-lg font-bold text-gray-900 mt-6 md:mt-16 mb-7">
                             Topics include but are not restricted to:
                         </p>
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-x-8 lg:gap-x-12 gap-y-3 sm:gap-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-x-8 lg:gap-x-12 gap-y-0 ml-4 md:ml-11 ">
                     {topics.map((topic, index) => (
                         <motion.div
                             key={index}
