@@ -129,7 +129,7 @@ export default function Hero() {
   /> */}
   <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
     <MapPin className="w-5 h-5 text-blue-400" />
-    <span className="hidden sm:inline">Ajay Kumar Garg Engineering College, Ghaziabad, India</span>
+    <span className="hidden sm:inline">Ajay Kumar Garg Engineering College, Ghaziabad, Delhi NCR, India</span>
     <span className="sm:hidden bold">AKGEC,Ghaziabad,India</span>
   </motion.div>
 </motion.div>
