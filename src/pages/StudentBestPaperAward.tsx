@@ -18,7 +18,7 @@ export default function StudentBestPaperAward() {
                     </div>
                     
                     <p className="text-lg text-gray-700 leading-relaxed">
-                        The NGISE Best Paper Award is granted to a research result that is particular innovative, surprising and convincing. It is granted to young scholars who are currently working on their PhD. The awarded paper needs to have at least one PhD student as the first author. The paper is selected by a committee consisting of the Honorary Chair, the General Chairs, the Programme Committee Co-Chairs, and the Keynote Speakers. The award comes with certificates for all co-authors, announcement at the conference dinner, and a token of appreciation. All authors of the awarded paper are invited to the conference dinner.
+                        The NGISE Student Best Paper Award is granted to a research result that is particular innovative, surprising and convincing. It is granted to young scholars who are currently working on their PhD. The awarded paper needs to have at least one PhD student as the first author. The paper is selected by a committee consisting of the Honorary Chair, the General Chairs, the Programme Committee Co-Chairs, and the Keynote Speakers. The award comes with certificates for all co-authors, announcement at the conference dinner, and a token of appreciation. All authors of the awarded paper are invited to the conference dinner.
                     </p>
                 </div>
             </div>
