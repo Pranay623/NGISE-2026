@@ -45,7 +45,7 @@ export default function Venue() {
     <div className="bg-gray-50 min-h-screen">
       <PageHeader 
         title="Conference Venue" 
-        description="AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD, Delhi NCR, INDIA" 
+        description="AJAY KUMAR GARG ENGINEERING COLLEGE, GHAZIABAD, DELHI NCR, INDIA" 
       />
       <section id="venue" className="py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
