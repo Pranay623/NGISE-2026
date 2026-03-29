@@ -84,24 +84,17 @@ const InnovativeTopics = () => {
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-x-8 lg:gap-x-12 gap-y-0 ml-4 md:ml-11 ">
+                <div className="grid grid-cols-1 gap-y-0.5 ml-4 md:ml-12">
                     {topics.map((topic, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            // initial={{ opacity: 0, x: -20 }}
-                            // whileInView={{ opacity: 1, x: 0 }}
-                            // transition={{ duration: 0.4, delay: index * 0.01 }}
-                            // viewport={{ once: true }}
-                            className="flex items-start gap-3 group py-1"
+                            className="flex items-start gap-2 py-0.5"
                         >
-                            <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500  transition-transform flex-shrink-0" />
-                            <span className="text-gray-700 text-base md:text-lg leading-snug ">
+                            <span className="mt-2 w-1 h-1 rounded-full bg-black flex-shrink-0" />
+                            <span className="text-gray-700 text-base md:text-lg leading-tight">
                                 {topic.title}
                             </span>
-                            {/* <span className="text-gray-700 text-base md:text-lg leading-snug group-hover:text-blue-700 transition-colors">
-                                {topic.title}
-                            </span> */}
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

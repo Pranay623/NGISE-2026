@@ -35,7 +35,7 @@ const OnPaperCall = () => {
         </p>
         <h1 className="text-lg text-gray-700 leading-relaxed max-w-6xl mx-auto px-8 md:px-12 text-left md:text-justify font-medium" > NGISE welcomes papers that work away from the beaten track by</h1>
         
-        <ul className=" list-none  pl-8 text-lg text-gray-700 leading-relaxed max-w-6xl mx-auto px-6 md:px-[3rem]   text-left md:text-justify">
+        <ul className="list-disc pl-14 md:pl-28 text-lg text-gray-700 leading-normal max-w-6xl mx-auto space-y-1 text-left md:text-justify marker:text-black">
           <li>pursuing fundamentally new approaches</li>
           <li>utilizing currently emerging technologies</li>
         </ul>

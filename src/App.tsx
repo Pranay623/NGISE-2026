@@ -24,6 +24,15 @@ import KeynoteSpeakers from "./pages/KeynoteSpeakers";
 import Panel from "./pages/Panel";
 import BestPaperAward from "./pages/BestPaperAward";
 import StudentBestPaperAward from "./pages/StudentBestPaperAward";
+import Tutorial from "./pages/Tutorial";
+import ConferenceDinner from "./pages/ConferenceDinner";
+import History from "./pages/ngise/History";
+import Statutes from "./pages/ngise/Statutes";
+import PreviousEditions from "./pages/ngise/PreviousEditions";
+import FutureEditions from "./pages/ngise/FutureEditions";
+import HallOfFame from "./pages/ngise/HallOfFame";
+
+
 
 
 function App() {
@@ -62,13 +71,22 @@ function App() {
                     <Route path="/speakers" element={<SpeakersPage />} />
                     <Route path="/speakers/keynote-speakers" element={<KeynoteSpeakers />} />
                     <Route path="/speakers/panel" element={<Panel />} />
+                    <Route path="/speakers/tutorial" element={<Tutorial />} />
+                    <Route path="/speakers/conference-dinner" element={<ConferenceDinner />} />
                     <Route path="/speakers/best-paper-award" element={<BestPaperAward />} />
+
                     <Route path="/speakers/student-best-paper-award" element={<StudentBestPaperAward />} />
                     <Route path="/contact" element={<VenuePage />} />
                     <Route path="/registrations" element={<Registration />} />
                     <Route path="/locale/about-city" element={<City />} />
                     <Route path="/locale/hotels" element={<NearByCity />} />
                     <Route path="/locale/visa" element={<VisaInformation />} />
+                    <Route path="/ngise/history" element={<History />} />
+                    <Route path="/ngise/statutes" element={<Statutes />} />
+                    <Route path="/ngise/previous-editions" element={<PreviousEditions />} />
+                    <Route path="/ngise/future-editions" element={<FutureEditions />} />
+                    <Route path="/ngise/hall-of-fame" element={<HallOfFame />} />
+
 
                     <Route
                       path="/committee/organizers"

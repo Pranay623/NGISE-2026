@@ -12,11 +12,15 @@ export default function Navbar() {
   const [localeOpen, setLocaleOpen] = useState(false);
   const [committee, setCommittee] = useState(false);
   const [speakersOpen, setSpeakersOpen] = useState(false);
+  const [ngiseOpen, setNgiseOpen] = useState(false);
+
 
   // mobile submenu states
   const [mobileCommitteeOpen, setMobileCommitteeOpen] = useState(false);
   const [mobileLocaleOpen, setMobileLocaleOpen] = useState(false);
   const [mobileSpeakersOpen, setMobileSpeakersOpen] = useState(false);
+  const [mobileNgiseOpen, setMobileNgiseOpen] = useState(false);
+
 
   const linkClass = (path: string) =>
     location.pathname === path
@@ -93,7 +97,22 @@ export default function Navbar() {
                       Panel
                     </Link>
                     <Link
+                      to="/speakers/tutorial"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setSpeakersOpen(false)}
+                    >
+                      Tutorial
+                    </Link>
+                    <Link
+                      to="/speakers/conference-dinner"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setSpeakersOpen(false)}
+                    >
+                      Conference Dinner
+                    </Link>
+                    <Link
                       to="/speakers/best-paper-award"
+
                       className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
                       onClick={() => setSpeakersOpen(false)}
                     >
@@ -208,6 +227,72 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
+            {/* NGISE dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setNgiseOpen(true)}
+              onMouseLeave={() => setNgiseOpen(false)}
+            >
+              <button
+                className={`flex items-center space-x-1 ${location.pathname.startsWith("/ngise")
+                  ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                  : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
+                  }`}
+              >
+                <span>NGISE</span>
+                <ChevronDown className="w-4 h-4 mt-0.5" />
+              </button>
+
+              <AnimatePresence>
+                {ngiseOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
+                  >
+                    <Link
+                      to="/ngise/history"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setNgiseOpen(false)}
+                    >
+                      History
+                    </Link>
+                    <Link
+                      to="/ngise/statutes"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setNgiseOpen(false)}
+                    >
+                      Statutes
+                    </Link>
+                    <Link
+                      to="/ngise/previous-editions"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setNgiseOpen(false)}
+                    >
+                      Previous Editions
+                    </Link>
+                    <Link
+                      to="/ngise/future-editions"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setNgiseOpen(false)}
+                    >
+                      Future Editions
+                    </Link>
+                    <Link
+                      to="/ngise/hall-of-fame"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                      onClick={() => setNgiseOpen(false)}
+                    >
+                      Hall of Fame
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+
             <Link to="/contact" className={linkClass("/contact")}>
               Contact Us
             </Link>
@@ -247,9 +332,16 @@ export default function Navbar() {
                       <Link to="/speakers/panel" onClick={() => setIsSheetOpen(false)}>
                         Panel
                       </Link>
+                      <Link to="/speakers/tutorial" onClick={() => setIsSheetOpen(false)}>
+                        Tutorial
+                      </Link>
+                      <Link to="/speakers/conference-dinner" onClick={() => setIsSheetOpen(false)}>
+                        Conference Dinner
+                      </Link>
                       <Link to="/speakers/best-paper-award" onClick={() => setIsSheetOpen(false)}>
                         Best Paper Award
                       </Link>
+
                       <Link to="/speakers/student-best-paper-award" onClick={() => setIsSheetOpen(false)}>
                         Student Best Paper Award
                       </Link>
@@ -294,7 +386,26 @@ export default function Navbar() {
                     </div>
                   )}
 
+                  {/* NGISE (expandable) */}
+                  <button
+                    className="flex justify-between items-center"
+                    onClick={() => setMobileNgiseOpen(!mobileNgiseOpen)}
+                  >
+                    NGISE
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileNgiseOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {mobileNgiseOpen && (
+                    <div className="ml-4 flex flex-col gap-y-2">
+                      <Link to="/ngise/history" onClick={() => setIsSheetOpen(false)}>History</Link>
+                      <Link to="/ngise/statutes" onClick={() => setIsSheetOpen(false)}>Statutes</Link>
+                      <Link to="/ngise/previous-editions" onClick={() => setIsSheetOpen(false)}>Previous Editions</Link>
+                      <Link to="/ngise/future-editions" onClick={() => setIsSheetOpen(false)}>Future Editions</Link>
+                      <Link to="/ngise/hall-of-fame" onClick={() => setIsSheetOpen(false)}>Hall of Fame</Link>
+                    </div>
+                  )}
+
                   <Link to="/contact" onClick={() => setIsSheetOpen(false)}>Contact Us</Link>
+
                 </div>
               </SheetContent>
             </Sheet>
