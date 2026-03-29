@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Info, ArrowRight } from "lucide-react";
+import { Info } from "lucide-react";
 import PageHeader from "./PageHeader";
 
 const Registration = () => {
@@ -157,8 +157,8 @@ const Registration = () => {
               whileTap={{ scale: 0.95 }}
               className="group relative inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
             >
-              <span>Register Now</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span>Registration: Comming Soon</span>
+              {/* <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /> */}
 
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-full bg-white/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />

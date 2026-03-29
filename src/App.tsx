@@ -24,6 +24,11 @@ import KeynoteSpeakers from "./pages/KeynoteSpeakers";
 import Panel from "./pages/Panel";
 import BestPaperAward from "./pages/BestPaperAward";
 import StudentBestPaperAward from "./pages/StudentBestPaperAward";
+import NgiseHistory from "./pages/NgiseHistory";
+import NgiseStatutes from "./pages/NgiseStatutes";
+import NgisePreviousEditions from "./pages/NgisePreviousEditions";
+import NgiseFutureEditions from "./pages/NgiseFutureEditions";
+import NgiseHallOfFame from "./pages/NgiseHallOfFame";
 
 
 function App() {
@@ -64,6 +69,11 @@ function App() {
                     <Route path="/speakers/panel" element={<Panel />} />
                     <Route path="/speakers/best-paper-award" element={<BestPaperAward />} />
                     <Route path="/speakers/student-best-paper-award" element={<StudentBestPaperAward />} />
+                    <Route path="/ngise/history" element={<NgiseHistory />} />
+                    <Route path="/ngise/status" element={<NgiseStatutes />} />
+                    <Route path="/ngise/previous-editions" element={<NgisePreviousEditions />} />
+                    <Route path="/ngise/future-editions" element={<NgiseFutureEditions />} />
+                    <Route path="/ngise/hall-of-frame" element={<NgiseHallOfFame />} />
                     <Route path="/contact" element={<VenuePage />} />
                     <Route path="/registrations" element={<Registration />} />
                     <Route path="/locale/about-city" element={<City />} />
