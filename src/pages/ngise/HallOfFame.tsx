@@ -55,7 +55,7 @@ export default function HallOfFame() {
              />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-1">Dr. R. K. Agarwal</h2>
-          <h3 className="text-xl font-semibold text-blue-800 mb-2">Sri Ramesh Kumar Agrawal</h3>
+          <h3 className="text-xl font-semibold text-blue-800 mb-2">Sri Ramesh Kumar Agarwal</h3>
           <p className="text-gray-600 mb-1">Ajay Kumar Garg Engineering College Ghaziabad, India</p>
           <p className="text-lg font-bold text-blue-600 tracking-wide uppercase">Honorary General Chair NGISE 2025</p>
         </motion.div>
@@ -71,7 +71,7 @@ export default function HallOfFame() {
           <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b pb-2">Technical Programme Committee & Speakers</h2>
           <ul className="list-disc pl-5 space-y-4">
             {hallOfFameList.map((entry, index) => ( entry.startsWith("+") ? null : (
-              <li key={index} className="text-gray-700 leading-relaxed hover:text-blue-800 transition-colors">
+              <li key={index} className="text-gray-700 leading-relaxed  transition-colors">
                 {entry}
               </li>
             )))}

@@ -30,7 +30,7 @@ export default function History() {
             The idea was to balance high risk with extra quality measures, which gave rise to a systematic focus on scientific reproducibility.
           </p>
           <p className="mb-6">
-            In 2025, we achieved, with a jump start out of nothing, a conference with a total of 400 submissions, 100 participants, and extraordinary keynote speeches of Salvatore Sinno, Vice President of ECS Innovations at Unisys, on quantum logistics, and Chuan-Yu Chang, President of the National Yunlin University of Science and Technology Taiwan, at the beautiful campus of Ayar Kumar Garg Engineering College (AKGEC) in Delhi Ghaziabad (the place where the peacocks wake you up).
+            In 2025, we achieved, with a jump start out of nothing, a conference with a total of 400 submissions, 100 participants, and extraordinary keynote speeches of Salvatore Sinno, Vice President of ECS Innovations at Unisys, on quantum logistics, and Chuan-Yu Chang, President of the National Yunlin University of Science and Technology Taiwan, at the beautiful campus of Ajar Kumar Garg Engineering College (AKGEC) in Delhi Ghaziabad (the place where the peacocks wake you up).
           </p>
           <p className="mb-6">
             The NGISE family is growing. In 2026, we are immensely proud of our keynote speakers Divesh Srivastava and Arun Kumar Sangaiah. For the first time, NGISE will also offer a tutorial, on quantum computing and quantum annealing. It will be amazing.
