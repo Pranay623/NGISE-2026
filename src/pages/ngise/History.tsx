@@ -21,7 +21,7 @@ export default function History() {
            className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
         >
           <p className="mb-6">
-            The idea for NGISE was born when Markus Bertl, Dirk Draheim and Rahul Sharma met A Min Tjoa during an unforgettable, marvellous iiwas conference at Udayana University, Denpasar, Bali, in December 2023.
+            The idea for NGISE was born when Dirk Draheim and Rahul Sharma met A Min Tjoa during an unforgettable, marvellous iiwas conference at Udayana University, Denpasar, Bali, in December 2023.
           </p>
           <p className="mb-6">
             The idea was to create a small, but impactful conference, that provides a forum for latest, emergent and immersive technologies, such as currently quantum and GenAI, in regards of their utilization for enterprise information systems: In the seek of pathfinding papers, that follow entirely new approaches away from the mainstream, i.e., high risk research.
