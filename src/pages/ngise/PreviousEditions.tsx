@@ -18,20 +18,19 @@ export default function PreviousEditions() {
            whileInView="visible"
            viewport={{ once: true }}
            variants={fadeInUp}
-           className="prose prose-lg max-w-none"
+           className="max-w-none text-left"
         >
-          <ul className="list-disc pl-5 space-y-4">
-            <li>
-              <a 
-                href="https://ngise.org/2025" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 transition-colors font-medium border-b-2 border-transparent hover:border-blue-800"
-              >
-                NGISE 2025 - the 1st IEEE International Conference on Next Generation Information System Engineering, Ajay Kumar Garg Engineering College (AKGEC), Ghaziabad, Delhi NCR, India
-              </a>
-            </li>
-          </ul>
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">NGISE 2025 (fat)</h3>
+            <a 
+              href="https://ngise.org/2025" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 transition-colors block leading-relaxed"
+            >
+              NGISE 2025 - the 1st IEEE International Conference on Next Generation Information System Engineering, Ajay Kumar Garg Engineering College (AKGEC), Ghaziabad, Delhi NCR, India
+            </a>
+          </div>
         </motion.div>
       </div>
     </div>

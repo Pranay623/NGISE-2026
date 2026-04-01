@@ -7,11 +7,11 @@ const fadeInUp = {
 };
 
 const futureEditions = [
-  "NGISE 2027, University of Ulster, Belfast, Northern Ireland",
-  "NGISE 2028, National Yunlin University of Science and Technology, Taiwan",
-  "NGISE 2029, Karlsruhe Insitute of Technology (KIT), Germany",
-  "NGISE 2030, Tallinn University of Technology (TalTech), Estonia",
-  "NGISE 2031, Ajay Kumar Garg Engineering College (AKGEC), Ghaziabad, Delhi NCR, India"
+  { year: "NGISE 2027 (fat)", location: "University of Ulster, Belfast, Northern Ireland" },
+  { year: "NGISE 2028 (fat)", location: "National Yunlin University of Science and Technology, Taiwan" },
+  { year: "NGISE 2029 (fat)", location: "Karlsruhe Insitute of Technology (KIT), Germany" },
+  { year: "NGISE 2030 (fat)", location: "Tallinn University of Technology (TalTech), Estonia" },
+  { year: "NGISE 2031 (fat)", location: "Ajay Kumar Garg Engineering College (AKGEC), Ghaziabad, Delhi NCR, India" }
 ];
 
 export default function FutureEditions() {
@@ -26,15 +26,14 @@ export default function FutureEditions() {
            whileInView="visible"
            viewport={{ once: true }}
            variants={fadeInUp}
-           className="prose prose-lg max-w-none"
+           className="space-y-8"
         >
-          <ul className="list-disc pl-5 space-y-6">
-            {futureEditions.map((edition, index) => (
-              <li key={index} className="text-gray-700 leading-relaxed font-medium">
-                {edition}
-              </li>
-            ))}
-          </ul>
+          {futureEditions.map((edition, index) => (
+            <div key={index} className="text-gray-700">
+              <h3 className="text-xl font-bold text-gray-700 mb-1">{edition.year}</h3>
+              <p className="text-lg leading-relaxed">{edition.location}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </div>
