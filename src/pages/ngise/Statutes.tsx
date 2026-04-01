@@ -13,7 +13,7 @@ const statutesData = [
   },
   {
     title: "NGISE Founders",
-    content: "Dr. Markus Bertl; Prof. Dr. Dirk Draheim; Prof. Dr. Rahul Sharma"
+    content: "Prof. Dr. Dirk Draheim; Prof. Dr. Rahul Sharma"
   },
   {
     title: "General Chairs",
