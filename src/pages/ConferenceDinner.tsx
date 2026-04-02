@@ -41,16 +41,7 @@ export default function ConferenceDinner() {
           <div className="prose prose-lg max-w-4xl mx-auto text-left text-gray-700 leading-relaxed">
             {/* <h2 className="text-3xl font-bold text-gray-900 mb-6">A Night to Remember</h2> */}
             <p className="mb-6">
-              The conference dinner takes place at the rooftop restaurant of Radisson Blu Towers Kaushambi Delhi, with an exciting view over nighttime Delhi Ghaziabad. The chefs of Blu Towers are amazing. We will have the opportunity to taste a variety of delicious bites from the local vegetarian cuisine, a journey through the world of spices, and will enjoy a broad selection of classics from the international cuisine, all freshly prepared from live cooking.
-            </p>
-            <p className="mb-6">
-              The NGISE conference dinner is more than just a meal; it's a cornerstone of our academic gathering. It provides an informal setting for participants to connect, share ideas, and forge new collaborations while enjoying a premium dining experience.
-            </p>
-            <p className="mb-6">
-              Highlights of the evening will be the announcements of the <strong>NGISE 2026 Best Paper Award</strong> and the <strong>NGISE 2026 Student Best Paper Award</strong>. 
-            </p>
-            <p>
-              Spouses, colleagues, and friends of NGISE are also welcome to join the celebration by purchasing an additional dinner ticket.
+              The conference dinner takes place at the rooftop restaurant of Radisson Blu Towers Kaushambi Delhi, with an exciting view over nighttime Delhi Ghaziabad. The chefs of Blu Towers are amazing. We will have the opportunity to taste a variety of delicious bites from the local vegetarian cuisine, a journey through the world of spices, and will enjoy a broad selection of classics from the international cuisine, all freshly prepared from live cooking.  Highlights of the conference dinner will be the announcements of the <strong>NGISE 2026 Best Paper Award</strong> and <strong>NGISE 2026 Student Best Paper Award</strong>.
             </p>
           </div>
         </motion.div>
