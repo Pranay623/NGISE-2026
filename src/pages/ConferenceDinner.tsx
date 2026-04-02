@@ -11,8 +11,8 @@ export default function ConferenceDinner() {
   return (
     <div className="bg-white min-h-screen">
       <PageHeader
-        title="Conference Dinner"
-        description="Join us for an evening of networking and celebration."
+        title="NGISE 2026 Conference Dinner"
+        {/*description="Join us for an evening of networking and celebration."*/}
       />
       <div className="max-w-7xl mx-auto px-6 py-16">
         <motion.div
