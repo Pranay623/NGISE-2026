@@ -1,19 +1,12 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Users, BookOpen, Globe } from "lucide-react";
 import PageHeader from "./PageHeader";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
 export default function AboutSection() {
-  const cards = [
-    { icon: Users, title: "Global Network", desc: "Connect with leading experts and researchers worldwide" },
-    { icon: BookOpen, title: "Knowledge Sharing", desc: "Present and discuss cutting-edge research findings" },
-    { icon: Globe, title: "Innovation Hub", desc: "Explore emerging technologies and future trends" }
-  ];
 
   return (
     <div className="bg-gray-50 ">
@@ -25,9 +18,8 @@ export default function AboutSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <motion.div className="max-w-4xl mx-auto" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{}}>
-            <motion.p className="text-lg text-gray-700 leading-relaxed text-center mb-1" variants={itemVariants}>
+            <motion.p className="text-base sm:text-lg text-gray-700 leading-relaxed text-center sm:text-justify mb-8 px-2" variants={itemVariants}>
               Information systems are the nexus of today’s viable organizations. The International Conference on Next Generation Information Systems Engineering (NGISE) provides a forum for research that works away from the beaten track by pursuing fundamentally new approaches or utilizing currently emerging technologies for systematically engineered information systems. Given this highly innovative nature of the conference, we take particular care of scientific reproducibility. The event fosters idea exchange about sustainable and secure solutions driving rapid and impactful digital transformation. Attendees benefit from networking opportunities that spur scientific collaborations and industry-academia partnerships through a rich tapestry of various kinds of high-level presentations and discussions.
-              {/*The International Conference on Next Generation Information System Engineering (NGISE-2026) offers a collaborative forum for advancing cutting-edge technologies in information systems. It unites researchers, practitioners, and academicians to explore innovative solutions across diverse tracks. The event fosters idea exchanges about sustainable, secure solutions amid rapid digital transformation. Attendees benefit from networking opportunities that spur industry-academia partnerships. Through a rich tapestry of presentations, workshops, and discussions, the conference aims to catalyze advancements in next-generation information systems.*/}
             </motion.p>
 
             {/* <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center" variants={{}} initial="hidden" whileInView="visible" viewport={{ once: true }}>

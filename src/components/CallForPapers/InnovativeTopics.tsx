@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import {  Rocket, Zap, Cpu, Database, Network, Shield, Users, Brain, Globe, Layers, BarChart, FileCode, Beaker } from "lucide-react";
+import { Rocket, Zap, Cpu, Database, Network, Shield, Users, Brain, Globe, Layers, BarChart, FileCode, Beaker } from "lucide-react";
 
 const topics = [
     { title: "Self-Evolving Enterprise Information Systems", icon: <Rocket className="w-5 h-5" /> },
@@ -59,21 +59,7 @@ const InnovativeTopics = () => {
                     viewport={{ once: true }}
                     className="mb-10 md:mb-4 ml-4 md:ml-11"
                 >
-                    {/* <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-3 mb-6">
-                        <div className="p-2 bg-blue-100 rounded-lg w-fit">
-                            <Lightbulb className="w-6 h-6 text-blue-600" />
-                        </div>
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-                            Innovative Presentation Topics
-                        </h2>
-                    </div> */}
-
                     <div className="space-y-4 md:space-y-2 text-gray-700">
-                        {/* <p className="text-xl font-medium italic border-l-4 border-blue-600 pl-4 py-1">
-                        </p> */}
-                        <p className="text-lg leading-relaxed text-justify md:text-left">
-                            {/* NGISE attendees benefit from networking opportunities that spur scientific collaborations and industry-academia partnerships through a rich tapestry of various kinds of high-level presentations and discussions. */}
-                        </p>
                         <p className="text-base md:text-lg leading-relaxed text-justify md:text-left">
                             Given the highly innovative nature of the conference, we take particular care of scientific reproducibility.
                             NGISE attendees benefit from networking opportunities that spur scientific collaborations and industry-academia partnerships through a rich tapestry of various kinds of high-level presentations and discussions.
@@ -84,14 +70,14 @@ const InnovativeTopics = () => {
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 gap-y-0.5 ml-4 md:ml-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 ml-4 md:ml-12">
                     {topics.map((topic, index) => (
                         <div
                             key={index}
                             className="flex items-start gap-2 py-0.5"
                         >
-                            <span className="mt-2 w-1 h-1 rounded-full bg-black flex-shrink-0" />
-                            <span className="text-gray-700 text-base md:text-lg leading-tight">
+                            <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" />
+                            <span className="text-gray-700 text-sm md:text-base tracking-tight leading-snug">
                                 {topic.title}
                             </span>
                         </div>

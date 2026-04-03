@@ -15,7 +15,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => {
                 transition={{ duration: 0.6 }}
                 className="max-w-4xl mx-auto px-4"
             >
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
                     {title}
                 </h1>
                 <div className="w-24 h-1 bg-white mx-auto rounded-full mb-6" />

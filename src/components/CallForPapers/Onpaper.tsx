@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 const Onpaper = () => {
 
@@ -80,10 +80,10 @@ const Onpaper = () => {
 
                             ].map((item, index) => (
                                 <li key={index} className="flex items-start gap-3 md:gap-4 p-2 rounded-lg hover:bg-blue-50/50 transition-colors">
-                                    <ul className="w-5 h-5 md:w-6 md:h-6 text-green-500 mt-1 shrink-0" />
-                                    <li className="text-gray-700 text-base md:text-lg leading-relaxed">
+                                    <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-green-500 mt-1 shrink-0" />
+                                    <div className="text-gray-700 text-base md:text-lg leading-relaxed">
                                         {item}
-                                    </li>
+                                    </div>
                                 </li>
                             ))}
                         </ul>

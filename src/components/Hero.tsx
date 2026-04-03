@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Calendar, MapPin } from "lucide-react";
 import Image1 from "../public/image.jpg";
 import Image2 from "../public/image2.jpg";
-import Image3 from "../public/image3.jpg";
-import Image4 from "../public/image4.jpg";
 import Image5 from "../public/image5.jpg";
 import Image6 from "../public/image6.jpg";
 // import ShinyText from './ShinyText';
@@ -85,7 +83,7 @@ export default function Hero() {
       Welcome to <span className="text-blue-100">NGISE 2026</span>
     </>
   }
-  className="text-7xl font-semibold text-center mb-4"
+  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-center mb-4"
   delay={40}
   duration={0.3}
   ease="power3.out"
@@ -99,7 +97,7 @@ export default function Hero() {
 />
 
           <motion.p
-  className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-gray-200"
+  className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
   style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
@@ -109,28 +107,22 @@ export default function Hero() {
 </motion.p>
 
 <motion.div
-  className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-lg"
+  className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-sm sm:text-base md:text-lg px-4"
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
 >
   <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-    <Calendar className="w-5 h-5 text-blue-400" />
+    <Calendar className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
     <span>28th–29th October 2026</span>
   </motion.div>
 
   <div className="hidden md:block w-px h-6 bg-gray-400"></div>
 
-  {/* <ShinyText 
-    text="Ajay Kumar Garg Engineering College, Ghaziabad, India" 
-    disabled={false} 
-    speed={3} 
-    className='custom-class  ' 
-  /> */}
   <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-    <MapPin className="w-5 h-5 text-blue-400" />
+    <MapPin className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
     <span className="hidden sm:inline">Ajay Kumar Garg Engineering College, Ghaziabad, Delhi NCR, India</span>
-    <span className="sm:hidden bold">AKGEC,Ghaziabad,India</span>
+    <span className="sm:hidden font-bold">AKGEC, Ghaziabad, India</span>
   </motion.div>
 </motion.div>
 
@@ -143,7 +135,7 @@ export default function Hero() {
           >
             Register Now
           </motion.button> */}
-          <div style={{ height: '10px', position: 'relative' }} className="flex justify-center">
+          <div style={{ position: 'relative' }} className="flex justify-center mt-4">
   <GlareHover
     glareColor="#ffffff"
     glareOpacity={0.3}
@@ -152,10 +144,12 @@ export default function Hero() {
     transitionDuration={800}
     playOnce={false}
   >
-    <h2 style={{ fontSize: '1rem', fontWeight: '900', color: '#fff', margin: 0 }}
-    onClick={() => window.location.href = "/registrations"}>
+    <div 
+      className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg cursor-pointer transition-colors shadow-lg"
+      onClick={() => window.location.href = "/registrations"}
+    >
       Register Now
-    </h2>
+    </div>
   </GlareHover>
 </div>
         </motion.div>

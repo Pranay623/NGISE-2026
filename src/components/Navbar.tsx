@@ -36,47 +36,47 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="sticky top-0 z-50 bg-white/98 backdrop-blur-md border-b border-gray-100 shadow-sm"
+      className="sticky top-0 z-50 bg-white/98 backdrop-blur-md shadow-sm"
     >
-      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 xl:px-10">
-        <div className="flex flex-col xl:flex-row justify-between items-center py-2 xl:h-24 gap-4">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center py-2 lg:h-24 gap-4">
           
           {/* Logo Section - Top on mobile, Left on desktop */}
-          <div className="flex items-center justify-between w-full xl:w-auto gap-4 shrink-0">
+          <div className="flex items-center justify-between w-full lg:w-auto gap-4 shrink-0">
             <Link to="/" className="shrink-0">
               <motion.img
                 src={Logo}
                 alt="NGISE Logo"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="h-12 sm:h-16 xl:h-20 w-auto object-contain"
+                className="h-10 sm:h-14 lg:h-16 w-auto object-contain"
               />
             </Link>
 
-            {/* Mobile Logos & Menu (Visible only on mobile/tablet/medium-laptops) */}
-            <div className="flex xl:hidden items-center gap-3 sm:gap-6">
+            {/* Mobile Logos & Menu (Visible only on mobile/tablet) */}
+            <div className="flex lg:hidden items-center gap-1 sm:gap-4">
               <img
                 src={RightLogo}
                 alt="Springer"
-                className="h-8 sm:h-12 w-auto object-contain"
+                className="h-6 sm:h-10 w-auto object-contain"
               />
               <img
                 src={RightLogo2}
                 alt="CCIS"
-                className="h-8 sm:h-12 w-auto object-contain"
+                className="h-6 sm:h-10 w-auto object-contain"
               />
               <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="ml-2 hover:bg-blue-50 h-10 w-10">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                  <Button variant="ghost" size="icon" className="hover:bg-blue-50 h-9 w-9 sm:h-10 sm:w-10 ml-1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600 sm:w-7 sm:h-7">
                       <line x1="3" x2="21" y1="12" y2="12" />
                       <line x1="3" x2="21" y1="6" y2="6" />
                       <line x1="3" x2="21" y1="18" y2="18" />
                     </svg>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-full sm:w-[400px] overflow-y-auto pt-10">
-                  <nav className="flex flex-col gap-6">
+                <SheetContent side="right" className="w-[85vw] sm:w-[400px] overflow-y-auto pt-10">
+                    <nav className="flex flex-col gap-6">
                     <Link to="/" onClick={() => setIsSheetOpen(false)} className="text-xl font-semibold hover:text-blue-600 transition-colors">Home</Link>
                     <Link to="/call-for-papers" onClick={() => setIsSheetOpen(false)} className="text-xl font-semibold hover:text-blue-600 transition-colors">Call for Papers</Link>
                     <Link to="/venue" onClick={() => setIsSheetOpen(false)} className="text-xl font-semibold hover:text-blue-600 transition-colors">Venue</Link>
@@ -169,11 +169,11 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Items */}
-          <div className="hidden xl:flex flex-1 justify-center items-center px-4">
-            <div className="flex items-center gap-x-2 2xl:gap-x-4 bg-gray-50/80 rounded-full px-6 py-2 border border-gray-100/50 shadow-inner">
-              <Link to="/" className={`${linkClass("/")} text-[14px] 2xl:text-[15px]`}>Home</Link>
-              <Link to="/call-for-papers" className={`${linkClass("/call-for-papers")} text-[14px] 2xl:text-[15px]`}>Call for Papers</Link>
-              <Link to="/venue" className={`${linkClass("/venue")} text-[14px] 2xl:text-[15px]`}>Venue</Link>
+          <div className="hidden lg:flex flex-1 justify-center items-center px-2">
+            <div className="flex items-center gap-x-1 xl:gap-x-2 bg-gray-50/80 rounded-full px-4 py-1.5 border border-gray-100/50 shadow-inner">
+              <Link to="/" className={`${linkClass("/")} text-[13px] xl:text-[14px] 2xl:text-[15px]`}>Home</Link>
+              <Link to="/call-for-papers" className={`${linkClass("/call-for-papers")} text-[13px] xl:text-[14px] 2xl:text-[15px]`}>Call for Papers</Link>
+              <Link to="/venue" className={`${linkClass("/venue")} text-[13px] xl:text-[14px] 2xl:text-[15px]`}>Venue</Link>
 
               {/* Dropdowns for Desktop */}
               {[
@@ -232,9 +232,9 @@ export default function Navbar() {
                   onMouseEnter={() => dropdown.setOpen(true)}
                   onMouseLeave={() => dropdown.setOpen(false)}
                 >
-                  <button className={`flex items-center gap-1 text-[14px] 2xl:text-[15px] px-2 py-1 whitespace-nowrap transition-colors border-b-2 ${location.pathname.startsWith(dropdown.pathPrefix) ? "text-blue-600 font-semibold border-blue-600" : "text-gray-600 hover:text-blue-600 font-medium border-transparent"}`}>
+                  <button className={`flex items-center gap-1 text-[13px] xl:text-[14px] 2xl:text-[15px] px-1.5 py-1 whitespace-nowrap transition-colors border-b-2 ${location.pathname.startsWith(dropdown.pathPrefix) ? "text-blue-600 font-semibold border-blue-600" : "text-gray-600 hover:text-blue-600 font-medium border-transparent"}`}>
                     {dropdown.title}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdown.isOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${dropdown.isOpen ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
                     {dropdown.isOpen && (
@@ -260,24 +260,24 @@ export default function Navbar() {
                 </div>
               ))}
 
-              <Link to="/registrations" className={`${linkClass("/registrations")} text-[14px] 2xl:text-[15px]`}>Registration</Link>
-              <Link to="/contact" className={`${linkClass("/contact")} text-[14px] 2xl:text-[15px]`}>Contact Us</Link>
+              <Link to="/registrations" className={`${linkClass("/registrations")} text-[13px] xl:text-[14px] 2xl:text-[15px]`}>Registration</Link>
+              <Link to="/contact" className={`${linkClass("/contact")} text-[13px] xl:text-[14px] 2xl:text-[15px]`}>Contact Us</Link>
             </div>
           </div>
 
           {/* Right Section Logos - Desktop Only */}
-          <div className="hidden xl:flex items-center gap-6 2xl:gap-8 shrink-0">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 shrink-0">
             <motion.img
               src={RightLogo}
               alt="Springer"
               whileHover={{ scale: 1.05 }}
-              className="h-10 2xl:h-14 w-auto object-contain"
+              className="h-8 xl:h-10 2xl:h-14 w-auto object-contain"
             />
             <motion.img
               src={RightLogo2}
               alt="CCIS"
               whileHover={{ scale: 1.05 }}
-              className="h-10 2xl:h-14 w-auto object-contain"
+              className="h-8 xl:h-10 2xl:h-14 w-auto object-contain"
             />
           </div>
 
