@@ -12,7 +12,7 @@ export default function Tutorial() {
     <div className="bg-white min-h-screen">
       <PageHeader
         title="Tutorial"
-        description="Deep dive into specialized topics with our expert-led tutorials."
+        // description="Deep dive into specialized topics with our expert-led tutorials."
       />
       <div className="max-w-7xl mx-auto px-6 py-16 text-left">
         <motion.div
@@ -22,6 +22,8 @@ export default function Tutorial() {
            variants={fadeInUp}
            className="text-center mb-16 flex flex-col items-center"
         >
+          <h2 className="text-3xl font-bold text-gray-900 mb-1">29th November 2026</h2>
+          <p className="text-xl font-semibold text-blue-800 mb-4"> Quantum Computing/Quantum Annealing</p>
           <div className="mb-6 relative group">
              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
              <img 

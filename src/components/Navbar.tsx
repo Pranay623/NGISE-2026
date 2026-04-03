@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import Logo from "../public/main logo.png";
+import RightLogo from "../public/WhatsApp Image 2026-04-02 at 6.36.14 PM.jpeg";
+import RightLogo2 from "../public/WhatsApp Image 2026-04-02 at 7.35.40 PM.jpeg";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader } from "./ui/sheet";
 import { Button } from "./ui/button";
 
@@ -34,7 +36,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
     >
-      <div className="max-w-7xl mx-auto px-0 sm:px-4 lg:px-0">
+      <div className="max-w-8xl mx-auto px-0 sm:px-4 lg:px-0">
         <div className="flex justify-between items-center h-16">
           {/* Left Logo */}
           <motion.img
@@ -42,11 +44,11 @@ export default function Navbar() {
             alt="NGISE Logo"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="sm:w-22 sm:h-12 w-21 h-10 ml-5 sm:ml-3"
+            className="sm:h-14 h-11 w-auto ml-5 sm:ml-3 object-contain shrink-0"
           />
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8 relative">
+          {/* Central Desktop Nav */}
+          <div className="hidden lg:flex flex-1 justify-center items-center space-x-8 relative">
             <Link to="/" className={linkClass("/")}>
               Home
             </Link>
@@ -298,8 +300,26 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Nav (Sheet) */}
-          <div className="lg:hidden flex items-center">
+          {/* Right Section */}
+          <div className="flex justify-end gap-4 mr-5 sm:mr-3 shrink-0">
+           <motion.img
+  src={RightLogo}
+  alt="Partner Logo"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="hidden lg:block h-11 sm:h-14 w-auto object-contain"
+/>
+
+<motion.img
+  src={RightLogo2}
+  alt="Partner Logo"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="hidden lg:block h-11 sm:h-14 w-auto object-contain"
+/>
+            
+            {/* Mobile Nav (Sheet) */}
+            <div className="lg:hidden flex items-center">
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" className="flex items-center gap-2">
@@ -409,6 +429,7 @@ export default function Navbar() {
                 </div>
               </SheetContent>
             </Sheet>
+          </div>
           </div>
         </div>
       </div>
