@@ -1,11 +1,11 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import Logo from "../public/main logo.png";
 import RightLogo from "../public/WhatsApp Image 2026-04-02 at 6.36.14 PM.jpeg";
 import RightLogo2 from "../public/WhatsApp Image 2026-04-02 at 7.35.40 PM.jpeg";
-import { Sheet, SheetContent, SheetTrigger, SheetHeader } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 
 export default function Navbar() {
@@ -25,412 +25,262 @@ export default function Navbar() {
 
 
   const linkClass = (path: string) =>
-    location.pathname === path
-      ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
-      : "text-gray-600 hover:text-blue-600 font-medium transition-colors";
+    `whitespace-nowrap transition-all duration-200 px-2 py-1 border-b-2 ${
+      location.pathname === path
+        ? "text-blue-600 font-semibold border-blue-600"
+        : "text-gray-600 hover:text-blue-600 font-medium border-transparent"
+    }`;
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
+      className="sticky top-0 z-50 bg-white/98 backdrop-blur-md border-b border-gray-100 shadow-sm"
     >
-      <div className="max-w-8xl mx-auto px-0 sm:px-4 lg:px-0">
-        <div className="flex justify-between items-center h-16">
-          {/* Left Logo */}
-          <motion.img
-            src={Logo}
-            alt="NGISE Logo"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="sm:h-14 h-11 w-auto ml-5 sm:ml-3 object-contain shrink-0"
-          />
-
-          {/* Central Desktop Nav */}
-          <div className="hidden lg:flex flex-1 justify-center items-center space-x-8 relative">
-            <Link to="/" className={linkClass("/")}>
-              Home
-            </Link>
-            <Link to="/call-for-papers" className={linkClass("/call-for-papers")}>
-              Call for Papers
-            </Link>
-            <Link to="/venue" className={linkClass("/venue")}>
-              Venue
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 xl:px-10">
+        <div className="flex flex-col xl:flex-row justify-between items-center py-2 xl:h-24 gap-4">
+          
+          {/* Logo Section - Top on mobile, Left on desktop */}
+          <div className="flex items-center justify-between w-full xl:w-auto gap-4 shrink-0">
+            <Link to="/" className="shrink-0">
+              <motion.img
+                src={Logo}
+                alt="NGISE Logo"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="h-12 sm:h-16 xl:h-20 w-auto object-contain"
+              />
             </Link>
 
-            {/* Speakers dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setSpeakersOpen(true)}
-              onMouseLeave={() => setSpeakersOpen(false)}
-            >
-              <button
-                className={`flex items-center space-x-1 ${location.pathname.startsWith("/speakers")
-                  ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
-                  : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
-                  }`}
-              >
-                <span>Programme</span>
-                <ChevronDown className="w-4 h-4 mt-0.5" />
-              </button>
+            {/* Mobile Logos & Menu (Visible only on mobile/tablet/medium-laptops) */}
+            <div className="flex xl:hidden items-center gap-3 sm:gap-6">
+              <img
+                src={RightLogo}
+                alt="Springer"
+                className="h-8 sm:h-12 w-auto object-contain"
+              />
+              <img
+                src={RightLogo2}
+                alt="CCIS"
+                className="h-8 sm:h-12 w-auto object-contain"
+              />
+              <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="ml-2 hover:bg-blue-50 h-10 w-10">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                      <line x1="3" x2="21" y1="12" y2="12" />
+                      <line x1="3" x2="21" y1="6" y2="6" />
+                      <line x1="3" x2="21" y1="18" y2="18" />
+                    </svg>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-full sm:w-[400px] overflow-y-auto pt-10">
+                  <nav className="flex flex-col gap-6">
+                    <Link to="/" onClick={() => setIsSheetOpen(false)} className="text-xl font-semibold hover:text-blue-600 transition-colors">Home</Link>
+                    <Link to="/call-for-papers" onClick={() => setIsSheetOpen(false)} className="text-xl font-semibold hover:text-blue-600 transition-colors">Call for Papers</Link>
+                    <Link to="/venue" onClick={() => setIsSheetOpen(false)} className="text-xl font-semibold hover:text-blue-600 transition-colors">Venue</Link>
 
-              <AnimatePresence>
-                {speakersOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
-                  >
-                    <Link
-                      to="/speakers/keynote-speakers"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setSpeakersOpen(false)}
-                    >
-                      Keynote Speakers
-                    </Link>
-                    <Link
-                      to="/speakers/panel"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setSpeakersOpen(false)}
-                    >
-                      Panel
-                    </Link>
-                    <Link
-                      to="/speakers/tutorial"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setSpeakersOpen(false)}
-                    >
-                      Tutorial
-                    </Link>
-                    <Link
-                      to="/speakers/conference-dinner"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setSpeakersOpen(false)}
-                    >
-                      Conference Dinner
-                    </Link>
-                    <Link
-                      to="/speakers/best-paper-award"
-
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setSpeakersOpen(false)}
-                    >
-                      Best Paper Award
-                    </Link>
-                    <Link
-                      to="/speakers/student-best-paper-award"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setSpeakersOpen(false)}
-                    >
-                      Student Best Paper Award
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    {/* Mobile Expandable Sections */}
+                    {[
+                      { 
+                        title: "Programme", 
+                        isOpen: mobileSpeakersOpen, 
+                        setOpen: setMobileSpeakersOpen,
+                        links: [
+                          { to: "/speakers/keynote-speakers", label: "Keynote Speakers" },
+                          { to: "/speakers/panel", label: "Panel" },
+                          { to: "/speakers/tutorial", label: "Tutorial" },
+                          { to: "/speakers/conference-dinner", label: "Conference Dinner" },
+                          { to: "/speakers/best-paper-award", label: "Best Paper Award" },
+                          { to: "/speakers/student-best-paper-award", label: "Student Best Paper Award" },
+                        ]
+                      },
+                      { 
+                        title: "Committees", 
+                        isOpen: mobileCommitteeOpen, 
+                        setOpen: setMobileCommitteeOpen,
+                        links: [
+                          { to: "/committee/organizers", label: "Steering Committee" },
+                          { to: "/committee/program-committee", label: "Program Committee" },
+                        ]
+                      },
+                      { 
+                        title: "Locale", 
+                        isOpen: mobileLocaleOpen, 
+                        setOpen: setMobileLocaleOpen,
+                        links: [
+                          { to: "/locale/about-city", label: "About The City" },
+                          { to: "/locale/hotels", label: "Nearby Hotels" },
+                          { to: "/locale/visa", label: "Visa Information" },
+                        ]
+                      },
+                      { 
+                        title: "NGISE", 
+                        isOpen: mobileNgiseOpen, 
+                        setOpen: setMobileNgiseOpen,
+                        links: [
+                          { to: "/ngise/history", label: "History" },
+                          { to: "/ngise/statutes", label: "Statutes" },
+                          { to: "/ngise/previous-editions", label: "Previous Editions" },
+                          { to: "/ngise/future-editions", label: "Future Editions" },
+                          { to: "/ngise/hall-of-fame", label: "Hall of Fame" },
+                        ]
+                      }
+                    ].map((section) => (
+                      <div key={section.title} className="flex flex-col gap-3">
+                        <button
+                          className="flex justify-between items-center text-xl font-semibold hover:text-blue-600 transition-colors"
+                          onClick={() => section.setOpen(!section.isOpen)}
+                        >
+                          {section.title}
+                          <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${section.isOpen ? "rotate-180" : ""}`} />
+                        </button>
+                        <AnimatePresence mode="wait">
+                          {section.isOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="ml-4 flex flex-col gap-3 overflow-hidden border-l-2 border-blue-100 pl-4 py-2"
+                            >
+                              {section.links.map((link) => (
+                                <Link 
+                                  key={link.to} 
+                                  to={link.to} 
+                                  onClick={() => setIsSheetOpen(false)}
+                                  className="text-gray-600 hover:text-blue-600 transition-colors py-1 text-lg"
+                                >
+                                  {link.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ))}
+                    
+                    <Link to="/registrations" onClick={() => setIsSheetOpen(false)} className="text-xl font-semibold hover:text-blue-600 transition-colors">Registration</Link>
+                    <Link to="/contact" onClick={() => setIsSheetOpen(false)} className="text-xl font-semibold hover:text-blue-600 transition-colors">Contact Us</Link>
+                  </nav>
+                </SheetContent>
+              </Sheet>
             </div>
-
-            {/* Committee dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setCommittee(true)}
-              onMouseLeave={() => setCommittee(false)}
-            >
-              <button
-                className={`flex items-center space-x-1 ${location.pathname.startsWith("/committee")
-                  ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
-                  : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
-                  }`}
-              >
-                <span>Committees</span>
-                <ChevronDown className="w-4 h-4 mt-0.5" />
-              </button>
-
-              <AnimatePresence>
-                {committee && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
-                  >
-                    <Link
-                      to="/committee/organizers"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                    >
-                      Steering Committee
-                    </Link>
-                    <Link
-                      to="/committee/program-committee"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                    >
-                      Program Committee
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* <Link to="/program" className={linkClass("/program")}>
-              Program
-            </Link> */}
-            <Link to="/registrations" className={linkClass("/registrations")}>
-              Registration
-            </Link>
-
-            {/* Locale dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setLocaleOpen(true)}
-              onMouseLeave={() => setLocaleOpen(false)}
-            >
-              <button
-                className={`flex items-center space-x-1 ${location.pathname.startsWith("/locale")
-                  ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
-                  : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
-                  }`}
-              >
-                <span>Locale</span>
-                <ChevronDown className="w-4 h-4 mt-0.5" />
-              </button>
-
-              <AnimatePresence>
-                {localeOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
-                  >
-                    <Link
-                      to="/locale/about-city"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                    >
-                      About The City
-                    </Link>
-                    <Link
-                      to="/locale/hotels"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                    >
-                      Nearby Hotels
-                    </Link>
-                    <Link
-                      to="/locale/visa"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                    >
-                      Visa Information
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* NGISE dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setNgiseOpen(true)}
-              onMouseLeave={() => setNgiseOpen(false)}
-            >
-              <button
-                className={`flex items-center space-x-1 ${location.pathname.startsWith("/ngise")
-                  ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
-                  : "text-gray-600 hover:text-blue-600 font-medium transition-colors"
-                  }`}
-              >
-                <span>NGISE</span>
-                <ChevronDown className="w-4 h-4 mt-0.5" />
-              </button>
-
-              <AnimatePresence>
-                {ngiseOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
-                  >
-                    <Link
-                      to="/ngise/history"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setNgiseOpen(false)}
-                    >
-                      History
-                    </Link>
-                    <Link
-                      to="/ngise/statutes"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setNgiseOpen(false)}
-                    >
-                      Statutes
-                    </Link>
-                    <Link
-                      to="/ngise/previous-editions"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setNgiseOpen(false)}
-                    >
-                      Previous Editions
-                    </Link>
-                    <Link
-                      to="/ngise/future-editions"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setNgiseOpen(false)}
-                    >
-                      Future Editions
-                    </Link>
-                    <Link
-                      to="/ngise/hall-of-fame"
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      onClick={() => setNgiseOpen(false)}
-                    >
-                      Hall of Fame
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-
-            <Link to="/contact" className={linkClass("/contact")}>
-              Contact Us
-            </Link>
           </div>
 
-          {/* Right Section */}
-          <div className="flex justify-end gap-4 mr-5 sm:mr-3 shrink-0">
-           <motion.img
-  src={RightLogo}
-  alt="Partner Logo"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  className="hidden lg:block h-11 sm:h-14 w-auto object-contain"
-/>
+          {/* Desktop Nav Items */}
+          <div className="hidden xl:flex flex-1 justify-center items-center px-4">
+            <div className="flex items-center gap-x-2 2xl:gap-x-4 bg-gray-50/80 rounded-full px-6 py-2 border border-gray-100/50 shadow-inner">
+              <Link to="/" className={`${linkClass("/")} text-[14px] 2xl:text-[15px]`}>Home</Link>
+              <Link to="/call-for-papers" className={`${linkClass("/call-for-papers")} text-[14px] 2xl:text-[15px]`}>Call for Papers</Link>
+              <Link to="/venue" className={`${linkClass("/venue")} text-[14px] 2xl:text-[15px]`}>Venue</Link>
 
-<motion.img
-  src={RightLogo2}
-  alt="Partner Logo"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  className="hidden lg:block h-11 sm:h-14 w-auto object-contain"
-/>
-            
-            {/* Mobile Nav (Sheet) */}
-            <div className="lg:hidden flex items-center">
-            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-              <SheetTrigger asChild>
-                <Button variant="outline" className="flex items-center gap-2">
-                  <img
-                    src="https://ucarecdn.com/f601cf8c-0502-43aa-810b-72542ba282c3/-/preview/1000x1000/"
-                    className="w-5 h-5"
-                  />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="top" className="w-full overflow-y-auto">
-                <SheetHeader />
-                <div className="p-6 flex flex-col gap-y-4 text-left">
-                  <Link to="/" onClick={() => setIsSheetOpen(false)}>Home</Link>
-                  <Link to="/call-for-papers" onClick={() => setIsSheetOpen(false)}>Call for Papers</Link>
-                  <Link to="/venue" onClick={() => setIsSheetOpen(false)}>Venue</Link>
-
-                  {/* Speakers (expandable) */}
-                  <button
-                    className="flex justify-between items-center"
-                    onClick={() => setMobileSpeakersOpen(!mobileSpeakersOpen)}
-                  >
-                    Programs
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileSpeakersOpen ? "rotate-180" : ""}`} />
+              {/* Dropdowns for Desktop */}
+              {[
+                { 
+                  title: "Programme", 
+                  isOpen: speakersOpen, 
+                  setOpen: setSpeakersOpen,
+                  pathPrefix: "/speakers",
+                  links: [
+                    { to: "/speakers/keynote-speakers", label: "Keynote Speakers" },
+                    { to: "/speakers/panel", label: "Panel" },
+                    { to: "/speakers/tutorial", label: "Tutorial" },
+                    { to: "/speakers/conference-dinner", label: "Conference Dinner" },
+                    { to: "/speakers/best-paper-award", label: "Best Paper Award" },
+                    { to: "/speakers/student-best-paper-award", label: "Student Best Paper Award" },
+                  ]
+                },
+                { 
+                  title: "Committees", 
+                  isOpen: committee, 
+                  setOpen: setCommittee,
+                  pathPrefix: "/committee",
+                  links: [
+                    { to: "/committee/organizers", label: "Steering Committee" },
+                    { to: "/committee/program-committee", label: "Program Committee" },
+                  ]
+                },
+                { 
+                  title: "Locale", 
+                  isOpen: localeOpen, 
+                  setOpen: setLocaleOpen,
+                  pathPrefix: "/locale",
+                  links: [
+                    { to: "/locale/about-city", label: "About City" },
+                    { to: "/locale/hotels", label: "Nearby Hotels" },
+                    { to: "/locale/visa", label: "Visa Information" },
+                  ]
+                },
+                { 
+                  title: "NGISE", 
+                  isOpen: ngiseOpen, 
+                  setOpen: setNgiseOpen,
+                  pathPrefix: "/ngise",
+                  links: [
+                    { to: "/ngise/history", label: "History" },
+                    { to: "/ngise/statutes", label: "Statutes" },
+                    { to: "/ngise/previous-editions", label: "Previous Editions" },
+                    { to: "/ngise/future-editions", label: "Future Editions" },
+                    { to: "/ngise/hall-of-fame", label: "Hall of Fame" },
+                  ]
+                }
+              ].map((dropdown) => (
+                <div
+                  key={dropdown.title}
+                  className="relative group"
+                  onMouseEnter={() => dropdown.setOpen(true)}
+                  onMouseLeave={() => dropdown.setOpen(false)}
+                >
+                  <button className={`flex items-center gap-1 text-[14px] 2xl:text-[15px] px-2 py-1 whitespace-nowrap transition-colors border-b-2 ${location.pathname.startsWith(dropdown.pathPrefix) ? "text-blue-600 font-semibold border-blue-600" : "text-gray-600 hover:text-blue-600 font-medium border-transparent"}`}>
+                    {dropdown.title}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdown.isOpen ? "rotate-180" : ""}`} />
                   </button>
-                  {mobileSpeakersOpen && (
-                    <div className="ml-4 flex flex-col gap-y-2">
-                      <Link to="/speakers/keynote-speakers" onClick={() => setIsSheetOpen(false)}>
-                        Keynote Speakers
-                      </Link>
-                      <Link to="/speakers/panel" onClick={() => setIsSheetOpen(false)}>
-                        Panel
-                      </Link>
-                      <Link to="/speakers/tutorial" onClick={() => setIsSheetOpen(false)}>
-                        Tutorial
-                      </Link>
-                      <Link to="/speakers/conference-dinner" onClick={() => setIsSheetOpen(false)}>
-                        Conference Dinner
-                      </Link>
-                      <Link to="/speakers/best-paper-award" onClick={() => setIsSheetOpen(false)}>
-                        Best Paper Award
-                      </Link>
-
-                      <Link to="/speakers/student-best-paper-award" onClick={() => setIsSheetOpen(false)}>
-                        Student Best Paper Award
-                      </Link>
-                    </div>
-                  )}
-
-                  {/* Committee (expandable) */}
-                  <button
-                    className="flex justify-between items-center"
-                    onClick={() => setMobileCommitteeOpen(!mobileCommitteeOpen)}
-                  >
-                    Committee
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileCommitteeOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {mobileCommitteeOpen && (
-                    <div className="ml-4 flex flex-col gap-y-2">
-                      <Link to="/committee/organizers" onClick={() => setIsSheetOpen(false)}>
-                        Organizing Committee
-                      </Link>
-                      <Link to="/committee/program-committee" onClick={() => setIsSheetOpen(false)}>
-                        Program Committee
-                      </Link>
-                    </div>
-                  )}
-
-                  {/* <Link to="/program" onClick={() => setIsSheetOpen(false)}>Program</Link> */}
-                  <Link to="/registrations" onClick={() => setIsSheetOpen(false)}>Registration</Link>
-
-                  {/* Locale (expandable) */}
-                  <button
-                    className="flex justify-between items-center"
-                    onClick={() => setMobileLocaleOpen(!mobileLocaleOpen)}
-                  >
-                    Locale
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileLocaleOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {mobileLocaleOpen && (
-                    <div className="ml-4 flex flex-col gap-y-2">
-                      <Link to="/locale/about-city" onClick={() => setIsSheetOpen(false)}>About The City</Link>
-                      <Link to="/locale/hotels" onClick={() => setIsSheetOpen(false)}>Nearby Hotels</Link>
-                      <Link to="/locale/visa" onClick={() => setIsSheetOpen(false)}>Visa Information</Link>
-                    </div>
-                  )}
-
-                  {/* NGISE (expandable) */}
-                  <button
-                    className="flex justify-between items-center"
-                    onClick={() => setMobileNgiseOpen(!mobileNgiseOpen)}
-                  >
-                    NGISE
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileNgiseOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {mobileNgiseOpen && (
-                    <div className="ml-4 flex flex-col gap-y-2">
-                      <Link to="/ngise/history" onClick={() => setIsSheetOpen(false)}>History</Link>
-                      <Link to="/ngise/statutes" onClick={() => setIsSheetOpen(false)}>Statutes</Link>
-                      <Link to="/ngise/previous-editions" onClick={() => setIsSheetOpen(false)}>Previous Editions</Link>
-                      <Link to="/ngise/future-editions" onClick={() => setIsSheetOpen(false)}>Future Editions</Link>
-                      <Link to="/ngise/hall-of-fame" onClick={() => setIsSheetOpen(false)}>Hall of Fame</Link>
-                    </div>
-                  )}
-
-                  <Link to="/contact" onClick={() => setIsSheetOpen(false)}>Contact Us</Link>
-
+                  <AnimatePresence>
+                    {dropdown.isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-3 z-50 overflow-hidden"
+                      >
+                        {dropdown.links.map((link) => (
+                          <Link
+                            key={link.to}
+                            to={link.to}
+                            className="block px-5 py-2.5 text-[14px] text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                            onClick={() => dropdown.setOpen(false)}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </SheetContent>
-            </Sheet>
+              ))}
+
+              <Link to="/registrations" className={`${linkClass("/registrations")} text-[14px] 2xl:text-[15px]`}>Registration</Link>
+              <Link to="/contact" className={`${linkClass("/contact")} text-[14px] 2xl:text-[15px]`}>Contact Us</Link>
+            </div>
           </div>
+
+          {/* Right Section Logos - Desktop Only */}
+          <div className="hidden xl:flex items-center gap-6 2xl:gap-8 shrink-0">
+            <motion.img
+              src={RightLogo}
+              alt="Springer"
+              whileHover={{ scale: 1.05 }}
+              className="h-10 2xl:h-14 w-auto object-contain"
+            />
+            <motion.img
+              src={RightLogo2}
+              alt="CCIS"
+              whileHover={{ scale: 1.05 }}
+              className="h-10 2xl:h-14 w-auto object-contain"
+            />
           </div>
+
         </div>
       </div>
     </motion.nav>
