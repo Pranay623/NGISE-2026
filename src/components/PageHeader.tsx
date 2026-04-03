@@ -13,7 +13,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="max-w-4xl mx-auto px-4"
+                className="max-w-5xl mx-auto px-4"
             >
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
                     {title}
