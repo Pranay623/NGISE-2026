@@ -21,7 +21,7 @@ export default function PreviousEditions() {
            className="max-w-none text-left"
         >
           <div className="mb-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">NGISE 2025 (fat)</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">NGISE 2025 </h3>
             <a 
               href="https://ngise.org/2025" 
               target="_blank" 
