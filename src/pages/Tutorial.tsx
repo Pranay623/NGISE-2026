@@ -11,7 +11,7 @@ export default function Tutorial() {
   return (
     <div className="bg-white min-h-screen">
       <PageHeader
-        title="Tutorial"
+        title=" NGISE 2026 Tutorial"
         // description="Deep dive into specialized topics with our expert-led tutorials."
       />
       <div className="max-w-7xl mx-auto px-6 py-16 text-left">

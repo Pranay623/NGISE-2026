@@ -38,7 +38,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="sticky top-0 z-50 bg-white/98 backdrop-blur-md shadow-sm"
     >
-      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-center py-2 lg:h-24 gap-4">
           
           {/* Logo Section - Top on mobile, Left on desktop */}
@@ -271,13 +271,13 @@ export default function Navbar() {
               src={RightLogo}
               alt="Springer"
               whileHover={{ scale: 1.05 }}
-              className="h-8 xl:h-10 2xl:h-14 w-auto object-contain"
+              className="h-8 xl:h-14 2xl:h-16 w-auto object-contain"
             />
             <motion.img
               src={RightLogo2}
               alt="CCIS"
               whileHover={{ scale: 1.05 }}
-              className="h-8 xl:h-10 2xl:h-14 w-auto object-contain"
+              className="h-8 xl:h-14 2xl:h-16 w-auto object-contain"
             />
           </div>
 

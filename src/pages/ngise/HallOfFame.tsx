@@ -9,27 +9,27 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-// const hallOfFameList = [
-//   "Shivani Aggarwal, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
-//   "Pavan Kumar Adepu, Amazon LLC, USA, Keynote Speaker NGISE 2025",
-//   "Tania Cerquitelli, Politecnico di Torino, Italy, Technical Programme Commitee Chair NGISE 2025",
-//   "Chuan-Yu Chang, National Yunlin University of Science and Technology, Taiwan, Chief Guest NGISE 2025, Keynote Speaker NGISE 2025",
-//   "Nandita Goyal, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
-//   "Ruchi Gupta, Ajay Kumar Garg Engineering College Ghaziabad, India, Local Organizing Chair NGISE 2025",
-//   "Varun Kakar, B. T. Kumaon Institute of Technology, Dwarahat, India, Keynote Speaker NGISE 2025",
-//   "Sunil Kumar, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
-//   "Satish Kumar Singh, Indian Institute of Information Technology Allahabad, India, Guest of Honour NGISE 2025",
-//   "Innar Liiv, Tallinn University of Technology, Tallinn, Estonia, Technical Programme Commitee Chair NGISE 2025",
-//   "Anju Mishra, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
-//   "Sri Niwas Singh, Atal Bihari Vajpayee- Indian Institute of Information Technology and Management (ABV-IIITM) Gwalior, India, Chief Guest NGISE 2025",
-//   "Anastasija Nikiforova, University of Tartu, Estonia, Technical Programme Commitee Chair NGISE 2025",
-//   "Aditya Pratap Singh, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
-//   "Samarendra Pratap Singh, IET Dr RMLAU Ayodhya, IEEE Observer NGISE 2025+",
-//   "Anupama Sharma, Ajay Kumar Garg Engineering College Ghaziabad, India, Local Organizing Chair NGISE 2025",
-//   "Salvatore Sinno, Unisys, USA, Keynote Speaker NGISE 2025",
-//   "Akhilesh Tiwari, Indian Institute of Information Technology (IIIT), Allahabad, India, IEEE Observer NGISE 2025",
-//   "Elli Valla, Tallinn University of Technology, Tallinn, Estonia, Technical Programme Commitee Chair NGISE 2025"
-// ];
+const hallOfFameList = [
+  "Shivani Aggarwal, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
+  "Pavan Kumar Adepu, Amazon LLC, USA, Keynote Speaker NGISE 2025",
+  "Tania Cerquitelli, Politecnico di Torino, Italy, Technical Programme Commitee Chair NGISE 2025",
+  "Chuan-Yu Chang, National Yunlin University of Science and Technology, Taiwan, Chief Guest NGISE 2025, Keynote Speaker NGISE 2025",
+  "Nandita Goyal, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
+  "Ruchi Gupta, Ajay Kumar Garg Engineering College Ghaziabad, India, Local Organizing Chair NGISE 2025",
+  "Varun Kakar, B. T. Kumaon Institute of Technology, Dwarahat, India, Keynote Speaker NGISE 2025",
+  "Sunil Kumar, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
+  "Satish Kumar Singh, Indian Institute of Information Technology Allahabad, India, Guest of Honour NGISE 2025",
+  "Innar Liiv, Tallinn University of Technology, Tallinn, Estonia, Technical Programme Commitee Chair NGISE 2025",
+  "Anju Mishra, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
+  "Sri Niwas Singh, Atal Bihari Vajpayee- Indian Institute of Information Technology and Management (ABV-IIITM) Gwalior, India, Chief Guest NGISE 2025",
+  "Anastasija Nikiforova, University of Tartu, Estonia, Technical Programme Commitee Chair NGISE 2025",
+  "Aditya Pratap Singh, Ajay Kumar Garg Engineering College, Ghaziabad, India, Technical Programme Commitee Chair NGISE 2025",
+  "Samarendra Pratap Singh, IET Dr RMLAU Ayodhya, IEEE Observer NGISE 2025+",
+  "Anupama Sharma, Ajay Kumar Garg Engineering College Ghaziabad, India, Local Organizing Chair NGISE 2025",
+  "Salvatore Sinno, Unisys, USA, Keynote Speaker NGISE 2025",
+  "Akhilesh Tiwari, Indian Institute of Information Technology (IIIT), Allahabad, India, IEEE Observer NGISE 2025",
+  "Elli Valla, Tallinn University of Technology, Tallinn, Estonia, Technical Programme Commitee Chair NGISE 2025"
+];
 
 export default function HallOfFame() {
   return (
@@ -61,14 +61,14 @@ export default function HallOfFame() {
         </motion.div>
 
         {/* Left Aligned Bullet List */}
-        {/* <motion.div
+        <motion.div
            initial="hidden"
            whileInView="visible"
            viewport={{ once: true }}
            variants={fadeInUp}
            className="prose prose-lg max-w-none text-left"
         >
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b pb-2">Technical Programme Committee & Speakers</h2>
+          {/* <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b pb-2">Technical Programme Committee & Speakers</h2> */}
           <ul className="list-disc pl-5 space-y-4">
             {hallOfFameList.map((entry, index) => ( entry.startsWith("+") ? null : (
               <li key={index} className="text-gray-700 leading-relaxed  transition-colors">
@@ -76,7 +76,7 @@ export default function HallOfFame() {
               </li>
             )))}
           </ul>
-        </motion.div> */}
+        </motion.div>
       </div>
     </div>
   );
