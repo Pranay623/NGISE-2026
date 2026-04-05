@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Pages
 import HomePage from "./pages/HomePage";
@@ -45,6 +46,7 @@ function App() {
       duration={400}
     >
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route
             path="/2025/*"
