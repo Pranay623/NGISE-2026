@@ -6,7 +6,7 @@ export default function KeynoteSpeakers() {
     return (
         <div className="bg-gray-50 min-h-screen">
             <PageHeader
-                title="Keynote Speakers"
+                title="NGISE 2026 Keynote Speakers"
                 // description="Distinguished speakers and experts who will be sharing their insights at the conference"
             />
             <div className="max-w-7xl mx-auto px-4 py-12 flex flex-col items-center">
