@@ -207,7 +207,7 @@ export default function Navbar() {
                   setOpen: setLocaleOpen,
                   pathPrefix: "/locale",
                   links: [
-                    { to: "/locale/about-city", label: "About City" },
+                    { to: "/locale/about-city", label: "About the City" },
                     { to: "/locale/hotels", label: "Nearby Hotels" },
                     { to: "/locale/visa", label: "Visa Information" },
                   ]
