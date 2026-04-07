@@ -81,7 +81,7 @@ export default function TechnicalOrgannizers() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <PageHeader title="Program Committee" />
+            <PageHeader title="Programme Committee" />
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="max-w-4xl mx-auto py-8 text-left">
                     <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm p-6">

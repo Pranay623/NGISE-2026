@@ -76,8 +76,8 @@ const Footer = () => {
             </h3>
             <ul className="grid grid-cols-1 gap-3">
               {[
-                { name: "Keynote Speakers", link: "/speakers/keynote-speakers" },
-                { name: "Program Committee", link: "/committee/program-committee" },
+                { name: "Keynote Speakers", link: "/programme/keynote-speakers" },
+                { name: "Programme Committee", link: "/committee/programme-committee" },
                 { name: "About The City", link: "/locale/about-city" },
                 { name: "History", link: "/ngise/history" },
                 { name: "FAQ", link: "/faq" },

@@ -88,12 +88,12 @@ export default function Navbar() {
                         isOpen: mobileSpeakersOpen, 
                         setOpen: setMobileSpeakersOpen,
                         links: [
-                          { to: "/speakers/keynote-speakers", label: "Keynote Speakers" },
-                          { to: "/speakers/panel", label: "Panel" },
-                          { to: "/speakers/tutorial", label: "Tutorial" },
-                          { to: "/speakers/conference-dinner", label: "Conference Dinner" },
-                          { to: "/speakers/best-paper-award", label: "Best Paper Award" },
-                          { to: "/speakers/student-best-paper-award", label: "Student Best Paper Award" },
+                          { to: "/programme/keynote-speakers", label: "Keynote Speakers" },
+                          { to: "/programme/panel", label: "Panel" },
+                          { to: "/programme/tutorial", label: "Tutorial" },
+                          { to: "/programme/conference-dinner", label: "Conference Dinner" },
+                          { to: "/programme/best-paper-award", label: "Best Paper Award" },
+                          { to: "/programme/student-best-paper-award", label: "Student Best Paper Award" },
                         ]
                       },
                       { 
@@ -102,7 +102,7 @@ export default function Navbar() {
                         setOpen: setMobileCommitteeOpen,
                         links: [
                           { to: "/committee/organizers", label: "Steering Committee" },
-                          { to: "/committee/program-committee", label: "Program Committee" },
+                          { to: "/committee/programme-committee", label: "Programme Committee" },
                         ]
                       },
                       { 
@@ -181,14 +181,14 @@ export default function Navbar() {
                   title: "Programme", 
                   isOpen: speakersOpen, 
                   setOpen: setSpeakersOpen,
-                  pathPrefix: "/speakers",
+                  pathPrefix: "/programme",
                   links: [
-                    { to: "/speakers/keynote-speakers", label: "Keynote Speakers" },
-                    { to: "/speakers/panel", label: "Panel" },
-                    { to: "/speakers/tutorial", label: "Tutorial" },
-                    { to: "/speakers/conference-dinner", label: "Conference Dinner" },
-                    { to: "/speakers/best-paper-award", label: "Best Paper Award" },
-                    { to: "/speakers/student-best-paper-award", label: "Student Best Paper Award" },
+                    { to: "/programme/keynote-speakers", label: "Keynote Speakers" },
+                    { to: "/programme/panel", label: "Panel" },
+                    { to: "/programme/tutorial", label: "Tutorial" },
+                    { to: "/programme/conference-dinner", label: "Conference Dinner" },
+                    { to: "/programme/best-paper-award", label: "Best Paper Award" },
+                    { to: "/programme/student-best-paper-award", label: "Student Best Paper Award" },
                   ]
                 },
                 { 
@@ -198,7 +198,7 @@ export default function Navbar() {
                   pathPrefix: "/committee",
                   links: [
                     { to: "/committee/organizers", label: "Steering Committee" },
-                    { to: "/committee/program-committee", label: "Program Committee" },
+                    { to: "/committee/programme-committee", label: "Programme Committee" },
                   ]
                 },
                 { 

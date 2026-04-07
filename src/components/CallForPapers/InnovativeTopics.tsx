@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Rocket, Zap, Cpu, Database, Network, Shield, Users, Brain, Globe, Layers, BarChart, FileCode, Beaker } from "lucide-react";
 
-const topics = [
+/* const topics = [
     { title: "Self-Evolving Enterprise Information Systems", icon: <Rocket className="w-5 h-5" /> },
     { title: "AI-Native Information System Engineering (LLM-driven schemas, autonomous orchestration)", icon: <Cpu className="w-5 h-5" /> },
     { title: "LLM-Driven Enterprise Knowledge Orchestration", icon: <Brain className="w-5 h-5" /> },
@@ -46,7 +46,7 @@ const topics = [
     { title: "Real-Time BPM for Smart Cities", icon: <BarChart className="w-5 h-5" /> },
     { title: "Innovations for Sustainable and Green Information Systems Engineering", icon: <Zap className="w-5 h-5" /> },
     { title: "Formal Methods for Reproducible Information Systems Research", icon: <Beaker className="w-5 h-5" /> },
-];
+]; */
 
 const InnovativeTopics = () => {
     return (
@@ -70,7 +70,7 @@ const InnovativeTopics = () => {
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 ml-4 md:ml-12">
+                {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 ml-4 md:ml-12">
                     {topics.map((topic, index) => (
                         <div
                             key={index}
@@ -82,7 +82,43 @@ const InnovativeTopics = () => {
                             </span>
                         </div>
                     ))}
-                </div>
+                </div> */}
+
+                <ul className="list-disc pl-14 md:pl-28 text-lg text-gray-700 leading-normal max-w-6xl mx-auto space-y-1 text-left md:text-justify marker:text-black">
+                    <li>AI-Native Information System Engineering</li>
+                    <li>AI-Augmented Enterprise Architecture Modeling</li>
+                    <li>AI-Enhanced Digital Curation</li>
+                    <li>Reproducible AI Pipelines for Enterprise Systems</li>
+                    <li>LLM-Driven Enterprise Knowledge Orchestration</li>
+                    <li>Neuro-Symbolic IS for Regulatory Compliance Automation</li>
+                    <li>Graph Neural Networks for Business Process Mining</li>
+                    <li>Quantum-Enhanced Data Management</li>
+                    <li>Quantum Logistics</li>
+                    <li>HPC for Real-Time Enterprise Intelligence</li>
+                    <li>HPC-backed Simulation, Optimization, and Digital Twins</li>
+                    <li>Metaverse-Integrated Information Systems</li>
+                    <li>AR/VR-Integrated Organizational Intelligence</li>
+                    <li>Federated and Swarm Information Systems</li>
+                    <li>Autonomous Multi-Agent Enterprise Systems</li>
+                    <li>Autonomous Data Governance</li>
+                    <li>Blockchain-Based IS B2B Interoperability Frameworks</li>
+                    <li>Blockchain-Integrated Information Systems Beyond Finance, Web3</li>
+                    <li>Integration of Artificial Intelligence and Collective Intelligence</li>
+                    <li>Autonomous Agents in Enterprise Ecosystems</li>
+                    <li>Serverless AI Information Systems</li>
+                    <li>IoT-Driven Adaptive Information Systems</li>
+                    <li>Cloud-Native Autonomous IS Architectures</li>
+                    <li>Cloud-Native e-Governance Architectures</li>
+                    <li>Cognitive Big Data</li>
+                    <li>AI-Driven Big Data and Agentic Big Data</li>
+                    <li>Data Lakehouses and Data Meshs</li>
+                    <li>GovTech Platforms Powered by Trustworthy AI</li>
+                    <li>Digital Twins for Adaptive Information Infrastructure</li>
+                    <li>Digital Twins for Smart Cities Governance</li>
+                    <li>Real-Time Decision Support for Smart Cities</li>
+                    <li>Innovations for Sustainable and Green Information Systems Engineering</li>
+                    <li>Formal Methods for Reproducible Information Systems Research</li>
+                </ul>
             </div>
         </section>
     );

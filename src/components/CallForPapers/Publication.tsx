@@ -13,7 +13,8 @@ const Publication = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Publication</h2>
+                    {/* <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Publication</h2> */}
+                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Publication</h2>
                     <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full" />
                 </motion.div>
       </div>
