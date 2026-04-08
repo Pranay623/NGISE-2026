@@ -78,9 +78,9 @@ export default function Venue() {
                   whileHover={{ scale: 1.02 }}
                   className="bg-white p-6 rounded-xl hover:shadow-md transition-all duration-300"
                 >
-                  <h4 className="font-semibold text-gray-900 mb-4">
+                  {/* <h4 className="font-semibold text-gray-900 mb-4">
                     Dr. Anupama Sharma
-                  </h4>
+                  </h4> */}
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <Mail className="w-5 h-5 text-blue-600" />
@@ -88,10 +88,10 @@ export default function Venue() {
                         ngise@akgec.ac.in
                       </span>
                     </div>
-                    <div className="flex items-center space-x-3">
+                    {/* <div className="flex items-center space-x-3">
                       <Phone className="w-5 h-5 text-blue-600" />
                       <span className="text-gray-700">+91 9868450322</span>
-                    </div>
+                    </div> */}
                     <h6 className="font-sans text-gray-900 mb-4">
                       For more information, visit our website or contact us at <span className="font-semibold"><a href="https://www.akgec.ac.in">https://www.akgec.ac.in</a></span>
                     </h6>
