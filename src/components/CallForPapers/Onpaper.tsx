@@ -103,7 +103,7 @@ const Onpaper = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
                     />
-                    {/* <p className="text-base md:text-lg text-gray-700 mt-6 md:mt-8 px-2 md:px-4">
+                    <p className="text-base md:text-lg text-gray-700 mt-6 md:mt-8 px-2 md:px-4">
                         To submit the paper, click on the link:{" "} <br />
                         <a
                             href="https://cmt3.research.microsoft.com/NGISE2026"
@@ -113,9 +113,6 @@ const Onpaper = () => {
                         >
                             https://cmt3.research.microsoft.com/NGISE2026
                         </a>
-                    </p> */}
-                    <p className="text-base md:text-lg text-gray-600 mt-6 max-w-4xl mx-auto px-4 italic leading-relaxed">
-                        The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
                     </p>
                 </div>
 
