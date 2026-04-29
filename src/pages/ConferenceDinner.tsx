@@ -17,7 +17,7 @@ export default function ConferenceDinner() {
       
       <div className="max-w-7xl mx-auto px-6 py-16 mb-16">
            <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-1">28th November 2026</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-1">28th October 2026</h2>
             <p className="text-xl font-semibold text-blue-800 mb-6 flex items-center justify-center gap-2">
               Radisson Blu Towers Kaushambi Delhi <span className="text-yellow-400 text-2xl">★★★★★</span>
             </p>
