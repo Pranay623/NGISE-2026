@@ -8,7 +8,7 @@ export default function Panel() {
             <div className="max-w-4xl mx-auto px-4 py-16">
                 <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
                     <div className="text-center mb-8">
-                        <p className="text-lg font-bold text-gray-900">29th November 2026</p>
+                        <p className="text-lg font-bold text-gray-900">29th October 2026</p>
                         <p className="text-xl font-bold text-blue-700 mt-2">Agentic AI in Information Systems: Automation, Orchestration, Autonomy</p>
                     </div>
 
