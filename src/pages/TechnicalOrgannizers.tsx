@@ -55,6 +55,7 @@ export default function TechnicalOrgannizers() {
         "Anastasija Nikiforova, University of Tartu, Estonia",
         "Alexander Norta, University of Pretoria , South Africa",
         "Monalisha  Ojha, University of Mannheim, Germany",
+        "Riina Palu, Tallinn University of Technology, Estonia",
         "Ingrid Pappel, Tallinn University of Technology, Estonia",
         "Vishwajeet Pattanaik, Indian Institute of Science, Bengalore, India",
         "Sijo Arakkal Peious, Tallinn University of Technology, Estonia",
