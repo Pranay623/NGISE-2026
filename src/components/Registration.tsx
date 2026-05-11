@@ -79,23 +79,23 @@ const Registration = () => {
                 <tbody className="divide-y divide-gray-200">
                   <tr>
                     <td className="py-4 px-6">Standard</td>
-                    <td className="py-4 px-6">USD 400 / EUR 350</td>
-                    <td className="py-4 px-6">USD 600 / EUR 500</td>
+                    <td className="py-4 px-6">INR 11000/ USD 400 / EUR 350</td>
+                    <td className="py-4 px-6">INR 12000/ USD 600 / EUR 500</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-6">Reduced (via NGISE/AKGEC Scholarship)</td>
-                    <td className="py-4 px-6">USD 130 / EUR 110</td>
-                    <td className="py-4 px-6">USD 150 / EUR 120</td>
+                    <td className="py-4 px-6">INR 9000/ USD 130 / EUR 110</td>
+                    <td className="py-4 px-6">INR 10000/ USD 150 / EUR 120</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-6">Extra Page (up to two pages)</td>
-                    <td className="py-4 px-6">USD 60 / EUR 50 per page</td>
-                    <td className="py-4 px-6">USD 90 / EUR 75 per page</td>
+                    <td className="py-4 px-6">INR 1000/ USD 60 / EUR 50 per page</td>
+                    <td className="py-4 px-6">INR 1500/ USD 90 / EUR 75 per page</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-6">​​​​​​​Additional Dinner Ticket</td>
-                    <td className="py-4 px-6">USD 60 / EUR 50</td>
-                    <td className="py-4 px-6">USD 90 / EUR 75</td>
+                    <td className="py-4 px-6">INR 2000/ USD 60 / EUR 50</td>
+                    <td className="py-4 px-6">INR 3000/ USD 90 / EUR 75</td>
                   </tr>
                 </tbody>
               </table>
