@@ -82,11 +82,11 @@ const Registration = () => {
                     <td className="py-4 px-6">INR 11000/ USD 400 / EUR 350</td>
                     <td className="py-4 px-6">INR 12000/ USD 600 / EUR 500</td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td className="py-4 px-6">Reduced (via NGISE/AKGEC Scholarship)</td>
                     <td className="py-4 px-6">INR 9000/ USD 130 / EUR 110</td>
                     <td className="py-4 px-6">INR 10000/ USD 150 / EUR 120</td>
-                  </tr>
+                  </tr>*/}
                   <tr>
                     <td className="py-4 px-6">Extra Page (up to two pages)</td>
                     <td className="py-4 px-6">INR 1000/ USD 60 / EUR 50 per page</td>
