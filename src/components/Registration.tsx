@@ -83,7 +83,7 @@ const Registration = () => {
                     <td className="py-4 px-6">USD 600 / EUR 500</td>
                   </tr>
                   <tr>
-                    <td className="py-4 px-6">Reduced (via NGISE/AKGEC Scholarship)</td>
+                    <td className="py-4 px-6">Reduced (applies to participants from India)</td>
                     <td className="py-4 px-6">USD 130 / EUR 110</td>
                     <td className="py-4 px-6">USD 150 / EUR 120</td>
                   </tr>
@@ -127,7 +127,7 @@ const Registration = () => {
                       "Standard registration fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, coffee breaks, and conferece dinner.",
                       (
                         <>
-                          Reduced fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, and coffee breaks. The reduced fee is sponsored by the <strong>NGISE/AKGEC Young Scholar's Scholarship</strong>.The intention of the reduced fee is to enable young scholars to attend the conference. It is granted upon application to a limited number of applicants, according to availability of funds. As application for a reduced fee, it is sufficient to send your CV (including ORCID and Google Scholar link) to ngise@akgec.ac.in (subject: <strong>Reduced Fee</strong>). Researchers at all career stages can apply. Applicants will be selected according to scientific age and achievements.
+                          Reduced fees cover admittance to all sessions, certificate of participation (only for on-site participants), lunch, and coffee breaks.
                         </>
                       ),
                       "The additional dinner ticket can be bought for anyone not attending the conference (spouses, collaegues, NGISE friends etc). The additional dinner can be bought by participants attending with a reduced fee (the conference dinner is not included in the reduced fee).",
