@@ -83,7 +83,7 @@ const Registration = () => {
                     <td className="py-4 px-6">USD 600 / EUR 500</td>
                   </tr>
                   <tr>
-                    <td className="py-4 px-6">Reduced (applies to participants from India)</td>
+                    <td className="py-4 px-6">Reduced (reduced for Special Economic Zone(SEZ) India, Bangladesh, Srilanka, Nepal)</td>
                     <td className="py-4 px-6">USD 130 / EUR 110</td>
                     <td className="py-4 px-6">USD 150 / EUR 120</td>
                   </tr>
