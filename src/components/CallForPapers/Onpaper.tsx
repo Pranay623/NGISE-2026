@@ -71,7 +71,7 @@ const Onpaper = () => {
                             {[
                                 "Authors must submit original, unpublished papers that are not under review elsewhere.",
                                 "As per the copyright transfer agreement, authors bear both individual and collective responsibility for the published content.",
-                                "Allowable pages in the camera-ready paper: for short papers (6-8 pages), and for long papers (10-12 pages).",
+                                "Allowable pages in the camera-ready paper: for short papers (6-8 pages), and for long papers (15-17 pages).",
                                 <>Strictly follow the Springer manuscript preparation guidelines <br /><a href="https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium break-all">https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings</a></>,
                                 "To download Springer template:",
                                 <>MS WORD: <a href="/src/public/splnproc1703.doc" download className="text-blue-600 hover:text-blue-800 underline font-medium">MS Word Template</a></>,
