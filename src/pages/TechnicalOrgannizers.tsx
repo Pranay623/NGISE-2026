@@ -83,6 +83,7 @@ export default function TechnicalOrgannizers() {
         "Ankit Vidyarthi, Jaypee Institute of Information Technology Noida, India",
         "Weixing Zang, Karlsruhe Institute of Technology, Germany",
         "Thomas Ziebermayer, University of Applied Sciences Upper Austria, Hagenberg, Austria",
+        "Shivani Agarwal, Ajay Kumar Garg Engineering College, Ghaziabad, India",
     ];
 
     return (
