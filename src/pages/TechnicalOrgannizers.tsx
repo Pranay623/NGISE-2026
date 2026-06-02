@@ -83,7 +83,11 @@ export default function TechnicalOrgannizers() {
         "Ankit Vidyarthi, Jaypee Institute of Information Technology Noida, India",
         "Weixing Zang, Karlsruhe Institute of Technology, Germany",
         "Thomas Ziebermayer, University of Applied Sciences Upper Austria, Hagenberg, Austria",
+        "Athanasios V. Vasilakos, University of Agder, Norway",
         "Shivani Agarwal, Ajay Kumar Garg Engineering College, Ghaziabad, India",
+        "Mohamed Anis  Bach Tobji , University of Manouba, Tunisia",
+        "Rim Jallouli, University of Manouba, Tunisia",
+        "Raul Rojas, Freie Universität Berlin, Germany",
     ];
 
     return (
