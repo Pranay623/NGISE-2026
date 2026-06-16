@@ -97,13 +97,22 @@ export default function Hero() {
 />
 
           <motion.p
-  className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
+  className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
   style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
 >
   2nd International Conference on Next Generation Information Systems Engineering
+</motion.p>
+          <motion.p
+  className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
+  style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+ Submission Deadline: 1 July
 </motion.p>
 
 <motion.div
@@ -135,7 +144,22 @@ export default function Hero() {
           >
             Register Now
           </motion.button> */}
-          <div style={{ position: 'relative' }} className="flex justify-center mt-4">
+          <div style={{ position: 'relative' }} className="flex flex-col items-center mt-4 space-y-4">
+  <GlareHover
+    glareColor="#ffffff"
+    glareOpacity={0.3}
+    glareAngle={-30}
+    glareSize={300}
+    transitionDuration={800}
+    playOnce={false}
+  >
+    <div 
+      className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg cursor-pointer transition-colors shadow-lg"
+      onClick={() => window.location.href = "/call-for-papers"}
+    >
+      Submit Paper
+    </div>
+  </GlareHover>
   <GlareHover
     glareColor="#ffffff"
     glareOpacity={0.3}
