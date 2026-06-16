@@ -97,13 +97,13 @@ export default function Hero() {
 />
 
           <motion.p
-  className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
+  className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
   style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
 >
-  2nd International Conference on Next Generation Information Systems Engineering
+  2nd International Conference on Next Generation Information Systems Engineering <br />Hybrid Conference
 </motion.p>
           <motion.p
   className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
@@ -155,7 +155,7 @@ export default function Hero() {
   >
     <div 
       className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg cursor-pointer transition-colors shadow-lg"
-      onClick={() => window.location.href = "/call-for-papers"}
+      onClick={() => window.location.href = "https://cmt3.research.microsoft.com/NGISE2026"}
     >
       Submit Paper
     </div>
