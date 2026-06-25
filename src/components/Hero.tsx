@@ -154,7 +154,7 @@ export default function Hero() {
     playOnce={false}
   >
     <div 
-      className="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg cursor-pointer transition-colors shadow-lg"
+      className="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3  cursor-pointer transition-colors shadow-lg"
       onClick={() => window.location.href = "https://cmt3.research.microsoft.com/NGISE2026"}
     >
       Submit Paper
@@ -169,7 +169,7 @@ export default function Hero() {
     playOnce={false}
   >
     <div 
-      className="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg cursor-pointer transition-colors shadow-lg"
+      className="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3  cursor-pointer transition-colors shadow-lg"
       onClick={() => window.location.href = "/registrations"}
     >
       Register Now
