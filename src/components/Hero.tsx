@@ -112,7 +112,7 @@ export default function Hero() {
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
 >
- Submission Deadline: 1 July
+ Submission Deadline: 30 July
 </motion.p>
 
 <motion.div
