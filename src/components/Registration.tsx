@@ -1,9 +1,148 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Info } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Info, X, Search } from "lucide-react";
 import PageHeader from "./PageHeader";
 
 const Registration = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    nationality: "indian",
+    country: "",
+    categoryType: "",
+    paperId: "",
+    paperTitle: "",
+    title: "Mr",
+    firstName: "",
+    lastName: "",
+    gender: "male",
+    mobile: "",
+    email: "",
+    institution: "",
+    city: "",
+    state: "",
+    registrationAmount: "",
+  });
+  const [submitMsg, setSubmitMsg] = useState("");
+
+  const [countries, setCountries] = useState<string[]>([]);
+  const [countryQuery, setCountryQuery] = useState("");
+  const [loadingCountries, setLoadingCountries] = useState(false);
+  const [countriesLoaded, setCountriesLoaded] = useState(false);
+
+  // Fetch country list from public API (restcountries). Falls back to a small list if network fails.
+  const fetchCountries = async () => {
+    setLoadingCountries(true);
+    try {
+      const res = await fetch("https://restcountries.com/v3.1/all?fields=name");
+      if (!res.ok) throw new Error("Failed to fetch");
+      const data = await res.json();
+      const list = data
+        .map((c: any) => c?.name?.common)
+        .filter(Boolean)
+        .sort((a: string, b: string) => a.localeCompare(b));
+      setCountries(list);
+    } catch (err) {
+      // minimal fallback
+      setCountries(["India", "United States", "United Kingdom", "Germany", "France", "Japan", "Canada", "Australia"]);
+    } finally {
+      setLoadingCountries(false);
+      setCountriesLoaded(true);
+    }
+  };
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
+  const onChange = (
+    key: keyof typeof formData,
+    value: string
+  ) => {
+    setFormData((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const filteredCountries = countryQuery
+    ? countries.filter((c) => c.toLowerCase().includes(countryQuery.toLowerCase()))
+    : countries;
+
+  const handleCountrySearch = () => {
+    setSubmitMsg("");
+    if (!countriesLoaded) {
+      fetchCountries();
+      setSubmitMsg("Loading countries...");
+      return;
+    }
+    if (!countryQuery) {
+      setSubmitMsg("Type a country name to search.");
+      return;
+    }
+    const match = countries.find((c) => c.toLowerCase().includes(countryQuery.toLowerCase()));
+    if (match) {
+      onChange("country", match);
+      setSubmitMsg(`Selected ${match}`);
+    } else {
+      setSubmitMsg("No matching country found.");
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      nationality: "indian",
+      country: "",
+      categoryType: "",
+      paperId: "",
+      paperTitle: "",
+      title: "Mr",
+      firstName: "",
+      lastName: "",
+      gender: "male",
+      mobile: "",
+      email: "",
+      institution: "",
+      city: "",
+      state: "",
+      registrationAmount: "",
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitMsg("");
+
+    const required: Array<keyof typeof formData> = [
+      "categoryType",
+      "paperId",
+      "paperTitle",
+      "firstName",
+      "lastName",
+      "mobile",
+      "email",
+      "institution",
+      "city",
+      "state",
+      "country",
+    ];
+
+    const missing = required.filter((key) => !formData[key]);
+    if (missing.length > 0) {
+      setSubmitMsg("Please fill all required fields.");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(formData.mobile)) {
+      setSubmitMsg("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    try {
+      setSubmitMsg("Registration submitted successfully. We will contact you soon.");
+      resetForm();
+    } catch (error) {
+      setSubmitMsg("Registration failed. Please try again.");
+      console.error(error);
+    }
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <PageHeader
@@ -93,7 +232,7 @@ const Registration = () => {
                     <td className="py-4 px-6">USD 90 / EUR 75 per page</td>
                   </tr>
                   <tr>
-                    <td className="py-4 px-6">​​​​​​​Additional Dinner Ticket</td>
+                    <td className="py-4 px-6">Additional Dinner Ticket</td>
                     <td className="py-4 px-6">USD 60 / EUR 50</td>
                     <td className="py-4 px-6">USD 90 / EUR 75</td>
                   </tr>
@@ -144,7 +283,7 @@ const Registration = () => {
             </div>
           </motion.div>
 
-          {/* Register Now Button */}
+          {/* Register CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -152,12 +291,171 @@ const Registration = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="mt-16 text-center"
           >
-            <div
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gray-400 text-white rounded-full text-lg font-semibold shadow-md cursor-not-allowed transition-all duration-300"
+            <button
+              type="button"
+              onClick={() => setShowForm(true)}
+              className="px-8 py-4 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition-colors"
             >
-              <span>Registration: Coming Soon</span>
-            </div>
+              Register Now
+            </button>
           </motion.div>
+
+          <AnimatePresence>
+            {showForm && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4"
+                onClick={() => setShowForm(false)}
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.96, y: 24 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96, y: 24 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-full max-w-5xl max-h-[90vh] overflow-hidden bg-white rounded-2xl shadow-2xl border border-blue-100"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-blue-700 to-blue-600 text-white">
+                    <h3 className="text-xl md:text-2xl font-bold">Registration Form</h3>
+                    <button
+                      type="button"
+                      onClick={() => setShowForm(false)}
+                      className="p-2 rounded-full hover:bg-white/20 transition-colors"
+                      aria-label="Close registration modal"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+
+                  <div className="p-6 md:p-8 overflow-y-auto max-h-[calc(90vh-72px)]">
+                    <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">Paper ID</label>
+                      <input type="text" value={formData.paperId} onChange={(e) => onChange("paperId", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">Title</label>
+                      <select value={formData.title} onChange={(e) => onChange("title", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="Mr">Mr.</option>
+                        <option value="Ms">Ms.</option>
+                        <option value="Dr">Dr.</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">First Name</label>
+                      <input type="text" value={formData.firstName} onChange={(e) => onChange("firstName", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">Last Name</label>
+                      <input type="text" value={formData.lastName} onChange={(e) => onChange("lastName", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">Phone Number</label>
+                      <input type="tel" maxLength={10} value={formData.mobile} onChange={(e) => onChange("mobile", e.target.value.replace(/\D/g, ""))} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">Email Address</label>
+                      <input type="email" value={formData.email} onChange={(e) => onChange("email", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="block text-gray-700 font-medium">Organization</label>
+                      <input type="text" value={formData.institution} onChange={(e) => onChange("institution", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="block text-gray-700 font-medium">Address</label>
+                      <input type="text" value={formData.state} onChange={(e) => onChange("state", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">Country</label>
+                      <div className="relative">
+                        <input
+                          list="country-options"
+                          value={formData.country}
+                          onChange={(e) => {
+                            onChange("country", e.target.value);
+                            setCountryQuery(e.target.value);
+                          }}
+                          placeholder="Search and select a country"
+                          className="w-full pr-12 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        />
+                        <button
+                          type="button"
+                          onClick={handleCountrySearch}
+                          className="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                          aria-label="Search country"
+                        >
+                          <Search className="w-4 h-4" />
+                        </button>
+                      </div>
+                      <datalist id="country-options">
+                        {filteredCountries.map((country) => (
+                          <option key={country} value={country} />
+                        ))}
+                      </datalist>
+                      {loadingCountries && <p className="text-xs text-gray-500">Loading countries...</p>}
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">City</label>
+                      <input type="text" value={formData.city} onChange={(e) => onChange("city", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="block text-gray-700 font-medium">Registration Category</label>
+                      <select
+                        value={formData.categoryType}
+                        onChange={(e) => onChange("categoryType", e.target.value)}
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      >
+                        <option value="">--Select Category--</option>
+                        <option value="Academician/Industry Participant/Others">Academician/Industry Participant/Others</option>
+                        <option value="Research Scholar/ UG/PG Student">Research Scholar/ UG/PG Student</option>
+                        <option value="Attendee">Attendee</option>
+                        <option value="Non Presenting Author">Non Presenting Author</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="block text-gray-700 font-medium">Registration Fee</label>
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={formData.registrationAmount}
+                        onChange={(e) => onChange("registrationAmount", e.target.value)}
+                        placeholder="Enter amount"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                  <div className="md:col-span-2 flex flex-col items-center gap-3 pt-2">
+                    <button
+                      type="submit"
+                      className="px-8 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition-colors"
+                    >
+                      Submit Registration
+                    </button>
+                    {submitMsg && (
+                      <p className={`text-sm ${submitMsg.includes("successfully") ? "text-green-600" : "text-red-600"}`}>
+                        {submitMsg}
+                      </p>
+                    )}
+                  </div>
+                    </form>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
     </div>
@@ -165,3 +463,4 @@ const Registration = () => {
 };
 
 export default Registration;
+
