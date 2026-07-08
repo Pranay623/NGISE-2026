@@ -12,6 +12,8 @@ import DatesPage from "./pages/DatesPage";
 import SpeakersPage from "./pages/SpeakersPage";
 import VenuePage from "./pages/VenuePage";
 import Registration from "./components/Registration";
+import SubmitProofPage from "./pages/SubmitProofPage";
+import PaymentStatusPage from "./pages/PaymentStatusPage";
 import City from "./pages/City";
 import Organizers from "./pages/Organizers";
 import MainVenue from "./components/Venue";
@@ -80,6 +82,9 @@ function App() {
                     <Route path="/programme/student-best-paper-award" element={<StudentBestPaperAward />} />
                     <Route path="/contact" element={<VenuePage />} />
                     <Route path="/registrations" element={<Registration />} />
+                    <Route path="/registrations/submit-proof" element={<SubmitProofPage />} />
+                    <Route path="/registrations/payment-status" element={<PaymentStatusPage />} />
+                    <Route path="/registrations/payment-status/:id" element={<PaymentStatusPage />} />
                     <Route path="/locale/about-city" element={<City />} />
                     <Route path="/locale/hotels" element={<NearByCity />} />
                     <Route path="/locale/visa" element={<VisaInformation />} />

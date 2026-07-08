@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Info, X, Search } from "lucide-react";
+import { Link } from "react-router-dom";
 import PageHeader from "./PageHeader";
 
 const Registration = () => {
@@ -294,10 +295,28 @@ const Registration = () => {
             <button
               type="button"
               onClick={() => setShowForm(true)}
-              className="px-8 py-4 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center justify-center w-72 h-14 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition-colors"
             >
               Register Now
             </button>
+
+            <div className="mt-4">
+              <Link
+                to="/registrations/submit-proof"
+                className="inline-flex items-center justify-center w-72 h-14 border-2 border-blue-600 text-blue-600 rounded-full text-lg font-semibold shadow-sm hover:bg-blue-600 hover:text-white transition-colors"
+              >
+                Submit Payment Proof
+              </Link>
+            </div>
+
+            <div className="mt-4">
+              <Link
+                to="/registrations/payment-status"
+                className="text-blue-600 hover:text-blue-700 font-medium underline underline-offset-4 transition-colors"
+              >
+                Check Payment Status
+              </Link>
+            </div>
           </motion.div>
 
           <AnimatePresence>
