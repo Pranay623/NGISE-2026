@@ -45,9 +45,39 @@ export async function checkUtrAvailability(utr: string): Promise<boolean> {
   return result.data.exists;
 }
 
+export interface RegistrationData {
+  paperId?: string;
+  title?: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  organization: string;
+  address: string;
+  country: string;
+  city: string;
+  registrationCategory: string;
+  registrationFee: number;
+}
+
+export async function registerUser(data: RegistrationData): Promise<any> {
+  const res = await fetch(`${API_BASE}/payments/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    const errorData: ApiResponse<null> = await res.json().catch(() => ({}));
+    const message = errorData.errors?.join(", ") || errorData.message || "Failed to register";
+    throw new Error(message);
+  }
+  const result: ApiResponse<any> = await res.json();
+  return result.data;
+}
+
 export async function submitPayment(data: PaymentData): Promise<PaymentRecord> {
   const res = await fetch(`${API_BASE}/payments/submit`, {
-    method: "POST",
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });

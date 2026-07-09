@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Info, X, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageHeader from "./PageHeader";
+import { registerUser } from "../services/paymentService";
 
 const Registration = () => {
   const [showForm, setShowForm] = useState(false);
@@ -112,8 +113,6 @@ const Registration = () => {
 
     const required: Array<keyof typeof formData> = [
       "categoryType",
-      "paperId",
-      "paperTitle",
       "firstName",
       "lastName",
       "mobile",
@@ -136,10 +135,29 @@ const Registration = () => {
     }
 
     try {
-      setSubmitMsg("Registration submitted successfully. We will contact you soon.");
-      resetForm();
-    } catch (error) {
-      setSubmitMsg("Registration failed. Please try again.");
+      setSubmitMsg("Registering...");
+      await registerUser({
+        paperId: formData.paperId || undefined,
+        title: formData.title || undefined,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phoneNumber: formData.mobile,
+        email: formData.email,
+        organization: formData.institution,
+        address: formData.state,
+        country: formData.country,
+        city: formData.city,
+        registrationCategory: formData.categoryType,
+        registrationFee: Number(formData.registrationAmount) || 0
+      });
+
+      setSubmitMsg("Registration submitted successfully. You can now make the payment.");
+      setTimeout(() => {
+        setShowForm(false);
+        resetForm();
+      }, 2000);
+    } catch (error: any) {
+      setSubmitMsg(error.message || "Registration failed. Please try again.");
       console.error(error);
     }
   };
