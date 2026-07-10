@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Upload, FileText, X, AlertCircle, Loader2, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { Upload, FileText, X, AlertCircle, Loader2, ArrowLeft, CheckCircle2, Eye, Edit3, ZoomIn } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import { submitPayment, checkUtrAvailability } from "../services/paymentService";
 
@@ -39,7 +39,9 @@ const SubmitProofPage: React.FC = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const [showBankDetails, setShowBankDetails] = useState(false);
+  const [showBankDetails, setShowBankDetails] = useState(true);
+  const [showReview, setShowReview] = useState(false);
+  const [showImagePreview, setShowImagePreview] = useState(false);
 
   const onChange = (key: string, value: string) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -136,12 +138,18 @@ const SubmitProofPage: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Step 1: Validate and show review
+  const handleReview = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
-
     if (!validate()) return;
+    setShowReview(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
+  // Step 2: Actually submit after user confirms
+  const handleConfirmSubmit = async () => {
+    setSubmitError("");
     setIsSubmitting(true);
 
     try {
@@ -152,6 +160,7 @@ const SubmitProofPage: React.FC = () => {
           ...prev, 
           transactionId: "This Transaction ID/UTR has already been submitted. Sharing screenshots is not allowed." 
         }));
+        setShowReview(false);
         setIsSubmitting(false);
         return;
       }
@@ -180,10 +189,20 @@ const SubmitProofPage: React.FC = () => {
       navigate(`/registrations/payment-status/${result.id}`, { replace: true });
     } catch (err: any) {
       setSubmitError(err.message || "Submission failed. Please check your connection and try again.");
+      setShowReview(false);
       console.error(err);
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const formatDateTime = (dt: string) => {
+    if (!dt) return "";
+    const d = new Date(dt);
+    return d.toLocaleString("en-IN", {
+      day: "2-digit", month: "short", year: "numeric",
+      hour: "2-digit", minute: "2-digit", hour12: true,
+    });
   };
 
   return (
@@ -273,7 +292,7 @@ const SubmitProofPage: React.FC = () => {
               <p className="text-blue-100 text-sm mt-1">All fields are required</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-6 md:p-8">
+            <form onSubmit={handleReview} className="p-6 md:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* Sender Name */}
                 <div className="space-y-2">
@@ -368,7 +387,7 @@ const SubmitProofPage: React.FC = () => {
                 </div>
 
                 {/* Transaction Date & Time */}
-                <div className="space-y-2">
+                <div className="space-y-2 group">
                   <label className="block text-gray-700 font-medium">Transaction Date & Time</label>
                   <input
                     type="datetime-local"
@@ -382,6 +401,10 @@ const SubmitProofPage: React.FC = () => {
                       {errors.transactionDateTime}
                     </p>
                   )}
+                  <p className="text-xs rounded-md px-3 py-2 items-start gap-1.5 mt-1 hidden group-hover:flex" style={{ color: '#b45309', backgroundColor: '#fffbeb', border: '1px solid #fde68a' }}>
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                    <span>The date &amp; time you enter must exactly match the transaction date &amp; time shown on your payment proof screenshot. Mismatched details may lead to rejection.</span>
+                  </p>
                 </div>
 
                 {/* Transaction ID */}
@@ -481,23 +504,205 @@ const SubmitProofPage: React.FC = () => {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="px-8 py-4 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="px-8 py-4 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition-colors flex items-center gap-2"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Submitting...
-                    </>
-                  ) : (
-                    "Submit Payment Proof"
-                  )}
+                  <Eye className="w-5 h-5" />
+                  Review & Submit
                 </button>
               </div>
             </form>
           </motion.div>
         </div>
       </section>
+
+      {/* ───── Review / Confirmation Overlay ───── */}
+      {showReview && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => !isSubmitting && setShowReview(false)}
+          />
+
+          {/* Modal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+          >
+            {/* Header */}
+            <div className="sticky top-0 bg-blue-600 text-white px-6 py-4 rounded-t-2xl flex items-center justify-between z-10">
+              <div>
+                <h3 className="text-xl font-bold">Review Your Details</h3>
+                <p className="text-blue-100 text-sm mt-0.5">Please verify all information before submitting</p>
+              </div>
+              {!isSubmitting && (
+                <button
+                  type="button"
+                  onClick={() => setShowReview(false)}
+                  className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
+            </div>
+
+            {/* Details */}
+            <div className="p-6 space-y-1">
+              {[
+                { label: "Sender Name", value: formData.senderName },
+                { label: "Email Address", value: formData.email },
+                { label: "Mobile Number", value: formData.mobileNumber },
+                { label: "Amount Paid (₹)", value: `₹${Number(formData.amount).toLocaleString("en-IN")}` },
+                { label: "Account Holder Name", value: formData.senderAccountName },
+                { label: "Transaction Date & Time", value: formatDateTime(formData.transactionDateTime) },
+                { label: "Transaction ID / UTR", value: formData.transactionId },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 px-4 py-3 rounded-lg ${
+                    i % 2 === 0 ? "bg-gray-50" : "bg-white"
+                  }`}
+                >
+                  <span className="text-gray-500 text-sm font-medium sm:w-48 shrink-0">{item.label}</span>
+                  <span className="text-gray-900 font-semibold break-all">{item.value}</span>
+                </div>
+              ))}
+
+              {/* Screenshot preview */}
+              {screenshotFile && (
+                <div className="px-4 py-3 rounded-lg bg-gray-50">
+                  <span className="text-gray-500 text-sm font-medium block mb-2">Payment Screenshot</span>
+                  <div className="flex items-center gap-3">
+                    {screenshotPreview ? (
+                      <div
+                        className="relative group/img cursor-pointer"
+                        onClick={() => setShowImagePreview(true)}
+                      >
+                        <img
+                          src={screenshotPreview}
+                          alt="Payment screenshot"
+                          className="w-20 h-20 object-cover rounded-lg border border-gray-200 transition-all group-hover/img:brightness-75 group-hover/img:border-blue-400"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity">
+                          <ZoomIn className="w-6 h-6 text-white drop-shadow-lg" />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="w-20 h-20 flex items-center justify-center bg-blue-50 rounded-lg border border-blue-100">
+                        <FileText className="w-6 h-6 text-blue-600" />
+                      </div>
+                    )}
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">{screenshotFile.name}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        {(screenshotFile.size / 1024).toFixed(1)} KB
+                      </p>
+                      {screenshotPreview && (
+                        <button
+                          type="button"
+                          onClick={() => setShowImagePreview(true)}
+                          className="text-xs text-blue-600 hover:text-blue-800 font-medium mt-1 flex items-center gap-1 transition-colors"
+                        >
+                          <ZoomIn className="w-3 h-3" />
+                          Click to view full image
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Submit error inside modal */}
+            {submitError && (
+              <div className="mx-6 mb-2 bg-red-50 border border-red-200 rounded-lg p-3 flex items-center gap-2 text-red-700 text-sm">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{submitError}</span>
+              </div>
+            )}
+
+            {/* Action buttons */}
+            <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4 flex flex-col sm:flex-row items-center justify-end gap-3 rounded-b-2xl">
+              <button
+                type="button"
+                disabled={isSubmitting}
+                onClick={() => setShowReview(false)}
+                className="w-full sm:w-auto px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full font-semibold hover:bg-gray-50 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                <Edit3 className="w-4 h-4" />
+                Go Back & Edit
+              </button>
+              <button
+                type="button"
+                disabled={isSubmitting}
+                onClick={handleConfirmSubmit}
+                className="w-full sm:w-auto px-8 py-3 bg-green-600 text-white rounded-full font-semibold shadow-md hover:bg-green-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    <CheckCircle2 className="w-5 h-5" />
+                    Confirm & Submit
+                  </>
+                )}
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* ───── Fullscreen Image Preview Lightbox ───── */}
+      {showImagePreview && screenshotPreview && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+          {/* Dark backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute inset-0 bg-black/80"
+            onClick={() => setShowImagePreview(false)}
+          />
+
+          {/* Image container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center"
+          >
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setShowImagePreview(false)}
+              className="absolute -top-2 -right-2 z-10 bg-white text-gray-700 rounded-full p-2 shadow-lg hover:bg-red-50 hover:text-red-600 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Full image */}
+            <img
+              src={screenshotPreview}
+              alt="Payment screenshot full view"
+              className="max-h-[80vh] max-w-full object-contain rounded-xl shadow-2xl border-2 border-white/20"
+            />
+
+            {/* File info bar */}
+            <div className="mt-3 bg-white/10 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-full flex items-center gap-2">
+              <FileText className="w-4 h-4" />
+              <span>{screenshotFile?.name}</span>
+              <span className="text-white/60">•</span>
+              <span className="text-white/80">{screenshotFile ? (screenshotFile.size / 1024).toFixed(1) + " KB" : ""}</span>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };

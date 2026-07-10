@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search, ArrowLeft, Download, RotateCcw, AlertCircle, Loader2, User, Mail, Phone, CreditCard, Calendar, Hash } from "lucide-react";
+import { Search, ArrowLeft, Download, RotateCcw, AlertCircle, Loader2, User, Mail, Phone, CreditCard, Calendar, Hash, CheckCircle, Clock, Bell, HelpCircle } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import PaymentStepper from "../components/PaymentStepper";
 import { getPaymentStatus, lookupPayment, downloadReceipt, type PaymentRecord } from "../services/paymentService";
@@ -63,47 +63,47 @@ const PaymentStatusPage: React.FC = () => {
     }
   };
 
-  const handleDownloadReceipt = async () => {
-    if (payment?.id) {
-      try {
-        const url = await downloadReceipt(payment.id);
-        if (url) {
-          window.open(url, "_blank");
-        } else {
-          alert("Receipt file is not generated yet.");
-        }
-      } catch (err) {
-        console.error("Failed to download receipt", err);
-        alert("Could not load receipt. Please try again.");
-      }
-    }
-  };
+  // const handleDownloadReceipt = async () => {
+  //   if (payment?.id) {
+  //     try {
+  //       const url = await downloadReceipt(payment.id);
+  //       if (url) {
+  //         window.open(url, "_blank");
+  //       } else {
+  //         alert("Receipt file is not generated yet.");
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to download receipt", err);
+  //       alert("Could not load receipt. Please try again.");
+  //     }
+  //   }
+  // };
 
-  const handleResubmit = () => {
-    if (payment) {
-      navigate("/registrations/submit-proof", {
-        state: {
-          prefill: {
-            senderName: payment.senderName,
-            email: payment.email,
-            mobileNumber: payment.mobileNumber,
-          },
-        },
-      });
-    }
-  };
+  // const handleResubmit = () => {
+  //   if (payment) {
+  //     navigate("/registrations/submit-proof", {
+  //       state: {
+  //         prefill: {
+  //           senderName: payment.senderName,
+  //           email: payment.email,
+  //           mobileNumber: payment.mobileNumber,
+  //         },
+  //       },
+  //     });
+  //   }
+  // };
 
-  const formatDate = (iso: string) => {
-    const d = new Date(iso);
-    return d.toLocaleDateString("en-IN", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    }) + ", " + d.toLocaleTimeString("en-IN", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
+  // const formatDate = (iso: string) => {
+  //   const d = new Date(iso);
+  //   return d.toLocaleDateString("en-IN", {
+  //     day: "numeric",
+  //     month: "short",
+  //     year: "numeric",
+  //   }) + ", " + d.toLocaleTimeString("en-IN", {
+  //     hour: "2-digit",
+  //     minute: "2-digit",
+  //   });
+  // };
 
   // Show lookup form when no ID provided and no payment loaded
   if (!id && !payment) {
@@ -273,8 +273,97 @@ const PaymentStatusPage: React.FC = () => {
             />
           </motion.div>
 
-          {/* Payment Details Card */}
+          {/* Dynamic Status Message */}
           <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8"
+          >
+            {/* ── Pending / Under Review State ── */}
+            {payment.status === "pending" && (
+              <>
+                <div className="px-6 py-4 flex items-center gap-3" style={{ background: "linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%)" }}>
+                  <div className="p-2 bg-white/15 rounded-lg">
+                    <Clock className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white">Review Status</h3>
+                </div>
+                <div className="p-6 md:p-8 space-y-4">
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    Thank you for submitting your payment proof. Your submission is currently under review by the NGISE 2026 Registration Team.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    The progress tracker above will automatically update once the verification process is completed.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    An official email notification confirming the verification result (Approved or Rejected) will be sent to your registered email address.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    If you have any questions regarding your payment verification, please feel free to contact the NGISE 2026 Registration Team at{" "}
+                    <a href="mailto:ngise@akgec.ac.in" className="text-blue-600 hover:text-blue-800 font-semibold underline underline-offset-2 transition-colors">
+                      ngise@akgec.ac.in
+                    </a>.
+                  </p>
+                </div>
+              </>
+            )}
+
+            {/* ── Approved State ── */}
+            {payment.status === "approved" && (
+              <>
+                <div className="px-6 py-4 flex items-center gap-3" style={{ background: "linear-gradient(135deg, #065f46 0%, #059669 100%)" }}>
+                  <div className="p-2 bg-white/15 rounded-lg">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white">Payment Verified</h3>
+                </div>
+                <div className="p-6 md:p-8 space-y-4">
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    Your payment has been successfully verified by the NGISE 2026 Registration Team.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    A confirmation email containing your payment receipt has been sent to your registered email address. Please retain the receipt for your records and future reference.
+                  </p>
+                </div>
+              </>
+            )}
+
+            {/* ── Rejected State ── */}
+            {payment.status === "rejected" && (
+              <>
+                <div className="px-6 py-4 flex items-center gap-3" style={{ background: "linear-gradient(135deg, #991b1b 0%, #dc2626 100%)" }}>
+                  <div className="p-2 bg-white/15 rounded-lg">
+                    <AlertCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white">Verification Failed</h3>
+                </div>
+                <div className="p-6 md:p-8 space-y-4">
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    Unfortunately, your payment proof could not be verified by the NGISE 2026 Registration Team.
+                  </p>
+                  
+                  {payment.remarks && (
+                    <div className="px-4 py-3 bg-red-50 border border-red-200 rounded-xl">
+                      <span className="text-xs font-semibold text-red-800 uppercase tracking-wider block mb-1">Reason:</span>
+                      <span className="text-sm text-red-700 leading-relaxed block">{payment.remarks}</span>
+                    </div>
+                  )}
+
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    Please review the above reason and submit a new payment proof with the correct information. Once resubmitted, your payment will be reviewed again.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-base">
+                    For any queries or assistance, please contact us at{" "}
+                    <a href="mailto:ngise@akgec.ac.in" className="text-blue-600 hover:text-blue-800 font-semibold underline underline-offset-2 transition-colors">
+                      ngise@akgec.ac.in
+                    </a>.
+                  </p>
+                </div>
+              </>
+            )}
+          </motion.div>
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -368,10 +457,10 @@ const PaymentStatusPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Action Buttons */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -396,7 +485,7 @@ const PaymentStatusPage: React.FC = () => {
             >
               Look up another payment
             </Link>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
     </div>
