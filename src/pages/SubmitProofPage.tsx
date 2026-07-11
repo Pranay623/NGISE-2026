@@ -313,7 +313,7 @@ const SubmitProofPage: React.FC = () => {
                 </div>
 
                 {/* Email Address */}
-                <div className="space-y-2">
+                <div className="space-y-2 group">
                   <label className="block text-gray-700 font-medium">Email Address</label>
                   <input
                     type="email"
@@ -328,6 +328,10 @@ const SubmitProofPage: React.FC = () => {
                       {errors.email}
                     </p>
                   )}
+                  <p className="text-xs rounded-md px-3 py-2 items-start gap-1.5 mt-1 hidden group-hover:flex" style={{ color: '#b45309', backgroundColor: '#fffbeb', border: '1px solid #fde68a' }}>
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                    <span>Email must match your registration email.</span>
+                  </p>
                 </div>
 
                 {/* Mobile Number */}
