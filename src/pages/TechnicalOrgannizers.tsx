@@ -40,6 +40,8 @@ export default function TechnicalOrgannizers() {
         "Rim Jallouli, University of Manouba, Tunisia",
         "Marijn Jannsen, Technical University of Delft, the Netherlands",
         "Tina Jukic, University of Ljubljana, Slovenia",
+        "Shailza Kanwar, Bennett University, Greater Noida, India",
+        "Inderjeet Kaur, Ajay Kumar Garg Engineering College, Ghaziabad, India",
         "Minakshi Kaushik (PC Chair), Karlsruhe Institute of Technology, Germany",
         "John Keers, University of Ulster, Belfast, Northern Ireland",
         "Ismail Khalil, Johannes Kepler University Linz, Austria",
