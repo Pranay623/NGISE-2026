@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Info, X, Search } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PageHeader from "./PageHeader";
 import { registerUser } from "../services/paymentService";
 
 const Registration = () => {
+  const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     nationality: "indian",
@@ -151,10 +152,11 @@ const Registration = () => {
         registrationFee: Number(formData.registrationAmount) || 0
       });
 
-      setSubmitMsg("Registration submitted successfully. You can now make the payment.");
+      setSubmitMsg("Registration submitted successfully. Redirecting to submit payment proof...");
       setTimeout(() => {
         setShowForm(false);
         resetForm();
+        navigate("/registrations/submit-proof");
       }, 2000);
     } catch (error: any) {
       setSubmitMsg(error.message || "Registration failed. Please try again.");
