@@ -44,23 +44,23 @@ export default function Hero() {
   return (
     <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background slideshow */}
-     {/* Background slideshow without AnimatePresence */}
-<div className="absolute inset-0">
-  {images.map((img, i) => (
-    <motion.img
-      key={i}
-      src={img}
-      alt="Conference Background"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: index === i ? 1 : 0 }}
-      transition={{ duration: 1.2 }}
-      className="absolute inset-0 w-full h-full object-cover"
-    />
-  ))}
+      {/* Background slideshow without AnimatePresence */}
+      <div className="absolute inset-0">
+        {images.map((img, i) => (
+          <motion.img
+            key={i}
+            src={img}
+            alt="Conference Background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === i ? 1 : 0 }}
+            transition={{ duration: 1.2 }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ))}
 
-  {/* Gradient overlay for text readability */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
-</div>
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
+      </div>
 
       {/* Foreground content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
@@ -78,62 +78,62 @@ export default function Hero() {
             </motion.span>
           </motion.h1> */}
           <SplitText
-  text={
-    <>
-      Welcome to <span className="text-blue-100">NGISE 2026</span>
-    </>
-  }
-  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-center mb-4"
-  delay={40}
-  duration={0.3}
-  ease="power3.out"
-  splitType="chars"
-  from={{ opacity: 0, y: 40 }}
-  to={{ opacity: 1, y: 0 }}
-  threshold={0.1}
-  rootMargin="-100px"
-  textAlign="center"
-  onLetterAnimationComplete={handleAnimationComplete}
-/>
+            text={
+              <>
+                Welcome to <span className="text-blue-100">NGISE 2026</span>
+              </>
+            }
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-center mb-4"
+            delay={40}
+            duration={0.3}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+            onLetterAnimationComplete={handleAnimationComplete}
+          />
 
           <motion.p
-  className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
-  style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
->
-  2nd International Conference on Next Generation Information Systems Engineering <br />Hybrid Conference
-</motion.p>
+            className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
+            style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            2nd International Conference on Next Generation Information Systems Engineering <br />Hybrid Conference
+          </motion.p>
           <motion.p
-  className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
-  style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
->
- Submission Deadline: 30 July
-</motion.p>
+            className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"
+            style={{ textShadow: "0px 2px 8px rgba(0,0,0,0.6)" }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            Submission Deadline: 30 July
+          </motion.p>
 
-<motion.div
-  className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-sm sm:text-base md:text-lg px-4"
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
->
-  <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-    <Calendar className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
-    <span>28th–29th October 2026</span>
-  </motion.div>
+          <motion.div
+            className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-sm sm:text-base md:text-lg px-4"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
+            <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
+              <Calendar className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
+              <span>28th–29th October 2026</span>
+            </motion.div>
 
-  <div className="hidden md:block w-px h-6 bg-gray-400"></div>
+            <div className="hidden md:block w-px h-6 bg-gray-400"></div>
 
-  <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-    <MapPin className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
-    <span className="hidden sm:inline">Ajay Kumar Garg Engineering College, Ghaziabad, Delhi NCR, India</span>
-    <span className="sm:hidden font-bold">AKGEC, Ghaziabad, India</span>
-  </motion.div>
-</motion.div>
+            <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
+              <MapPin className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
+              <span className="hidden sm:inline">Ajay Kumar Garg Engineering College, Ghaziabad, Delhi NCR, India</span>
+              <span className="sm:hidden font-bold">AKGEC, Ghaziabad, India</span>
+            </motion.div>
+          </motion.div>
 
           {/* <motion.button
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-200"
@@ -145,37 +145,37 @@ export default function Hero() {
             Register Now
           </motion.button> */}
           <div style={{ position: 'relative' }} className="flex flex-col items-center mt-4 space-y-4">
-  <GlareHover
-    glareColor="#ffffff"
-    glareOpacity={0.3}
-    glareAngle={-30}
-    glareSize={300}
-    transitionDuration={800}
-    playOnce={false}
-  >
-    <div 
-      className="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3  cursor-pointer transition-colors shadow-lg"
-      onClick={() => window.location.href = "https://cmt3.research.microsoft.com/NGISE2026"}
-    >
-      Submit Paper
-    </div>
-  </GlareHover>
-  <GlareHover
-    glareColor="#ffffff"
-    glareOpacity={0.3}
-    glareAngle={-30}
-    glareSize={300}
-    transitionDuration={800}
-    playOnce={false}
-  >
-    <div 
-      className="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3  cursor-pointer transition-colors shadow-lg"
-      onClick={() => window.location.href = "/registrations"}
-    >
-      Register Now
-    </div>
-  </GlareHover>
-</div>
+            <GlareHover
+              glareColor="#ffffff"
+              glareOpacity={0.3}
+              glareAngle={-30}
+              glareSize={300}
+              transitionDuration={800}
+              playOnce={false}
+            >
+              <div
+                className="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3  cursor-pointer transition-colors shadow-lg"
+                onClick={() => window.location.href = "https://cmt3.research.microsoft.com/NGISE2026"}
+              >
+                Submit Paper
+              </div>
+            </GlareHover>
+            <GlareHover
+              glareColor="#ffffff"
+              glareOpacity={0.3}
+              glareAngle={-30}
+              glareSize={300}
+              transitionDuration={800}
+              playOnce={false}
+            >
+              <div
+                className="bg-blue-600 hover:bg-blue-600 text-white font-bold py-3  cursor-pointer transition-colors shadow-lg"
+                onClick={() => window.location.href = "/registrations"}
+              >
+                Register Now
+              </div>
+            </GlareHover>
+          </div>
         </motion.div>
       </div>
     </section>

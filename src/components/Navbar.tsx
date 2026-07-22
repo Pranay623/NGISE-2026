@@ -43,7 +43,7 @@ export default function Navbar() {
         <div className="flex flex-col xl:flex-row justify-between items-center py-2 xl:h-24 gap-2">
 
           {/* Logo Section - Top on mobile, Left on desktop */}
-          <div className="flex items-center justify-between w-full xl:w-auto gap-4 shrink-0">
+          <div className="flex items-center justify-between w-full xl:flex-1 gap-4 shrink-0">
             <Link to="/" className="shrink-0">
               <motion.img
                 src={Logo}
@@ -67,11 +67,11 @@ export default function Navbar() {
                 className="h-10 sm:h-10 xl:h-12 w-auto object-contain"
               />
               <div className="relative">
-                <img
+                {/* <img
                   src={Unisys}
                   alt="Unisys"
                   className="h-10 sm:h-10 xl:h-12 w-auto object-contain"
-                />
+                /> */}
               </div>
               <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                 <SheetTrigger asChild>
@@ -178,7 +178,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Items */}
-          <div className="hidden xl:flex flex-1 justify-center items-center px-1">
+          <div className="hidden xl:flex shrink-0 justify-center items-center px-1">
             <div className="flex items-center gap-x-1 xl:gap-x-2 bg-gray-50/80 rounded-full px-4 py-1.5 border border-gray-100/50 shadow-inner">
               <Link to="/" className={`${linkClass("/")} text-[13px] xl:text-[14px] 2xl:text-[15px]`}>Home</Link>
               <Link to="/call-for-papers" className={`${linkClass("/call-for-papers")} text-[13px] xl:text-[14px] 2xl:text-[15px]`}>Call for Papers</Link>
@@ -276,14 +276,14 @@ export default function Navbar() {
           </div>
 
           {/* Right Section Logos - Desktop Only */}
-          <div className="hidden xl:flex items-center gap-4 xl:gap-6 2xl:gap-8 shrink-0">
+          <div className="hidden xl:flex xl:flex-1 justify-end items-center gap-4 xl:gap-6 2xl:gap-8 shrink-0">
             <div className="relative">
-              <motion.img
+              {/* <motion.img
                 src={Unisys}
                 alt="Unisys"
                 whileHover={{ scale: 1.05 }}
                 className="h-10 sm:h-12 xl:h-11 w-auto object-contain"
-              />
+              /> */}
             </div>
             <motion.img
               src={RightLogo}
