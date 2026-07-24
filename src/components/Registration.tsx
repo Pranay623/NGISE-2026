@@ -84,13 +84,13 @@ const Registration = () => {
                   </tr>
                   <tr>
                     <td className="py-4 px-6">Reduced (reduced for Special Economic Zone(SEZ) India, Bangladesh, Srilanka, Nepal)</td>
-                    <td className="py-4 px-6">USD 130 / EUR 110</td>
-                    <td className="py-4 px-6">USD 150 / EUR 120</td>
+                    <td className="py-4 px-6">INR 12000/ USD 130 / EUR 110</td>
+                    <td className="py-4 px-6">INR 13000/ USD 150 / EUR 120</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-6">Extra Page (up to two pages)</td>
-                    <td className="py-4 px-6">USD 60 / EUR 50 per page</td>
-                    <td className="py-4 px-6">USD 90 / EUR 75 per page</td>
+                    <td className="py-4 px-6">INR 500/ USD 60 / EUR 50 per page</td>
+                    <td className="py-4 px-6">INR 500/ USD 90 / EUR 75 per page</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-6">​​​​​​​Additional Dinner Ticket</td>
