@@ -9,6 +9,7 @@ export interface PaymentData {
   screenshotUrl: string;
   senderAccountName: string;
   transactionDateTime: string;
+  turnstileToken: string;
 }
 
 export interface PaymentRecord {

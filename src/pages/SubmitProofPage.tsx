@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Upload, FileText, X, AlertCircle, Loader2, ArrowLeft, CheckCircle2, Eye, Edit3, ZoomIn } from "lucide-react";
@@ -42,6 +42,19 @@ const SubmitProofPage: React.FC = () => {
   const [showBankDetails, setShowBankDetails] = useState(true);
   const [showReview, setShowReview] = useState(false);
   const [showImagePreview, setShowImagePreview] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
+const turnstileRef = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+  if (turnstileRef.current && (window as any).turnstile) {
+    (window as any).turnstile.render(turnstileRef.current, {
+      sitekey: import.meta.env.VITE_TURNSTILE_SITE_KEY,
+      callback: (token: string) => {
+        setTurnstileToken(token);
+      },
+    });
+  }
+}, []);
 
   const onChange = (key: string, value: string) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -150,6 +163,10 @@ const SubmitProofPage: React.FC = () => {
   // Step 2: Actually submit after user confirms
   const handleConfirmSubmit = async () => {
     setSubmitError("");
+    if (!turnstileToken) {
+  setSubmitError("Please complete the security verification first.");
+  return;
+}
     setIsSubmitting(true);
 
     try {
@@ -184,6 +201,7 @@ const SubmitProofPage: React.FC = () => {
         screenshotUrl,
         senderAccountName: formData.senderAccountName.trim(),
         transactionDateTime: formData.transactionDateTime,
+        turnstileToken,
       });
 
       navigate(`/registrations/payment-status/${result.id}`, { replace: true });
@@ -505,6 +523,9 @@ const SubmitProofPage: React.FC = () => {
                     </button>
                   </div>
                 )}
+                <div className="flex justify-center my-4">
+                      <div ref={turnstileRef}></div>
+                   </div>
 
                 <button
                   type="submit"
