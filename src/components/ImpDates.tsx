@@ -5,9 +5,9 @@ import { Calendar } from 'lucide-react';
 const ImpDates = () => {
     const dates = [
         { date: "30th July, 2026", event: "Paper Submission Deadline" },
-        { date: "25th Aug, 2026", event: "Acceptance Notification" },
-        { date: "14th Sep, 2026", event: "Camera-Ready Deadline" },
-        { date: "25th Sep, 2026", event: "Registration Deadline" }
+        { date: "18th Sep, 2026", event: "Acceptance Notification" },
+        { date: "30th Sep, 2026", event: "Camera-Ready Deadline" },
+        { date: "10th Oct, 2026", event: "Registration Deadline" }
     ];
 
     return (
