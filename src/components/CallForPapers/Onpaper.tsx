@@ -92,7 +92,7 @@ const Onpaper = () => {
 
                 {/* submission website */}
 
-                <div className="mt-12 md:mt-16 mb-8 md:mb-12 text-center">
+                {/* <div className="mt-12 md:mt-16 mb-8 md:mb-12 text-center">
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                         Submission Website
                     </h2>
@@ -114,7 +114,7 @@ const Onpaper = () => {
                             https://cmt3.research.microsoft.com/NGISE2026
                         </a>
                     </p>
-                </div>
+                </div> */}
 
 
             </div>

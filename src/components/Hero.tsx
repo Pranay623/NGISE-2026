@@ -145,7 +145,7 @@ export default function Hero() {
             Register Now
           </motion.button> */}
           <div style={{ position: 'relative' }} className="flex flex-col items-center mt-4 space-y-4">
-            <GlareHover
+            {/* <GlareHover
               glareColor="#ffffff"
               glareOpacity={0.3}
               glareAngle={-30}
@@ -159,7 +159,7 @@ export default function Hero() {
               >
                 Submit Paper
               </div>
-            </GlareHover>
+            </GlareHover> */}
             <GlareHover
               glareColor="#ffffff"
               glareOpacity={0.3}
