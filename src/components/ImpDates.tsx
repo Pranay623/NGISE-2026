@@ -7,7 +7,7 @@ const ImpDates = () => {
         { date: "30th July, 2026", event: "Paper Submission Deadline" },
         { date: "05th Oct, 2026", event: "Acceptance Notification" },
         { date: "10th Oct, 2026", event: "Early Bird Registration Deadline" },
-        { date: "22nd Oct, 2026", event: "Camera-Ready Deadline" }
+        { date: "10th Nov, 2026", event: "Camera-Ready Deadline" }
     ];
 
     return (
