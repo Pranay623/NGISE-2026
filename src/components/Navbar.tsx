@@ -110,7 +110,7 @@ export default function Navbar() {
                         isOpen: mobileCommitteeOpen,
                         setOpen: setMobileCommitteeOpen,
                         links: [
-                          { to: "/committee/organizers", label: "Steering Committee" },
+                          { to: "/committee/steeringcommittee", label: "Steering Committee" },
                           { to: "/committee/programme-committee", label: "Programme Committee" },
                         ]
                       },
@@ -207,7 +207,7 @@ export default function Navbar() {
                   setOpen: setCommittee,
                   pathPrefix: "/committee",
                   links: [
-                    { to: "/committee/organizers", label: "Steering Committee" },
+                    { to: "/committee/steeringcommittee", label: "Steering Committee" },
                     { to: "/committee/programme-committee", label: "Programme Committee" },
                   ]
                 },

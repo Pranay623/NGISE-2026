@@ -3,7 +3,6 @@ import drik from "../public/drik.png";
 import rahul from "../public/Prof. Rahul.jpg1.jpeg";
 import PageHeader from "@/components/PageHeader";
 import amin from "../public/Amin.jpeg";
-import amita from "../public/amita_dev.jpg";
 import chuan from "../public/chuan_yu_chang.jpg";
 import ingrid from "../public/ingrid_pappel.jpg";
 
@@ -24,43 +23,7 @@ export default function Organizers() {
           viewport={{ once: true }}
           className="mb-10"
         >
-          {/* Honorary Chairs */}
-          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Honorary Chair</h4>
-          <div className="flex justify-center mb-8">
-            <div className="p-4 bg-white shadow rounded-xl border border-gray-100 max-w-sm w-full">
-              <img src={amin} alt="A Min Tjoa" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
-              <p className="font-medium text-center">A Min Tjoa</p>
-              <p className="text-gray-600 text-sm text-center">
-                Technical University Vienna, Austria
-              </p>
-            </div>
-          </div>
-
-
-        
-
-          {/** Advisory Committee */}
-          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Advisory Committee</h4>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {[
-              { name: "Ingrid Pappel", affiliation: "Tallinn University of Technology (TalTech), Estonia", img: ingrid },
-              { name: "Amita Dev", affiliation: "Ajay Kumar Garg Engineering College, Ghaziabad, India", img: amita, pos: "object-top" },
-              { name: "Chuan-Yu Chang", affiliation: "National Yunlin University of Science and Technology, Taiwan", img: chuan },
-            ].map((member, idx) => (
-              <div
-                key={idx}
-                className="p-4 bg-white shadow rounded-xl border border-gray-100"
-              >
-                <img src={member.img} alt={member.name} className={`w-32 h-32 object-cover rounded-full mx-auto mb-4 ${member.pos || ""}`} />
-                <p className="font-medium text-center">{member.name}</p>
-                <p className="text-gray-600 text-sm text-center">{member.affiliation}</p>
-              </div>
-            ))}
-
-          </div>
-
-
-            {/* Conference Chairs */}
+          {/* General Chairs/Conference Chairs */}
           <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">General Chairs/Conference Chairs</h4>
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <div className="p-4 bg-white shadow rounded-xl border border-gray-100">
@@ -77,6 +40,36 @@ export default function Organizers() {
                 Karlsruhe Institute of Technology, Germany
               </p>
             </div>
+          </div>
+
+          {/* Honorary Chairs */}
+          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Honorary Chair</h4>
+          <div className="flex justify-center mb-8">
+            <div className="p-4 bg-white shadow rounded-xl border border-gray-100 max-w-sm w-full">
+              <img src={amin} alt="A Min Tjoa" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
+              <p className="font-medium text-center">A Min Tjoa</p>
+              <p className="text-gray-600 text-sm text-center">
+                Technical University Vienna, Austria
+              </p>
+            </div>
+          </div>
+
+          {/** Advisory Committee */}
+          <h4 className="text-xl font-bold text-gray-700 mb-4 text-center">Advisory Committee</h4>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {[
+              { name: "Ingrid Pappel", affiliation: "Tallinn University of Technology (TalTech), Estonia", img: ingrid },
+              { name: "Chuan-Yu Chang", affiliation: "National Yunlin University of Science and Technology, Taiwan", img: chuan },
+            ].map((member, idx) => (
+              <div
+                key={idx}
+                className="p-4 bg-white shadow rounded-xl border border-gray-100"
+              >
+                <img src={member.img} alt={member.name} className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
+                <p className="font-medium text-center">{member.name}</p>
+                <p className="text-gray-600 text-sm text-center">{member.affiliation}</p>
+              </div>
+            ))}
           </div>
 
 

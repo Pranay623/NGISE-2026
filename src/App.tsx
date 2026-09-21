@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -95,8 +95,12 @@ function App() {
 
 
                     <Route
-                      path="/committee/organizers"
+                      path="/committee/steeringcommittee"
                       element={<Organizers />}
+                    />
+                    <Route
+                      path="/committee/organizers"
+                      element={<Navigate to="/committee/steeringcommittee" replace />}
                     />
                     <Route
                       path="/committee/programme-committee"
