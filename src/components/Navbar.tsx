@@ -7,6 +7,7 @@ import RightLogo from "../public/WhatsApp Image 2026-04-02 at 6.36.14 PM.jpeg";
 import RightLogo2 from "../public/WhatsApp Image 2026-04-02 at 7.35.40 PM.jpeg";
 import Unisys from "../public/unisys.jpeg";
 import PlatinumBadge from "../public/platinum.jpeg";
+import CSIRLogo from "../public/csir.jpg";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 
@@ -55,24 +56,22 @@ export default function Navbar() {
             </Link>
 
             {/* Mobile Logos & Menu (Visible only on mobile/tablet) */}
-            <div className="flex xl:hidden items-center gap-1 sm:gap-4">
+            <div className="flex xl:hidden items-center gap-1 sm:gap-3">
               <img
                 src={RightLogo}
                 alt="Springer"
-                className="h-10 sm:h-10 xl:h-12 w-auto object-contain"
+                className="h-8 sm:h-10 w-auto object-contain"
               />
               <img
                 src={RightLogo2}
                 alt="CCIS"
-                className="h-10 sm:h-10 xl:h-12 w-auto object-contain"
+                className="h-8 sm:h-10 w-auto object-contain"
               />
-              <div className="relative">
-                {/* <img
-                  src={Unisys}
-                  alt="Unisys"
-                  className="h-10 sm:h-10 xl:h-12 w-auto object-contain"
-                /> */}
-              </div>
+              <img
+                src={CSIRLogo}
+                alt="CSIR India"
+                className="h-10 sm:h-12 w-auto object-contain"
+              />
               <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon" className="hover:bg-blue-50 h-9 w-9 sm:h-10 sm:w-10 ml-1">
@@ -275,28 +274,58 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right Section Logos - Desktop Only */}
-          <div className="hidden xl:flex xl:flex-1 justify-end items-center gap-4 xl:gap-6 2xl:gap-8 shrink-0">
-            <div className="relative">
-              {/* <motion.img
-                src={Unisys}
-                alt="Unisys"
-                whileHover={{ scale: 1.05 }}
-                className="h-10 sm:h-12 xl:h-11 w-auto object-contain"
-              /> */}
+          {/* Right Section — Sponsor Logos (Desktop Only) */}
+          <div className="hidden xl:flex xl:flex-1 justify-end items-center shrink-0 pl-4">
+            <div className="flex items-center gap-5 2xl:gap-6">
+              <a
+                href="https://www.springer.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center transition-opacity duration-200 hover:opacity-80"
+              >
+                <motion.img
+                  src={RightLogo}
+                  alt="Springer"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="h-11 2xl:h-12 w-auto object-contain"
+                />
+              </a>
+
+              <div className="h-8 w-px bg-gray-200" />
+
+              <a
+                href="https://www.springer.com/series/7899"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center transition-opacity duration-200 hover:opacity-80"
+              >
+                <motion.img
+                  src={RightLogo2}
+                  alt="CCIS"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="h-11 2xl:h-12 w-auto object-contain"
+                />
+              </a>
+
+              <div className="h-8 w-px bg-gray-200" />
+
+              <a
+                href="https://www.csir.res.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center transition-opacity duration-200 hover:opacity-80"
+              >
+                <motion.img
+                  src={CSIRLogo}
+                  alt="CSIR India"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="h-14 2xl:h-[60px] w-auto object-contain"
+                />
+              </a>
             </div>
-            <motion.img
-              src={RightLogo}
-              alt="Springer"
-              whileHover={{ scale: 1.05 }}
-              className="h-10 sm:h-12 xl:h-11 w-auto object-contain"
-            />
-            <motion.img
-              src={RightLogo2}
-              alt="CCIS"
-              whileHover={{ scale: 1.05 }}
-              className="h-10 sm:h-12 xl:h-11 w-auto object-contain"
-            />
           </div>
 
         </div>
