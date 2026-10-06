@@ -19,6 +19,7 @@ const Registration = () => {
     lastName: "",
     gender: "male",
     mobile: "",
+    whatsappNumber: "",
     email: "",
     institution: "",
     city: "",
@@ -100,6 +101,7 @@ const Registration = () => {
       lastName: "",
       gender: "male",
       mobile: "",
+      whatsappNumber: "",
       email: "",
       institution: "",
       city: "",
@@ -139,6 +141,8 @@ const Registration = () => {
       setSubmitMsg("Registering...");
       await registerUser({
         paperId: formData.paperId || undefined,
+        paperTitle: formData.paperTitle || undefined,
+        whatsappNumber: formData.whatsappNumber || undefined,
         title: formData.title || undefined,
         firstName: formData.firstName,
         lastName: formData.lastName,
@@ -155,9 +159,19 @@ const Registration = () => {
       setSubmitMsg("Registration submitted successfully. Redirecting to submit payment proof...");
       setTimeout(() => {
         setShowForm(false);
+        const navState = {
+          paperId: formData.paperId,
+          paperTitle: formData.paperTitle,
+          country: formData.country,
+          senderName: `${formData.firstName} ${formData.lastName}`.trim(),
+          email: formData.email,
+          mobileNumber: formData.mobile,
+          whatsappNumber: formData.whatsappNumber || formData.mobile,
+          amount: formData.registrationAmount,
+        };
         resetForm();
-        navigate("/registrations/submit-proof");
-      }, 2000);
+        navigate("/registrations/submit-proof", { state: navState });
+      }, 1500);
     } catch (error: any) {
       setSubmitMsg(error.message || "Registration failed. Please try again.");
       console.error(error);
@@ -325,7 +339,7 @@ const Registration = () => {
                 to="/registrations/submit-proof"
                 className="inline-flex items-center justify-center w-72 h-14 border-2 border-blue-600 text-blue-600 rounded-full text-lg font-semibold shadow-sm hover:bg-blue-600 hover:text-white transition-colors"
               >
-                Submit Payment Proof
+                Pay Fee &amp; Submit Proof
               </Link>
             </div>
 
@@ -372,36 +386,95 @@ const Registration = () => {
                     <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <label className="block text-gray-700 font-medium">Paper ID</label>
-                      <input type="text" value={formData.paperId} onChange={(e) => onChange("paperId", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                      <input
+                        type="text"
+                        value={formData.paperId}
+                        onChange={(e) => onChange("paperId", e.target.value)}
+                        placeholder="e.g. NGISE-2026-101"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-gray-700 font-medium">Title</label>
-                      <select value={formData.title} onChange={(e) => onChange("title", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                      <label className="block text-gray-700 font-medium">Paper Title</label>
+                      <input
+                        type="text"
+                        value={formData.paperTitle}
+                        onChange={(e) => onChange("paperTitle", e.target.value)}
+                        placeholder="Enter accepted paper title"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">Title / Salutation</label>
+                      <select
+                        value={formData.title}
+                        onChange={(e) => onChange("title", e.target.value)}
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      >
                         <option value="Mr">Mr.</option>
                         <option value="Ms">Ms.</option>
                         <option value="Dr">Dr.</option>
+                        <option value="Prof">Prof.</option>
                       </select>
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-gray-700 font-medium">First Name</label>
-                      <input type="text" value={formData.firstName} onChange={(e) => onChange("firstName", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                      <label className="block text-gray-700 font-medium">Corresponding Author First Name</label>
+                      <input
+                        type="text"
+                        value={formData.firstName}
+                        onChange={(e) => onChange("firstName", e.target.value)}
+                        placeholder="First name"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-gray-700 font-medium">Last Name</label>
-                      <input type="text" value={formData.lastName} onChange={(e) => onChange("lastName", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                      <label className="block text-gray-700 font-medium">Corresponding Author Last Name</label>
+                      <input
+                        type="text"
+                        value={formData.lastName}
+                        onChange={(e) => onChange("lastName", e.target.value)}
+                        placeholder="Last name"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-gray-700 font-medium">Phone Number</label>
-                      <input type="tel" maxLength={10} value={formData.mobile} onChange={(e) => onChange("mobile", e.target.value.replace(/\D/g, ""))} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                      <label className="block text-gray-700 font-medium">Corresponding Author Email</label>
+                      <input
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => onChange("email", e.target.value)}
+                        placeholder="author@institution.edu"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-gray-700 font-medium">Email Address</label>
-                      <input type="email" value={formData.email} onChange={(e) => onChange("email", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                      <label className="block text-gray-700 font-medium">Corresponding Author Phone Number</label>
+                      <input
+                        type="tel"
+                        maxLength={10}
+                        value={formData.mobile}
+                        onChange={(e) => onChange("mobile", e.target.value.replace(/\D/g, ""))}
+                        placeholder="10-digit mobile number"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-gray-700 font-medium">Corresponding Author WhatsApp Number</label>
+                      <input
+                        type="tel"
+                        maxLength={15}
+                        value={formData.whatsappNumber}
+                        onChange={(e) => onChange("whatsappNumber", e.target.value.replace(/\D/g, ""))}
+                        placeholder="WhatsApp number (with country code)"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
                     </div>
 
                     <div className="space-y-2 md:col-span-2">
@@ -465,7 +538,7 @@ const Registration = () => {
                     </div>
 
                     <div className="space-y-2 md:col-span-2">
-                      <label className="block text-gray-700 font-medium">Registration Fee</label>
+                      <label className="block text-gray-700 font-medium">Payment Amount (Registration Fee)</label>
                       <input
                         type="number"
                         min="0"
@@ -475,6 +548,9 @@ const Registration = () => {
                         placeholder="Enter amount"
                         className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
+                      <p className="text-xs text-blue-700 bg-blue-50 border border-blue-200/60 rounded-md p-2.5 mt-1">
+                        💳 You can pay your registration fee via <strong>Kotak UPI QR Code</strong> or <strong>Direct Bank Transfer (IMPS / NEFT / RTGS)</strong>. After submitting this form, you will be directed to submit your <strong>Payment Proof (receipt/screenshot)</strong> and <strong>Payment Date</strong>.
+                      </p>
                     </div>
                   <div className="md:col-span-2 flex flex-col items-center gap-3 pt-2">
                     <button

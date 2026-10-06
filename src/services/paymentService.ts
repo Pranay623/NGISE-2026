@@ -48,6 +48,8 @@ export async function checkUtrAvailability(utr: string): Promise<boolean> {
 
 export interface RegistrationData {
   paperId?: string;
+  paperTitle?: string;
+  whatsappNumber?: string;
   title?: string;
   firstName: string;
   lastName: string;
