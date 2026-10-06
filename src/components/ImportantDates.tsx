@@ -9,7 +9,7 @@ const itemVariants = {
 
 export default function ImportantDates() {
   const importantDates = [
-    { event: "Submission Deadline", date: "June 30, 2026", status: "upcoming" },
+    { event: "Submission Deadline", date: "July 01, 2026", status: "upcoming" },
     { event: "Acceptance Notification", date: "August 15, 2026", status: "upcoming" },
     { event: "Camera-Ready Submission", date: "September 30, 2026", status: "upcoming" },
     { event: "Conference Dates", date: "October 28-29, 2026", status: "highlighted" }

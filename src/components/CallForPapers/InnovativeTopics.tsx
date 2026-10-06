@@ -113,6 +113,7 @@ const InnovativeTopics = () => {
                     <li>AI-Driven Big Data and Agentic Big Data</li>
                     <li>Data Lakehouses and Data Meshs</li>
                     <li>GovTech Platforms Powered by Trustworthy AI</li>
+                    <li>Emerging Technologies in e-Governance, Public Administration and GovTech Innovations</li>
                     <li>Digital Twins for Adaptive Information Infrastructure</li>
                     <li>Digital Twins for Smart Cities Governance</li>
                     <li>Real-Time Decision Support for Smart Cities</li>

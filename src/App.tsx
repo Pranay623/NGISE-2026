@@ -1,8 +1,9 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import StickySponsorTab from "./components/StickySponsorTab";
 
 // Pages
 import HomePage from "./pages/HomePage";
@@ -26,6 +27,7 @@ import VisaInformation from "./pages/Visa";
 import KeynoteSpeakers from "./pages/KeynoteSpeakers";
 import Panel from "./pages/Panel";
 import BestPaperAward from "./pages/BestPaperAward";
+import IndustrialSpeaker from "./pages/IndustrialSpeaker";
 import StudentBestPaperAward from "./pages/StudentBestPaperAward";
 import Tutorial from "./pages/Tutorial";
 import ConferenceDinner from "./pages/ConferenceDinner";
@@ -65,6 +67,7 @@ function App() {
             element={
               <div className="min-h-screen flex flex-col bg-white">
                 <Navbar />
+                <StickySponsorTab />
                 <main className="flex-1">
                   <Routes>
                     <Route path="/" element={<HomePage />} />
@@ -74,6 +77,7 @@ function App() {
                     <Route path="/dates" element={<DatesPage />} />
                     <Route path="/speakers" element={<SpeakersPage />} />
                     <Route path="/programme/keynote-speakers" element={<KeynoteSpeakers />} />
+                    <Route path="/programme/industrial-speaker" element={<IndustrialSpeaker />} />
                     <Route path="/programme/panel" element={<Panel />} />
                     <Route path="/programme/tutorial" element={<Tutorial />} />
                     <Route path="/programme/conference-dinner" element={<ConferenceDinner />} />
@@ -96,8 +100,12 @@ function App() {
 
 
                     <Route
-                      path="/committee/organizers"
+                      path="/committee/steeringcommittee"
                       element={<Organizers />}
+                    />
+                    <Route
+                      path="/committee/organizers"
+                      element={<Navigate to="/committee/steeringcommittee" replace />}
                     />
                     <Route
                       path="/committee/programme-committee"
