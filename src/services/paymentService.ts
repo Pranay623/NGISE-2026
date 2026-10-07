@@ -60,7 +60,9 @@ export interface RegistrationData {
   country: string;
   city: string;
   registrationCategory: string;
+  registrationType: string;
   registrationFee: number;
+  currency?: string;
 }
 
 export async function registerUser(data: RegistrationData): Promise<any> {

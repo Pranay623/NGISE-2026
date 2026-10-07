@@ -218,10 +218,13 @@ const SubmitProofPage: React.FC = () => {
   // Step 2: Actually submit after user confirms
   const handleConfirmSubmit = async () => {
     setSubmitError("");
+    // Turnstile verification commented out as of now
+    /*
     if (siteKey && !turnstileToken) {
       setSubmitError("Please complete the security verification first.");
       return;
     }
+    */
     setIsSubmitting(true);
 
     try {
@@ -764,11 +767,13 @@ const SubmitProofPage: React.FC = () => {
                         </button>
                       </div>
                     )}
+                    {/* Turnstile verification commented out as of now
                     {siteKey && (
                       <div className="flex justify-center my-4">
                         <div ref={turnstileRef}></div>
                       </div>
                     )}
+                    */}
 
                     <button
                       type="submit"

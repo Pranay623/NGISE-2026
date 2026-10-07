@@ -8,32 +8,76 @@ import { registerUser } from "../services/paymentService";
 const Registration = () => {
   const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
+  const SEZ_COUNTRIES = ["India", "Bangladesh", "Sri Lanka", "Nepal"];
+  const isSezCountry = (c: string) =>
+    SEZ_COUNTRIES.some((sc) => sc.toLowerCase() === (c || "").trim().toLowerCase());
+
+  const DEFAULT_COUNTRIES = [
+    "India", "Bangladesh", "Sri Lanka", "Nepal", "United States", "United Kingdom",
+    "Australia", "Canada", "Germany", "France", "Japan", "China", "Singapore",
+    "Malaysia", "United Arab Emirates", "Saudi Arabia", "South Korea", "Italy",
+    "Spain", "Netherlands", "Switzerland", "Sweden", "Brazil", "South Africa",
+    "New Zealand", "Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
+    "Argentina", "Armenia", "Austria", "Azerbaijan", "Bahrain", "Belarus",
+    "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina",
+    "Botswana", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia",
+    "Cameroon", "Chile", "Colombia", "Costa Rica", "Croatia", "Cuba", "Cyprus",
+    "Czech Republic", "Denmark", "Ecuador", "Egypt", "Estonia", "Ethiopia",
+    "Finland", "Georgia", "Ghana", "Greece", "Hong Kong", "Hungary", "Iceland",
+    "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Jordan", "Kazakhstan",
+    "Kenya", "Kuwait", "Kyrgyzstan", "Latvia", "Lebanon", "Lithuania",
+    "Luxembourg", "Maldives", "Mauritius", "Mexico", "Monaco", "Mongolia",
+    "Morocco", "Myanmar", "Nigeria", "Norway", "Oman", "Pakistan", "Philippines",
+    "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Serbia",
+    "Slovakia", "Slovenia", "Taiwan", "Thailand", "Turkey", "Uganda", "Ukraine",
+    "Uzbekistan", "Vietnam", "Zimbabwe"
+  ];
+
+  const calculateFee = (category: string, type: string, currency: string): number => {
+    if (category === "Standard") {
+      if (type === "Early Bird") {
+        return currency === "EUR" ? 350 : 400; // USD default
+      } else {
+        return currency === "EUR" ? 500 : 600; // USD default
+      }
+    } else {
+      // Reduced (SEZ)
+      if (type === "Early Bird") {
+        if (currency === "INR") return 12000;
+        if (currency === "EUR") return 110;
+        return 130; // USD
+      } else {
+        if (currency === "INR") return 13000;
+        if (currency === "EUR") return 120;
+        return 150; // USD
+      }
+    }
+  };
+
   const [formData, setFormData] = useState({
-    nationality: "indian",
-    country: "",
-    categoryType: "",
+    country: "India",
+    registrationCategory: "Reduced",
+    registrationType: "Early Bird",
+    currency: "INR",
     paperId: "",
     paperTitle: "",
     title: "Mr",
     firstName: "",
     lastName: "",
-    gender: "male",
     mobile: "",
     whatsappNumber: "",
     email: "",
     institution: "",
     city: "",
     state: "",
-    registrationAmount: "",
+    registrationAmount: "12000",
   });
   const [submitMsg, setSubmitMsg] = useState("");
 
-  const [countries, setCountries] = useState<string[]>([]);
-  const [countryQuery, setCountryQuery] = useState("");
+  const [countries, setCountries] = useState<string[]>(DEFAULT_COUNTRIES);
   const [loadingCountries, setLoadingCountries] = useState(false);
-  const [countriesLoaded, setCountriesLoaded] = useState(false);
 
-  // Fetch country list from public API (restcountries). Falls back to a small list if network fails.
+  // Fetch country list from public API (restcountries). Falls back to full default list if network fails.
   const fetchCountries = async () => {
     setLoadingCountries(true);
     try {
@@ -42,15 +86,13 @@ const Registration = () => {
       const data = await res.json();
       const list = data
         .map((c: any) => c?.name?.common)
-        .filter(Boolean)
-        .sort((a: string, b: string) => a.localeCompare(b));
-      setCountries(list);
+        .filter(Boolean);
+      const combined = Array.from(new Set([...DEFAULT_COUNTRIES, ...list])).sort((a, b) => a.localeCompare(b));
+      setCountries(combined);
     } catch (err) {
-      // minimal fallback
-      setCountries(["India", "United States", "United Kingdom", "Germany", "France", "Japan", "Canada", "Australia"]);
+      setCountries(DEFAULT_COUNTRIES);
     } finally {
       setLoadingCountries(false);
-      setCountriesLoaded(true);
     }
   };
 
@@ -65,48 +107,76 @@ const Registration = () => {
     setFormData((prev) => ({ ...prev, [key]: value }));
   };
 
-  const filteredCountries = countryQuery
-    ? countries.filter((c) => c.toLowerCase().includes(countryQuery.toLowerCase()))
-    : countries;
-
-  const handleCountrySearch = () => {
-    setSubmitMsg("");
-    if (!countriesLoaded) {
-      fetchCountries();
-      setSubmitMsg("Loading countries...");
-      return;
-    }
-    if (!countryQuery) {
-      setSubmitMsg("Type a country name to search.");
-      return;
-    }
-    const match = countries.find((c) => c.toLowerCase().includes(countryQuery.toLowerCase()));
-    if (match) {
-      onChange("country", match);
-      setSubmitMsg(`Selected ${match}`);
+  const handleCountryChange = (selectedCountry: string) => {
+    const sez = isSezCountry(selectedCountry);
+    const newCategory = sez ? "Reduced" : "Standard";
+    let newCurrency = formData.currency;
+    if (sez) {
+      newCurrency = selectedCountry.toLowerCase().trim() === "india" ? "INR" : (formData.currency === "INR" ? "USD" : formData.currency);
     } else {
-      setSubmitMsg("No matching country found.");
+      newCurrency = formData.currency === "INR" ? "USD" : formData.currency;
     }
+    const newFee = calculateFee(newCategory, formData.registrationType, newCurrency);
+
+    setFormData((prev) => ({
+      ...prev,
+      country: selectedCountry,
+      registrationCategory: newCategory,
+      currency: newCurrency,
+      registrationAmount: String(newFee),
+    }));
+  };
+
+  const handleCategoryChange = (newCategory: string) => {
+    let newCurrency = formData.currency;
+    if (newCategory === "Standard" && newCurrency === "INR") {
+      newCurrency = "USD";
+    }
+    const newFee = calculateFee(newCategory, formData.registrationType, newCurrency);
+    setFormData((prev) => ({
+      ...prev,
+      registrationCategory: newCategory,
+      currency: newCurrency,
+      registrationAmount: String(newFee),
+    }));
+  };
+
+  const handleTypeChange = (newType: string) => {
+    const newFee = calculateFee(formData.registrationCategory, newType, formData.currency);
+    setFormData((prev) => ({
+      ...prev,
+      registrationType: newType,
+      registrationAmount: String(newFee),
+    }));
+  };
+
+  const handleCurrencyChange = (newCurrency: string) => {
+    const newFee = calculateFee(formData.registrationCategory, formData.registrationType, newCurrency);
+    setFormData((prev) => ({
+      ...prev,
+      currency: newCurrency,
+      registrationAmount: String(newFee),
+    }));
   };
 
   const resetForm = () => {
     setFormData({
-      nationality: "indian",
-      country: "",
-      categoryType: "",
+      country: "India",
+      registrationCategory: "Reduced",
+      registrationType: "Early Bird",
+      currency: "INR",
       paperId: "",
       paperTitle: "",
       title: "Mr",
       firstName: "",
       lastName: "",
-      gender: "male",
       mobile: "",
       whatsappNumber: "",
       email: "",
       institution: "",
       city: "",
       state: "",
-      registrationAmount: "",
+      registrationAmount: "12000",
     });
   };
 
@@ -115,7 +185,8 @@ const Registration = () => {
     setSubmitMsg("");
 
     const required: Array<keyof typeof formData> = [
-      "categoryType",
+      "registrationCategory",
+      "registrationType",
       "firstName",
       "lastName",
       "mobile",
@@ -152,8 +223,10 @@ const Registration = () => {
         address: formData.state,
         country: formData.country,
         city: formData.city,
-        registrationCategory: formData.categoryType,
-        registrationFee: Number(formData.registrationAmount) || 0
+        registrationCategory: formData.registrationCategory,
+        registrationType: formData.registrationType,
+        registrationFee: Number(formData.registrationAmount) || 0,
+        currency: formData.currency,
       });
 
       setSubmitMsg("Registration submitted successfully. Redirecting to submit payment proof...");
@@ -163,6 +236,9 @@ const Registration = () => {
           paperId: formData.paperId,
           paperTitle: formData.paperTitle,
           country: formData.country,
+          registrationCategory: formData.registrationCategory,
+          registrationType: formData.registrationType,
+          currency: formData.currency,
           senderName: `${formData.firstName} ${formData.lastName}`.trim(),
           email: formData.email,
           mobileNumber: formData.mobile,
@@ -488,66 +564,228 @@ const Registration = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-gray-700 font-medium">Country</label>
+                      <div className="flex items-center justify-between">
+                        <label className="block text-gray-700 font-medium">Country</label>
+                        {isSezCountry(formData.country) && (
+                          <span className="text-xs bg-emerald-100 text-emerald-800 font-medium px-2 py-0.5 rounded-full">
+                            SEZ Eligible
+                          </span>
+                        )}
+                      </div>
                       <div className="relative">
                         <input
                           list="country-options"
                           value={formData.country}
-                          onChange={(e) => {
-                            onChange("country", e.target.value);
-                            setCountryQuery(e.target.value);
-                          }}
-                          placeholder="Search and select a country"
-                          className="w-full pr-12 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          onChange={(e) => handleCountryChange(e.target.value)}
+                          placeholder="Select or type country"
+                          className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
-                        <button
-                          type="button"
-                          onClick={handleCountrySearch}
-                          className="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-                          aria-label="Search country"
-                        >
-                          <Search className="w-4 h-4" />
-                        </button>
                       </div>
                       <datalist id="country-options">
-                        {filteredCountries.map((country) => (
+                        {countries.map((country) => (
                           <option key={country} value={country} />
                         ))}
                       </datalist>
-                      {loadingCountries && <p className="text-xs text-gray-500">Loading countries...</p>}
+                      <div className="flex flex-wrap gap-1.5 pt-1">
+                        <span className="text-[11px] text-gray-500 self-center">Popular:</span>
+                        {["India", "Bangladesh", "Sri Lanka", "Nepal", "United States", "United Kingdom"].map((c) => (
+                          <button
+                            key={c}
+                            type="button"
+                            onClick={() => handleCountryChange(c)}
+                            className={`text-[11px] px-2 py-0.5 rounded border transition-colors ${
+                              formData.country.toLowerCase() === c.toLowerCase()
+                                ? "bg-blue-600 text-white border-blue-600"
+                                : "bg-gray-100 hover:bg-gray-200 text-gray-700 border-gray-200"
+                            }`}
+                          >
+                            {c}
+                          </button>
+                        ))}
+                      </div>
                     </div>
 
                     <div className="space-y-2">
                       <label className="block text-gray-700 font-medium">City</label>
-                      <input type="text" value={formData.city} onChange={(e) => onChange("city", e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-                    </div>
-
-                    <div className="space-y-2 md:col-span-2">
-                      <label className="block text-gray-700 font-medium">Registration Category</label>
-                      <select
-                        value={formData.categoryType}
-                        onChange={(e) => onChange("categoryType", e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      >
-                        <option value="">--Select Category--</option>
-                        <option value="Academician/Industry Participant/Others">Academician/Industry Participant/Others</option>
-                        <option value="Research Scholar/ UG/PG Student">Research Scholar/ UG/PG Student</option>
-                        <option value="Attendee">Attendee</option>
-                        <option value="Non Presenting Author">Non Presenting Author</option>
-                      </select>
-                    </div>
-
-                    <div className="space-y-2 md:col-span-2">
-                      <label className="block text-gray-700 font-medium">Payment Amount (Registration Fee)</label>
                       <input
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        value={formData.registrationAmount}
-                        onChange={(e) => onChange("registrationAmount", e.target.value)}
-                        placeholder="Enter amount"
+                        type="text"
+                        value={formData.city}
+                        onChange={(e) => onChange("city", e.target.value)}
+                        placeholder="Enter your city"
                         className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
+                    </div>
+
+                    {/* Registration Category (Standard vs Reduced) */}
+                    <div className="space-y-2 md:col-span-2">
+                      <div className="flex items-center justify-between">
+                        <label className="block text-gray-700 font-medium">Registration Category</label>
+                        <span className="text-xs text-gray-500">
+                          {formData.registrationCategory === "Reduced" ? "Special Economic Zone rate" : "Standard International rate"}
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button
+                          type="button"
+                          onClick={() => handleCategoryChange("Standard")}
+                          className={`p-3 text-left rounded-lg border-2 transition-all flex flex-col justify-between ${
+                            formData.registrationCategory === "Standard"
+                              ? "border-blue-600 bg-blue-50/60 ring-1 ring-blue-500"
+                              : "border-gray-200 hover:border-gray-300 bg-white"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between w-full">
+                            <span className="font-semibold text-gray-900">Standard</span>
+                            <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                              formData.registrationCategory === "Standard" ? "border-blue-600 bg-blue-600" : "border-gray-300"
+                            }`}>
+                              {formData.registrationCategory === "Standard" && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500 mt-1">
+                            For authors from all other countries / International
+                          </p>
+                          <span className="text-xs font-medium text-blue-700 mt-2">
+                            Early: USD 400 / EUR 350 • Regular: USD 600 / EUR 500
+                          </span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => handleCategoryChange("Reduced")}
+                          className={`p-3 text-left rounded-lg border-2 transition-all flex flex-col justify-between ${
+                            formData.registrationCategory === "Reduced"
+                              ? "border-blue-600 bg-blue-50/60 ring-1 ring-blue-500"
+                              : "border-gray-200 hover:border-gray-300 bg-white"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between w-full">
+                            <div className="flex items-center gap-2">
+                              <span className="font-semibold text-gray-900">Reduced (SEZ)</span>
+                              <span className="text-[10px] bg-green-100 text-green-800 font-semibold px-1.5 py-0.5 rounded">
+                                India, BD, LK, NP
+                              </span>
+                            </div>
+                            <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                              formData.registrationCategory === "Reduced" ? "border-blue-600 bg-blue-600" : "border-gray-300"
+                            }`}>
+                              {formData.registrationCategory === "Reduced" && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500 mt-1">
+                            Special Economic Zone: India, Bangladesh, Sri Lanka, Nepal
+                          </p>
+                          <span className="text-xs font-medium text-green-700 mt-2">
+                            Early: INR 12,000 / USD 130 • Regular: INR 13,000 / USD 150
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Registration Type (Early Bird vs Regular) */}
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="block text-gray-700 font-medium">Type of Registration</label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button
+                          type="button"
+                          onClick={() => handleTypeChange("Early Bird")}
+                          className={`p-3 text-left rounded-lg border-2 transition-all flex items-center justify-between ${
+                            formData.registrationType === "Early Bird"
+                              ? "border-blue-600 bg-blue-50/60 ring-1 ring-blue-500"
+                              : "border-gray-200 hover:border-gray-300 bg-white"
+                          }`}
+                        >
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <span className="font-semibold text-gray-900">Early Bird</span>
+                              <span className="text-[11px] bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-full">
+                                Before Oct. 10
+                              </span>
+                            </div>
+                            <p className="text-xs text-gray-500 mt-0.5">Discounted early submission rate</p>
+                          </div>
+                          <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ml-2 ${
+                            formData.registrationType === "Early Bird" ? "border-blue-600 bg-blue-600" : "border-gray-300"
+                          }`}>
+                            {formData.registrationType === "Early Bird" && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
+                          </span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => handleTypeChange("Regular")}
+                          className={`p-3 text-left rounded-lg border-2 transition-all flex items-center justify-between ${
+                            formData.registrationType === "Regular"
+                              ? "border-blue-600 bg-blue-50/60 ring-1 ring-blue-500"
+                              : "border-gray-200 hover:border-gray-300 bg-white"
+                          }`}
+                        >
+                          <div>
+                            <span className="font-semibold text-gray-900">Regular</span>
+                            <p className="text-xs text-gray-500 mt-0.5">Standard conference registration rate</p>
+                          </div>
+                          <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ml-2 ${
+                            formData.registrationType === "Regular" ? "border-blue-600 bg-blue-600" : "border-gray-300"
+                          }`}>
+                            {formData.registrationType === "Regular" && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Currency & Calculated Payment Amount */}
+                    <div className="space-y-2 md:col-span-2">
+                      <div className="flex items-center justify-between">
+                        <label className="block text-gray-700 font-medium">Payment Amount (Registration Fee)</label>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-xs text-gray-500">Currency:</span>
+                          {(formData.registrationCategory === "Reduced" ? ["INR", "USD", "EUR"] : ["USD", "EUR"]).map((curr) => (
+                            <button
+                              key={curr}
+                              type="button"
+                              onClick={() => handleCurrencyChange(curr)}
+                              className={`text-xs px-2.5 py-1 rounded font-semibold transition-colors ${
+                                formData.currency === curr
+                                  ? "bg-blue-600 text-white"
+                                  : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+                              }`}
+                            >
+                              {curr}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                          <span className="text-gray-500 font-semibold text-sm">
+                            {formData.currency === "INR" ? "₹" : formData.currency === "EUR" ? "€" : "$"}
+                          </span>
+                        </div>
+                        <input
+                          type="number"
+                          min="0"
+                          step="0.01"
+                          value={formData.registrationAmount}
+                          onChange={(e) => onChange("registrationAmount", e.target.value)}
+                          placeholder="Calculated amount"
+                          className="w-full pl-8 pr-3 p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent font-semibold text-gray-900 bg-gray-50/50"
+                        />
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-blue-50/80 border border-blue-200/80 rounded-lg p-3 gap-2">
+                        <div className="text-xs text-blue-900">
+                          <span className="font-bold">Calculated Fee: </span>
+                          <span className="font-semibold">
+                            {formData.currency} {Number(formData.registrationAmount || 0).toLocaleString()}
+                          </span>
+                          {" "}• Category: <strong>{formData.registrationCategory}</strong> ({formData.registrationType})
+                        </div>
+                        <div className="text-[11px] text-blue-700">
+                          Includes 18% GST • Non-refundable
+                        </div>
+                      </div>
+
                       <p className="text-xs text-blue-700 bg-blue-50 border border-blue-200/60 rounded-md p-2.5 mt-1">
                         💳 You can pay your registration fee via <strong>Kotak UPI QR Code</strong> or <strong>Direct Bank Transfer (IMPS / NEFT / RTGS)</strong>. After submitting this form, you will be directed to submit your <strong>Payment Proof (receipt/screenshot)</strong> and <strong>Payment Date</strong>.
                       </p>
