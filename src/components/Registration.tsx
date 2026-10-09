@@ -322,7 +322,7 @@ const Registration = () => {
                 <thead>
                   <tr className="bg-gray-100 text-gray-800">
                     <th className="py-3 px-6">Category</th>
-                    <th className="py-3 px-6">Early Bird  (before Oct.10)</th>
+                    <th className="py-3 px-6">Early Bird  (before Oct.20)</th>
                     <th className="py-3 px-6">Regular</th>
                   </tr>
                 </thead>
