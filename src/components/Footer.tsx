@@ -4,6 +4,25 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Calendar, Globe, Rocket, ArrowRight } from "lucide-react";
 import Logo from "../public/collegelogo.png";
 import BDCOE from "../public/bdcoe logoo.png";
+import UnisysLogo from "../public/unisys.jpeg";
+import CSIRLogo from "../public/csir.jpg";
+
+const sponsors = [
+  {
+    name: "Unisys",
+    tag: "Platinum Sponsor",
+    href: "https://www.unisys.com",
+    logo: UnisysLogo,
+    logoClass: "h-4",
+  },
+  {
+    name: "CSIR India",
+    tag: "Supported By",
+    href: "https://www.csir.res.in",
+    logo: CSIRLogo,
+    logoClass: "h-6",
+  },
+];
 
 const Footer = () => {
   return (
@@ -15,7 +34,7 @@ const Footer = () => {
       className="bg-slate-900 text-slate-200 pt-16 pb-8 border-t border-slate-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
           
           {/* Brand Column */}
           <div className="space-y-6">
@@ -90,6 +109,38 @@ const Footer = () => {
                     <ArrowRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
                     {item.name}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Sponsors */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-bold text-white relative inline-block">
+              Sponsors
+              <span className="absolute -bottom-1 left-0 w-1/2 h-1 bg-blue-600 rounded-full"></span>
+            </h3>
+            <ul className="grid grid-cols-1 gap-2.5">
+              {sponsors.map((sponsor) => (
+                <li key={sponsor.name}>
+                  <a
+                    href={sponsor.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`Visit ${sponsor.name}`}
+                    className="group flex items-center gap-3"
+                  >
+                    <div className="flex h-8 w-12 shrink-0 items-center justify-center rounded-md bg-white p-1 shadow-md transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+                      <img src={sponsor.logo} alt={sponsor.name} className={`${sponsor.logoClass} w-auto max-w-full object-contain`} />
+                    </div>
+                    <div className="flex flex-col text-slate-400 group-hover:text-blue-400 transition-colors duration-200">
+                      <span className="flex items-center gap-2 text-sm">
+                        <ArrowRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                        {sponsor.name}
+                      </span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">{sponsor.tag}</span>
+                    </div>
+                  </a>
                 </li>
               ))}
             </ul>

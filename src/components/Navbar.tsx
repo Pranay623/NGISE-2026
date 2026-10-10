@@ -5,7 +5,6 @@ import { ChevronDown } from "lucide-react";
 import Logo from "../public/main logo.png";
 import RightLogo from "../public/WhatsApp Image 2026-04-02 at 6.36.14 PM.jpeg";
 import RightLogo2 from "../public/WhatsApp Image 2026-04-02 at 7.35.40 PM.jpeg";
-import CSIRLogo from "../public/csir.jpg";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 
@@ -102,21 +101,6 @@ export default function Navbar() {
                   />
                 </a>
 
-                <div className="h-4 sm:h-5 w-px bg-slate-200 shrink-0" />
-
-                <a
-                  href="https://www.csir.res.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center shrink-0 hover:opacity-80 transition-opacity"
-                  title="CSIR India"
-                >
-                  <img
-                    src={CSIRLogo}
-                    alt="CSIR India"
-                    className="h-6 sm:h-8 w-auto max-w-[24px] sm:max-w-[32px] object-contain shrink-0"
-                  />
-                </a>
               </div>
 
               {/* Mobile Drawer Trigger */}
@@ -225,7 +209,7 @@ export default function Navbar() {
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">
                       Official Partners & Publications
                     </p>
-                    <div className="grid grid-cols-3 gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <div className="grid grid-cols-2 gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-100">
                       <a
                         href="https://www.springer.com"
                         target="_blank"
@@ -243,15 +227,6 @@ export default function Navbar() {
                       >
                         <img src={RightLogo2} alt="CCIS" className="h-6 w-auto object-contain transition-transform group-hover:scale-105" />
                         <span className="text-[10px] text-slate-500 font-medium leading-tight">CCIS</span>
-                      </a>
-                      <a
-                        href="https://www.csir.res.in"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-col items-center justify-center p-2 rounded-lg bg-white shadow-xs hover:shadow-md transition-all gap-1.5 text-center group"
-                      >
-                        <img src={CSIRLogo} alt="CSIR India" className="h-7 w-auto object-contain transition-transform group-hover:scale-105" />
-                        <span className="text-[10px] text-slate-500 font-medium leading-tight">CSIR India</span>
                       </a>
                     </div>
                   </div>
@@ -391,21 +366,6 @@ export default function Navbar() {
                 />
               </a>
 
-              <div className="h-6 w-px bg-slate-200" />
-
-              <a
-                href="https://www.csir.res.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center transition-all duration-200 hover:opacity-80 hover:scale-105"
-                title="Council of Scientific & Industrial Research (CSIR) - India"
-              >
-                <img
-                  src={CSIRLogo}
-                  alt="CSIR India"
-                  className="h-10 xl:h-11 2xl:h-12 w-auto object-contain shrink-0"
-                />
-              </a>
             </div>
           </div>
 
