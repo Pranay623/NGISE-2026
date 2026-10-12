@@ -57,6 +57,8 @@ const SubmitProofPage: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const locState = (location.state as any) || {};
+  const paymentCurrency = (locState.currency || "INR").toUpperCase();
+  const paymentSymbol = paymentCurrency === "EUR" ? "€" : paymentCurrency === "USD" ? "$" : "₹";
 
   const [formData, setFormData] = useState({
     paperId: locState.paperId || "",
@@ -619,7 +621,7 @@ const SubmitProofPage: React.FC = () => {
 
                     {/* Payment Amount */}
                     <div className="space-y-2">
-                      <label className="block text-gray-700 font-medium text-sm">Payment Amount (₹)</label>
+                      <label className="block text-gray-700 font-medium text-sm">Payment Amount ({paymentSymbol} - {paymentCurrency})</label>
                       <input
                         type="number"
                         min="0"
@@ -835,7 +837,7 @@ const SubmitProofPage: React.FC = () => {
                 { label: "Corresponding Author Email", value: formData.email },
                 { label: "Corresponding Author Phone Number", value: formData.mobileNumber },
                 ...(formData.whatsappNumber ? [{ label: "Corresponding Author WhatsApp Number", value: formData.whatsappNumber }] : []),
-                { label: "Payment Amount (₹)", value: `₹${Number(formData.amount).toLocaleString("en-IN")}` },
+                { label: `Payment Amount (${paymentSymbol})`, value: `${paymentSymbol}${Number(formData.amount).toLocaleString(paymentCurrency === "EUR" ? "de-DE" : paymentCurrency === "USD" ? "en-US" : "en-IN")} (${paymentCurrency})` },
                 { label: "Sender's Bank Account Holder Name", value: formData.senderAccountName },
                 { label: "Payment Date & Time", value: formatDateTime(formData.transactionDateTime) },
                 { label: "Transaction ID / UTR", value: formData.transactionId },
