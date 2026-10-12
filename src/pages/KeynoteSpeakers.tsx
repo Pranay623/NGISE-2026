@@ -1,5 +1,6 @@
 import Divesh from "../public/image.png";
 import Arun from "../public/Keyspeaker.jpeg";
+import Riina from "../public/riina-palu.jpg";
 import PageHeader from "../components/PageHeader";
 
 export default function KeynoteSpeakers() {
@@ -53,6 +54,39 @@ export default function KeynoteSpeakers() {
                                 </p>
                                 <p>
                                     <span className="font-bold text-gray-900">Speaker bio:</span> Arun Kumar Sangaiah received his Ph.D. from School of Computer Science and Engineering, VIT University, Vellore, India. He is currently a Full Professor with National Yunlin University of Science and Technology, Taiwan. He has published more than 300 research articles in refereed journals (IEEE TII, IEEE TITS, IEEE TNSE, IEEE TETCI, IEEE SysJ, IEEE SensJ, IEEE IOTJ, ACM TOSN), 11 edited books, as well as 1 patent (held and filed) and 5 projects funded by National Science and Technology Council (NSTC), Taiwan, Ministry of IT of India and further international projects (CAS, Guangdong Research fund, Australian Research Council). Arun has received various awards, Yushan Young Scholar, PIFI-CAS fellowship, CSI significant Contributor etc. Also, he is responsible for Editor-in-Chief, and Associate Editor of various reputed ISI journals. Dr. Sangaiah is a visiting scientist (2018-2019) with Chinese Academy of Sciences (CAS), China and visiting researcher of Université Paris-Est (UPEC), France (2019-2020).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="w-full lg:w-[calc(50%-1rem)]">
+                    <div className="p-5 sm:p-6 bg-white shadow-lg rounded-xl border border-gray-100 flex flex-col items-center">
+                        {/* Photo is zoomed and shifted so only the face shows inside the circle */}
+                        <div className="relative w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-50 bg-slate-100">
+                            <img
+                                src={Riina}
+                                alt="Dr. Riina Palu"
+                                className="absolute max-w-none"
+                                style={{ width: 248, left: -52, top: -43 }}
+                            />
+                        </div>
+                        <p className="text-xl font-semibold text-center mt-2">Dr. Riina Palu</p>
+                        <div className="text-gray-600 text-sm text-center mb-6 space-y-1">
+                            <p>Next Gen Digital Society Research Group, Digital Society Resilience Research Stream, Researcher, PhD</p>
+                            <p>UNESCO Chair in Digital Transformation for Inclusive and Sustainable Development, Co-Chairholder</p>
+                            <p>Department of Software Science, School of Information Technologies, Tallinn University of Technology (TalTech), Tallinn, Estonia</p>
+                        </div>
+
+                        <div className="w-full text-left">
+                            <p className="font-bold text-center text-md mb-6 px-4">Engineering Digital Society Resilience: Empirical Insights Across Seven Nations Through the CIGET Framework</p>
+
+                            <div className="text-sm text-gray-700 space-y-4 leading-relaxed">
+                                <p>
+                                    <span className="font-bold text-gray-900">Abstract:</span> Modern digital societies face compounding threats ranging from kinetic infrastructure disruption and systemic cyberattacks to climate shocks and institutional vulnerabilities. Conventional resilience models often focus narrowly on technological defenses, overlooking the intricate socio-technical dependencies underpinning public administration. This keynote introduces an empirical, multi-country evaluation of digital society resilience using the CIGET Framework (evaluating Connectivity, Infrastructure, Governance, Environmental Impact &amp; Sustainability, and Technologies). Drawing on seven diverse national case studies the presentation demonstrates how centralized efficiency often conceals single points of failure, why strict data localization can hinder disaster recovery, and how physical dependencies constrain digital operations. The session outlines core principles for engineering resilient, fail-safe digital societies capable of maintaining continuity during polycrises.
+                                </p>
+                                <p>
+                                    <span className="font-bold text-gray-900">Speaker bio:</span> Dr. Riina Palu is a Researcher in the Next Gen Digital Society Research Group at the Department of Software Science, Tallinn University of Technology (TalTech), Estonia. She also serves as the Co-Chairholder of the UNESCO Chair in Digital Transformation for Inclusive and Sustainable Development. Her research investigates the resilience of digital societies, digital sovereignty, and governance models for autonomous and agentic technologies across critical domains, including public administration and maritime logistics. She is the creator of the CIGET Resilience Assessment Framework and actively leads international research initiatives on socio-technical system resilience during polycrises.
                                 </p>
                             </div>
                         </div>

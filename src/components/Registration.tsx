@@ -699,7 +699,7 @@ const Registration = () => {
                             <div className="flex items-center gap-2">
                               <span className="font-semibold text-gray-900">Early Bird</span>
                               <span className="text-[11px] bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-full">
-                                Before Oct. 10
+                                Before Oct. 20
                               </span>
                             </div>
                             <p className="text-xs text-gray-500 mt-0.5">Discounted early submission rate</p>

@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ExternalLink } from "lucide-react";
-import UnisysLogo from "../public/unisys.jpeg";
 import PlatinumBadge from "../public/platinum.jpeg";
+import UnisysLogo from "../public/unisys.jpeg";
 import CSIRLogo from "../public/csir.jpg";
 
 const OPEN_BY_DEFAULT_QUERY = "(min-width: 1024px)";
@@ -23,6 +23,84 @@ const itemVariants = {
   },
 } as const;
 
+type SponsorCardProps = {
+  children: ReactNode;
+  delay: number;
+  reduceMotion: boolean;
+  title: string;
+  href?: string;
+};
+
+// One sponsor in its own card: floats, has a rotating gradient border, and sweeps light on hover
+function SponsorCard({
+  children,
+  delay,
+  reduceMotion,
+  title,
+  href,
+}: SponsorCardProps) {
+  const Tag = href ? motion.a : motion.div;
+  const linkProps = href
+    ? { href, target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
+  return (
+    <motion.div variants={itemVariants}>
+      <Tag
+        {...linkProps}
+        title={title}
+        animate={
+          reduceMotion
+            ? undefined
+            : {
+                y: [0, -6, 0],
+                transition: {
+                  duration: 4.5,
+                  delay,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              }
+        }
+        whileHover={{ scale: 1.05 }}
+        whileTap={href ? { scale: 0.98 } : undefined}
+        className="group relative block overflow-hidden rounded-2xl p-[2px] shadow-lg"
+      >
+        {reduceMotion ? (
+          <span aria-hidden className="absolute inset-0 bg-slate-300" />
+        ) : (
+          <motion.span
+            aria-hidden
+            className="absolute left-1/2 top-1/2 aspect-square w-[220%] -translate-x-1/2 -translate-y-1/2"
+            style={{
+              background:
+                "conic-gradient(from 0deg, #e2e8f0, #60a5fa, #a78bfa, #f0abfc, #e2e8f0, #38bdf8, #e2e8f0)",
+            }}
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 7,
+              delay: -delay * 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        )}
+
+        <div className="relative flex min-h-[7.5rem] items-center justify-center overflow-hidden rounded-[14px] bg-white px-3 py-4 xl:min-h-[8.5rem]">
+          {children}
+          {href && (
+            <ExternalLink className="absolute right-2 top-2 h-3.5 w-3.5 text-slate-300 transition-colors group-hover:text-blue-500" />
+          )}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 -left-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/80 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[400%]"
+          />
+        </div>
+      </Tag>
+    </motion.div>
+  );
+}
+
 export default function StickySponsorTab() {
   const reduceMotion = useReducedMotion();
   const [open, setOpen] = useState(
@@ -38,19 +116,6 @@ export default function StickySponsorTab() {
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, []);
-
-  const float = (delay: number) =>
-    reduceMotion
-      ? undefined
-      : {
-          y: [0, -6, 0],
-          transition: {
-            duration: 4.5,
-            delay,
-            repeat: Infinity,
-            ease: "easeInOut" as const,
-          },
-        };
 
   return (
     <aside
@@ -124,87 +189,43 @@ export default function StickySponsorTab() {
               <span className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-300" />
             </motion.div>
 
-            {/* Platinum sponsor: animated gradient border */}
-            <motion.div variants={itemVariants}>
-              <motion.a
-                href="https://www.unisys.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Visit Platinum Sponsor - Unisys"
-                animate={float(0)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative block overflow-hidden rounded-2xl p-[2px] shadow-lg"
-              >
-                {!reduceMotion && (
-                  <motion.span
-                    aria-hidden
-                    className="absolute left-1/2 top-1/2 aspect-square w-[220%] -translate-x-1/2 -translate-y-1/2"
-                    style={{
-                      background:
-                        "conic-gradient(from 0deg, #e2e8f0, #60a5fa, #a78bfa, #f0abfc, #e2e8f0, #38bdf8, #e2e8f0)",
-                    }}
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 7,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  />
-                )}
-                {reduceMotion && (
-                  <span aria-hidden className="absolute inset-0 bg-slate-300" />
-                )}
+            <SponsorCard
+              delay={0}
+              reduceMotion={!!reduceMotion}
+              title="Platinum Sponsor"
+            >
+              <img
+                src={PlatinumBadge}
+                alt="Platinum Sponsor Badge"
+                className="h-20 w-20 rounded-full object-contain xl:h-24 xl:w-24"
+              />
+            </SponsorCard>
 
-                <div className="relative flex flex-col items-center gap-2 overflow-hidden rounded-[14px] bg-white px-3 py-4">
-                  <img
-                    src={PlatinumBadge}
-                    alt="Platinum Sponsor Badge"
-                    className="h-14 w-14 rounded-full object-contain xl:h-16 xl:w-16"
-                  />
-                  <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-slate-600 transition-colors group-hover:bg-blue-50 group-hover:text-blue-700">
-                    Platinum Sponsor
-                  </span>
-                  <img
-                    src={UnisysLogo}
-                    alt="Unisys"
-                    className="h-12 w-auto max-w-full object-contain mix-blend-multiply contrast-[1.1] xl:h-14"
-                  />
-                  <ExternalLink className="absolute right-2 top-2 h-3.5 w-3.5 text-slate-300 transition-colors group-hover:text-blue-500" />
+            <SponsorCard
+              delay={1.1}
+              reduceMotion={!!reduceMotion}
+              href="https://www.unisys.com"
+              title="Visit Platinum Sponsor - Unisys"
+            >
+              <img
+                src={UnisysLogo}
+                alt="Unisys"
+                className="h-14 w-auto max-w-full object-contain mix-blend-multiply contrast-[1.1] xl:h-16"
+              />
+            </SponsorCard>
 
-                  {/* Light sweep on hover */}
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-y-0 -left-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/80 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[400%]"
-                  />
-                </div>
-              </motion.a>
-            </motion.div>
-
-            {/* Supporting sponsor */}
-            <motion.div variants={itemVariants}>
-              <motion.a
-                href="https://www.csir.res.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Visit CSIR India"
-                animate={float(1.2)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative flex items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white px-3 py-4 shadow-md transition-colors hover:border-blue-300"
-              >
-                <img
-                  src={CSIRLogo}
-                  alt="CSIR India"
-                  className="h-16 w-auto object-contain xl:h-[4.5rem]"
-                />
-                <ExternalLink className="absolute right-2 top-2 h-3.5 w-3.5 text-slate-300 transition-colors group-hover:text-blue-500" />
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-y-0 -left-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-blue-100/70 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[400%]"
-                />
-              </motion.a>
-            </motion.div>
+            <SponsorCard
+              delay={2.2}
+              reduceMotion={!!reduceMotion}
+              href="https://www.csir.res.in"
+              title="Visit CSIR India"
+            >
+              <img
+                src={CSIRLogo}
+                alt="CSIR India"
+                className="h-20 w-auto max-w-full object-contain xl:h-24"
+              />
+            </SponsorCard>
           </motion.div>
         </div>
       </motion.div>
