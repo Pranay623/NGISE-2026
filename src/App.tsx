@@ -87,6 +87,7 @@ function App() {
                     <Route path="/contact" element={<VenuePage />} />
                     <Route path="/registrations" element={<Registration />} />
                     <Route path="/registrations/submit-proof" element={<SubmitProofPage />} />
+                    <Route path="/registrations/submit_proof" element={<SubmitProofPage />} />
                     <Route path="/registrations/payment-status" element={<PaymentStatusPage />} />
                     <Route path="/registrations/payment-status/:id" element={<PaymentStatusPage />} />
                     <Route path="/locale/about-city" element={<City />} />

@@ -787,7 +787,7 @@ const Registration = () => {
                       </div>
 
                       <p className="text-xs text-blue-700 bg-blue-50 border border-blue-200/60 rounded-md p-2.5 mt-1">
-                        💳 You can pay your registration fee via <strong>Kotak UPI QR Code</strong> or <strong>Direct Bank Transfer (IMPS / NEFT / RTGS)</strong>. After submitting this form, you will be directed to submit your <strong>Payment Proof (receipt/screenshot)</strong> and <strong>Payment Date</strong>.
+                        💳 You can pay your registration fee via <strong>Kotak UPI QR Code</strong> or <strong>Direct Bank Transfer (IMPS / NEFT / RTGS / SWIFT Wire Transfer)</strong>. After submitting this form, you will be directed to submit your <strong>Payment Proof (receipt/screenshot)</strong> and <strong>Payment Date</strong>.
                       </p>
                     </div>
                   <div className="md:col-span-2 flex flex-col items-center gap-3 pt-2">

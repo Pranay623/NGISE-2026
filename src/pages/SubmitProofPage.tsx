@@ -33,6 +33,7 @@ const BANK_DETAILS = [
   { label: "Name of the Bank", value: "Kotak Mahindra Bank Ltd.", copyable: false },
   { label: "Bank Account No.", value: "508010250461", copyable: true, highlight: true },
   { label: "RTGS / NEFT / IFSC Code", value: "KKBK0005295", copyable: true, highlight: true },
+  { label: "SWIFT / BIC Code", value: "KKBKINBBCPC", copyable: true, highlight: true, badge: "International" },
   { label: "Type of Bank Account", value: "Saving Bank Accounts", copyable: false },
   { label: "Branch Code", value: "5295", copyable: false },
   { label: "Branch Address", value: "30 & 31 Navyug Market, P.B.No. 75, Ghaziabad-201001", copyable: false },
@@ -432,12 +433,12 @@ const SubmitProofPage: React.FC = () => {
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                   <div className="flex items-center gap-2">
                     <Building2 className="w-5 h-5 text-blue-600" />
-                    <h2 className="font-bold text-gray-900 text-lg">Bank Transfer (NEFT/RTGS/IMPS)</h2>
+                    <h2 className="font-bold text-gray-900 text-lg">Bank Transfer (NEFT/RTGS/IMPS/SWIFT)</h2>
                   </div>
                 </div>
 
                 <p className="text-xs text-gray-500 mt-2 mb-3">
-                  Transfer directly to the college account via Net Banking or Mobile Banking.
+                  Transfer directly to the college account via Net Banking, Mobile Banking, or International Wire Transfer.
                 </p>
 
                 <div className="overflow-hidden border border-slate-200 rounded-xl">
@@ -449,7 +450,14 @@ const SubmitProofPage: React.FC = () => {
                           className={item.highlight ? "bg-blue-50/70" : index % 2 === 0 ? "bg-slate-50/50" : "bg-white"}
                         >
                           <td className="py-2.5 px-3 text-gray-600 font-medium whitespace-nowrap align-middle w-2/5">
-                            {item.label}
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                              <span>{item.label}</span>
+                              {(item as any).badge && (
+                                <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-700 border border-blue-200">
+                                  {(item as any).badge}
+                                </span>
+                              )}
+                            </div>
                           </td>
                           <td className="py-2.5 px-3 text-gray-900 font-semibold align-middle">
                             <div className="flex items-center justify-between gap-1.5">
@@ -681,7 +689,7 @@ const SubmitProofPage: React.FC = () => {
                         type="text"
                         value={formData.transactionId}
                         onChange={(e) => onChange("transactionId", e.target.value)}
-                        placeholder="e.g. UPI123456789012 or NEFT transfer reference"
+                        placeholder="e.g. UPI Ref, NEFT / IMPS UTR, or Wire Transfer Reference"
                         className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm font-mono"
                       />
                       {errors.transactionId && (
