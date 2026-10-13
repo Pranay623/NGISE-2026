@@ -61,17 +61,16 @@ export default function KeynoteSpeakers() {
                 </div>
 
                 <div className="w-full lg:w-[calc(50%-1rem)]">
-                    <div className="p-5 sm:p-6 bg-white shadow-lg rounded-xl border border-gray-100 flex flex-col items-center">
-                        {/* Photo is zoomed and shifted so only the face shows inside the circle */}
+                    <div className="p-5 sm:p-6 bg-white shadow-lg rounded-xl border border-gray-100 flex flex-col items-center">                        {/* Photo is zoomed and shifted so only the face shows inside the circle */}
                         <div className="relative w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-50 bg-slate-100">
                             <img
                                 src={Riina}
-                                alt="Dr. Riina Palu"
+                                alt="Riina Palu"
                                 className="absolute max-w-none"
                                 style={{ width: 248, left: -52, top: -43 }}
                             />
                         </div>
-                        <p className="text-xl font-semibold text-center mt-2">Dr. Riina Palu</p>
+                        <p className="text-xl font-semibold text-center mt-2">Riina Palu</p>
                         <div className="text-gray-600 text-sm text-center mb-6 space-y-1">
                             <p>Next Gen Digital Society Research Group, Digital Society Resilience Research Stream, Researcher, PhD</p>
                             <p>UNESCO Chair in Digital Transformation for Inclusive and Sustainable Development, Co-Chairholder</p>
@@ -86,7 +85,7 @@ export default function KeynoteSpeakers() {
                                     <span className="font-bold text-gray-900">Abstract:</span> Modern digital societies face compounding threats ranging from kinetic infrastructure disruption and systemic cyberattacks to climate shocks and institutional vulnerabilities. Conventional resilience models often focus narrowly on technological defenses, overlooking the intricate socio-technical dependencies underpinning public administration. This keynote introduces an empirical, multi-country evaluation of digital society resilience using the CIGET Framework (evaluating Connectivity, Infrastructure, Governance, Environmental Impact &amp; Sustainability, and Technologies). Drawing on seven diverse national case studies the presentation demonstrates how centralized efficiency often conceals single points of failure, why strict data localization can hinder disaster recovery, and how physical dependencies constrain digital operations. The session outlines core principles for engineering resilient, fail-safe digital societies capable of maintaining continuity during polycrises.
                                 </p>
                                 <p>
-                                    <span className="font-bold text-gray-900">Speaker bio:</span> Dr. Riina Palu is a Researcher in the Next Gen Digital Society Research Group at the Department of Software Science, Tallinn University of Technology (TalTech), Estonia. She also serves as the Co-Chairholder of the UNESCO Chair in Digital Transformation for Inclusive and Sustainable Development. Her research investigates the resilience of digital societies, digital sovereignty, and governance models for autonomous and agentic technologies across critical domains, including public administration and maritime logistics. She is the creator of the CIGET Resilience Assessment Framework and actively leads international research initiatives on socio-technical system resilience during polycrises.
+                                    <span className="font-bold text-gray-900">Speaker bio:</span> Riina Palu is a Researcher in the Next Gen Digital Society Research Group at the Department of Software Science, Tallinn University of Technology (TalTech), Estonia. She also serves as the Co-Chairholder of the UNESCO Chair in Digital Transformation for Inclusive and Sustainable Development. Her research investigates the resilience of digital societies, digital sovereignty, and governance models for autonomous and agentic technologies across critical domains, including public administration and maritime logistics. She is the creator of the CIGET Resilience Assessment Framework and actively leads international research initiatives on socio-technical system resilience during polycrises.
                                 </p>
                             </div>
                         </div>
