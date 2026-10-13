@@ -19,6 +19,8 @@ import {
   Download,
   ExternalLink,
   Smartphone,
+  CreditCard,
+  ArrowRight,
 } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import { submitPayment, checkUtrAvailability } from "../services/paymentService";
@@ -84,6 +86,7 @@ const SubmitProofPage: React.FC = () => {
   const [showReview, setShowReview] = useState(false);
   const [showImagePreview, setShowImagePreview] = useState(false);
   const [showQrLightbox, setShowQrLightbox] = useState(false);
+  const [showOtherPaymentModal, setShowOtherPaymentModal] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string>("");
   const turnstileRef = useRef<HTMLDivElement>(null);
@@ -316,10 +319,15 @@ const SubmitProofPage: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm"
               >
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 gap-2 flex-wrap">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <h2 className="font-bold text-gray-900 text-lg">Scan & Pay via UPI</h2>
+                    <h2 className="font-bold text-gray-900 text-lg flex items-center gap-2 flex-wrap">
+                      <span>Scan & Pay via UPI</span>
+                      <span className="text-xs font-semibold px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-md border border-emerald-200">
+                        [recommended]
+                      </span>
+                    </h2>
                   </div>
                   <span className="text-xs font-semibold px-2.5 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">
                     Instant
@@ -430,10 +438,15 @@ const SubmitProofPage: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm"
               >
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <Building2 className="w-5 h-5 text-blue-600" />
-                    <h2 className="font-bold text-gray-900 text-lg">Bank Transfer (NEFT/RTGS/IMPS/SWIFT)</h2>
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 gap-2 flex-wrap">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <Building2 className="w-5 h-5 text-blue-600 shrink-0" />
+                    <h2 className="font-bold text-gray-900 text-lg flex items-center gap-2 flex-wrap">
+                      <span>Bank Transfer (NEFT/RTGS/IMPS/SWIFT)</span>
+                      <span className="text-xs font-semibold px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-md border border-emerald-200">
+                        [recommended]
+                      </span>
+                    </h2>
                   </div>
                 </div>
 
@@ -497,6 +510,47 @@ const SubmitProofPage: React.FC = () => {
                     <ExternalLink className="w-3.5 h-3.5" />
                     Official Bank Document
                   </a>
+                </div>
+              </motion.div>
+
+              {/* Card 3: Other Payment Way */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-gradient-to-br from-blue-50/70 via-white to-blue-50/40 rounded-2xl p-6 border-2 border-blue-400/80 shadow-sm hover:shadow-md transition-all relative overflow-hidden"
+              >
+                <div className="flex items-center justify-between pb-3 border-b border-blue-100">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-sm">
+                      <CreditCard className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h2 className="font-bold text-gray-900 text-lg">Other Payment Way</h2>
+                      <span className="text-xs text-blue-600 font-medium">Debit Card • Credit Card • Net Banking</span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full border border-blue-200">
+                    Online
+                  </span>
+                </div>
+
+                <p className="text-xs text-gray-600 mt-3 leading-relaxed">
+                  Pay securely using Debit Card, Credit Card, or Net Banking via the official Razorpay payment portal.
+                </p>
+
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowOtherPaymentModal(true)}
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all group"
+                  >
+                    <span>Other Payment Way</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                  <p className="text-[11px] text-gray-500 text-center mt-2">
+                    Click the button above to view instructions & proceed to payment
+                  </p>
                 </div>
               </motion.div>
             </div>
@@ -1073,6 +1127,144 @@ const SubmitProofPage: React.FC = () => {
               <span>{screenshotFile?.name}</span>
               <span className="text-white/60">•</span>
               <span className="text-white/80">{screenshotFile ? (screenshotFile.size / 1024).toFixed(1) + " KB" : ""}</span>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* ───── Other Payment Way Instructions Modal ───── */}
+      {showOtherPaymentModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowOtherPaymentModal(false)}
+          />
+
+          {/* Modal Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-blue-100 z-10"
+          >
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white px-6 py-5 rounded-t-2xl flex items-center justify-between sticky top-0 z-10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                  <CreditCard className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">Instructions</h3>
+                  <p className="text-blue-100 text-xs mt-0.5">Online Payment Portal (Razorpay)</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowOtherPaymentModal(false)}
+                className="p-1.5 hover:bg-white/20 rounded-lg transition-colors text-white"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Content Body */}
+            <div className="p-6 space-y-4">
+              <div className="bg-blue-50/80 border border-blue-200/80 rounded-xl p-3.5">
+                <p className="text-sm font-semibold text-blue-950">
+                  “Please follow the instructions below while filling out the form:”
+                </p>
+              </div>
+
+              {/* Point-wise Instructions */}
+              <div className="space-y-3">
+                {/* Point 1 */}
+                <div className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl hover:border-blue-300 transition-colors">
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shadow-sm">
+                    1
+                  </span>
+                  <div className="text-sm text-gray-800 leading-relaxed">
+                    In the <span className="font-semibold text-gray-900 bg-amber-100/80 text-amber-900 px-1.5 py-0.5 rounded border border-amber-200 font-mono text-xs">Student No.</span> field, enter your <strong className="text-blue-700 font-bold">Paper ID</strong>.
+                    {formData.paperId && (
+                      <div className="mt-1.5 flex items-center gap-2">
+                        <span className="text-xs text-gray-500">Your Paper ID:</span>
+                        <span className="text-xs font-mono font-bold text-slate-800 bg-white px-2 py-0.5 rounded border border-slate-200">
+                          {formData.paperId}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleCopy(formData.paperId, "modal-paper-id")}
+                          className="text-[11px] text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-1"
+                        >
+                          {copiedField === "modal-paper-id" ? (
+                            <>
+                              <Check className="w-3 h-3 text-green-600" />
+                              <span className="text-green-600 font-semibold">Copied</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3 h-3" />
+                              <span>Copy</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Point 2 */}
+                <div className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl hover:border-blue-300 transition-colors">
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shadow-sm">
+                    2
+                  </span>
+                  <div className="text-sm text-gray-800 leading-relaxed">
+                    In the <span className="font-semibold text-gray-900 bg-amber-100/80 text-amber-900 px-1.5 py-0.5 rounded border border-amber-200 font-mono text-xs">Branch</span> field, enter <strong className="text-blue-700 font-bold">“Other”</strong>.
+                  </div>
+                </div>
+
+                {/* Point 3 */}
+                <div className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-200 rounded-xl hover:border-blue-300 transition-colors">
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shadow-sm">
+                    3
+                  </span>
+                  <div className="text-sm text-gray-800 leading-relaxed">
+                    In the <span className="font-semibold text-gray-900 bg-amber-100/80 text-amber-900 px-1.5 py-0.5 rounded border border-amber-200 font-mono text-xs">Type of Fee</span> and <span className="font-semibold text-gray-900 bg-amber-100/80 text-amber-900 px-1.5 py-0.5 rounded border border-amber-200 font-mono text-xs">Year</span> fields, select <strong className="text-blue-700 font-bold">“Other”</strong>.
+                  </div>
+                </div>
+              </div>
+
+              {/* Note about Proof */}
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-start gap-2.5 text-xs text-amber-900">
+                <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                <p>
+                  <strong>Note:</strong> After completing your payment on the Razorpay portal, please save the receipt or note down the Payment ID / UTR and submit your proof on this page.
+                </p>
+              </div>
+            </div>
+
+            {/* Footer with Pay Now button */}
+            <div className="bg-gray-50 border-t border-gray-100 px-6 py-4 flex flex-col sm:flex-row items-center justify-end gap-3 rounded-b-2xl">
+              <button
+                type="button"
+                onClick={() => setShowOtherPaymentModal(false)}
+                className="w-full sm:w-auto px-5 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-100 transition-colors text-sm"
+              >
+                Close
+              </button>
+              <a
+                href="https://pages.razorpay.com/pl_OsdZ2yKIRhN826/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowOtherPaymentModal(false)}
+                className="w-full sm:w-auto px-7 py-2.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-sm"
+              >
+                <span>Pay Now</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </motion.div>
         </div>
