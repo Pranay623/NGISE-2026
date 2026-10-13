@@ -74,7 +74,7 @@ const Onpaper = () => {
                                 "Allowable pages in the camera-ready paper: for short papers (6-8 pages), and for long papers (15-17 pages).",
                                 <>Strictly follow the Springer manuscript preparation guidelines <br /><a href="https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium break-all">https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings</a></>,
                                 "To download Springer template:",
-                                <>MS WORD: <a href="/splnproc1703.doc" download="splnproc1703.doc" className="text-blue-600 hover:text-blue-800 underline font-medium">MS Word Template</a></>,
+                                <>MS WORD: <a href="/Microsoft+Word+Proceedings+Templates.zip" download="Microsoft+Word+Proceedings+Templates.zip" className="text-blue-600 hover:text-blue-800 underline font-medium">MS Word Template</a></>,
                                 <>LaTeX: <a href="/Proceedings+LaTeX2e+package.zip" download="Proceedings+LaTeX2e+package.zip" className="text-blue-600 hover:text-blue-800 underline font-medium">LaTeX Template</a></>,
 
 
