@@ -103,7 +103,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            2nd International Conference on Next Generation Information Systems Engineering <br />Hybrid Conference
+            2nd International Conference on Next Generation Information Systems Engineering
           </motion.p>
           <motion.p
             className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 max-w-2xl mx-auto leading-relaxed text-gray-200 px-4"

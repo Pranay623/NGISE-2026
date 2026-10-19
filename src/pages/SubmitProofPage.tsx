@@ -24,6 +24,11 @@ import {
 } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import { submitPayment, checkUtrAvailability } from "../services/paymentService";
+import {
+  ALL_CURRENCIES,
+  POPULAR_CURRENCIES,
+  getCurrencySymbol,
+} from "../utils/currencies";
 import CleanQRImage from "../public/clean-upi-qr.png";
 import BankDocImage from "../public/bank-details-doc.jpg";
 
@@ -60,8 +65,10 @@ const SubmitProofPage: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const locState = (location.state as any) || {};
-  const paymentCurrency = (locState.currency || "INR").toUpperCase();
-  const paymentSymbol = paymentCurrency === "EUR" ? "€" : paymentCurrency === "USD" ? "$" : "₹";
+  const [paymentCurrency, setPaymentCurrency] = useState<string>(
+    (locState.currency || "INR").toUpperCase()
+  );
+  const paymentSymbol = getCurrencySymbol(paymentCurrency);
 
   const [formData, setFormData] = useState({
     paperId: locState.paperId || "",
@@ -261,6 +268,7 @@ const SubmitProofPage: React.FC = () => {
         email: formData.email.trim(),
         mobileNumber: formData.mobileNumber.trim(),
         amount: Number(formData.amount),
+        currency: paymentCurrency,
         transactionId: formData.transactionId.trim(),
         screenshotUrl,
         senderAccountName: formData.senderAccountName.trim(),
@@ -337,6 +345,14 @@ const SubmitProofPage: React.FC = () => {
                 <p className="text-xs text-gray-500 mt-2">
                   Scan this QR code with Google Pay, PhonePe, Paytm, BHIM, or any UPI banking app.
                 </p>
+                {paymentCurrency !== "INR" && (
+                  <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl p-2.5 flex items-start gap-2 text-xs text-amber-800">
+                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span>
+                      UPI QR is for INR (₹) payments. For <strong>{paymentCurrency}</strong> international transfers, please use the <strong>Bank Transfer (SWIFT)</strong> details below.
+                    </span>
+                  </div>
+                )}
 
                 {/* Pure Clean QR Code Container */}
                 <div className="mt-4 flex flex-col items-center">
@@ -453,6 +469,12 @@ const SubmitProofPage: React.FC = () => {
                 <p className="text-xs text-gray-500 mt-2 mb-3">
                   Transfer directly to the college account via Net Banking, Mobile Banking, or International Wire Transfer.
                 </p>
+                {paymentCurrency !== "INR" && (
+                  <div className="mb-3 bg-blue-50 border border-blue-200 rounded-xl p-2.5 flex items-center gap-2 text-xs text-blue-800 font-medium">
+                    <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
+                    <span>Recommended for {paymentCurrency} international transfer: Please provide SWIFT / BIC Code to your bank.</span>
+                  </div>
+                )}
 
                 <div className="overflow-hidden border border-slate-200 rounded-xl">
                   <table className="w-full text-left border-collapse text-xs sm:text-sm">
@@ -683,16 +705,55 @@ const SubmitProofPage: React.FC = () => {
 
                     {/* Payment Amount */}
                     <div className="space-y-2">
-                      <label className="block text-gray-700 font-medium text-sm">Payment Amount ({paymentSymbol} - {paymentCurrency})</label>
-                      <input
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <label className="block text-gray-700 font-medium text-sm">Payment Amount ({paymentSymbol} - {paymentCurrency})</label>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="text-xs text-gray-500 font-medium">Currency:</span>
+                          {POPULAR_CURRENCIES.map((curr) => (
+                            <button
+                              key={curr}
+                              type="button"
+                              onClick={() => setPaymentCurrency(curr)}
+                              className={`text-xs px-2.5 py-1 rounded font-semibold transition-colors ${
+                                paymentCurrency === curr
+                                  ? "bg-blue-600 text-white shadow-sm"
+                                  : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+                              }`}
+                            >
+                              {curr}
+                            </button>
+                          ))}
+                          <select
+                            value={paymentCurrency}
+                            onChange={(e) => setPaymentCurrency(e.target.value)}
+                            className="text-xs px-2 py-1 rounded border border-gray-300 bg-white font-medium text-gray-700 hover:border-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer"
+                            title="Select from all world currencies"
+                          >
+                            <option value="" disabled>All Currencies...</option>
+                            {ALL_CURRENCIES.map((c) => (
+                              <option key={c.code} value={c.code}>
+                                {c.code} - {c.name} ({c.symbol})
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                          <span className="text-gray-500 font-semibold text-sm">
+                            {paymentSymbol}
+                          </span>
+                        </div>
+                        <input
                         type="number"
                         min="0"
                         step="1"
                         value={formData.amount}
                         onChange={(e) => onChange("amount", e.target.value)}
                         placeholder="Enter amount paid"
-                        className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                        className="w-full pl-8 pr-3 p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm font-semibold text-gray-900"
                       />
+                      </div>
                       {errors.amount && (
                         <p className="text-xs text-red-600 flex items-center gap-1">
                           <AlertCircle className="w-3.5 h-3.5" />
@@ -899,7 +960,7 @@ const SubmitProofPage: React.FC = () => {
                 { label: "Corresponding Author Email", value: formData.email },
                 { label: "Corresponding Author Phone Number", value: formData.mobileNumber },
                 ...(formData.whatsappNumber ? [{ label: "Corresponding Author WhatsApp Number", value: formData.whatsappNumber }] : []),
-                { label: `Payment Amount (${paymentSymbol})`, value: `${paymentSymbol}${Number(formData.amount).toLocaleString(paymentCurrency === "EUR" ? "de-DE" : paymentCurrency === "USD" ? "en-US" : "en-IN")} (${paymentCurrency})` },
+                { label: `Payment Amount (${paymentSymbol})`, value: `${paymentSymbol}${Number(formData.amount || 0).toLocaleString()} (${paymentCurrency})` },
                 { label: "Sender's Bank Account Holder Name", value: formData.senderAccountName },
                 { label: "Payment Date & Time", value: formatDateTime(formData.transactionDateTime) },
                 { label: "Transaction ID / UTR", value: formData.transactionId },

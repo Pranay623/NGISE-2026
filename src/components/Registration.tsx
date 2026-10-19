@@ -4,6 +4,13 @@ import { Info, X, Search } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import PageHeader from "./PageHeader";
 import { registerUser } from "../services/paymentService";
+import {
+  ALL_CURRENCIES,
+  POPULAR_CURRENCIES,
+  getCurrencySymbol,
+  convertFee,
+  getCountryDefaultCurrency,
+} from "../utils/currencies";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -34,24 +41,16 @@ const Registration = () => {
   ];
 
   const calculateFee = (category: string, type: string, currency: string): number => {
-    if (category === "Standard") {
-      if (type === "Early Bird") {
-        return currency === "EUR" ? 350 : 400; // USD default
-      } else {
-        return currency === "EUR" ? 500 : 600; // USD default
-      }
-    } else {
-      // Reduced (SEZ)
-      if (type === "Early Bird") {
-        if (currency === "INR") return 12000;
-        if (currency === "EUR") return 110;
-        return 130; // USD
-      } else {
-        if (currency === "INR") return 13000;
-        if (currency === "EUR") return 120;
-        return 150; // USD
-      }
-    }
+    const baseUSD =
+      category === "Standard"
+        ? type === "Early Bird"
+          ? 400
+          : 600
+        : type === "Early Bird"
+        ? 130
+        : 150;
+
+    return convertFee(baseUSD, currency);
   };
 
   const [formData, setFormData] = useState({
@@ -110,12 +109,8 @@ const Registration = () => {
   const handleCountryChange = (selectedCountry: string) => {
     const sez = isSezCountry(selectedCountry);
     const newCategory = sez ? "Reduced" : "Standard";
-    let newCurrency = formData.currency;
-    if (sez) {
-      newCurrency = selectedCountry.toLowerCase().trim() === "india" ? "INR" : (formData.currency === "INR" ? "USD" : formData.currency);
-    } else {
-      newCurrency = formData.currency === "INR" ? "USD" : formData.currency;
-    }
+    const defaultCurr = getCountryDefaultCurrency(selectedCountry);
+    const newCurrency = defaultCurr;
     const newFee = calculateFee(newCategory, formData.registrationType, newCurrency);
 
     setFormData((prev) => ({
@@ -128,15 +123,10 @@ const Registration = () => {
   };
 
   const handleCategoryChange = (newCategory: string) => {
-    let newCurrency = formData.currency;
-    if (newCategory === "Standard" && newCurrency === "INR") {
-      newCurrency = "USD";
-    }
-    const newFee = calculateFee(newCategory, formData.registrationType, newCurrency);
+    const newFee = calculateFee(newCategory, formData.registrationType, formData.currency);
     setFormData((prev) => ({
       ...prev,
       registrationCategory: newCategory,
-      currency: newCurrency,
       registrationAmount: String(newFee),
     }));
   };
@@ -735,31 +725,44 @@ const Registration = () => {
 
                     {/* Currency & Calculated Payment Amount */}
                     <div className="space-y-2 md:col-span-2">
-                      <div className="flex items-center justify-between">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                         <label className="block text-gray-700 font-medium">Payment Amount (Registration Fee)</label>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-xs text-gray-500">Currency:</span>
-                          {(formData.registrationCategory === "Reduced" ? ["INR", "USD", "EUR"] : ["USD", "EUR"]).map((curr) => (
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="text-xs text-gray-500 font-medium">Currency:</span>
+                          {POPULAR_CURRENCIES.map((curr) => (
                             <button
                               key={curr}
                               type="button"
                               onClick={() => handleCurrencyChange(curr)}
                               className={`text-xs px-2.5 py-1 rounded font-semibold transition-colors ${
                                 formData.currency === curr
-                                  ? "bg-blue-600 text-white"
+                                  ? "bg-blue-600 text-white shadow-sm"
                                   : "bg-gray-100 hover:bg-gray-200 text-gray-700"
                               }`}
                             >
                               {curr}
                             </button>
                           ))}
+                          <select
+                            value={formData.currency}
+                            onChange={(e) => handleCurrencyChange(e.target.value)}
+                            className="text-xs px-2 py-1 rounded border border-gray-300 bg-white font-medium text-gray-700 hover:border-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer"
+                            title="Select from all world currencies"
+                          >
+                            <option value="" disabled>All Currencies...</option>
+                            {ALL_CURRENCIES.map((c) => (
+                              <option key={c.code} value={c.code}>
+                                {c.code} - {c.name} ({c.symbol})
+                              </option>
+                            ))}
+                          </select>
                         </div>
                       </div>
 
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                           <span className="text-gray-500 font-semibold text-sm">
-                            {formData.currency === "INR" ? "₹" : formData.currency === "EUR" ? "€" : "$"}
+                            {getCurrencySymbol(formData.currency)}
                           </span>
                         </div>
                         <input

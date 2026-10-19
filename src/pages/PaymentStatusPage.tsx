@@ -5,6 +5,7 @@ import { Search, ArrowLeft, Download, RotateCcw, AlertCircle, Loader2, User, Mai
 import PageHeader from "../components/PageHeader";
 import PaymentStepper from "../components/PaymentStepper";
 import { getPaymentStatus, lookupPayment, downloadReceipt, type PaymentRecord } from "../services/paymentService";
+import { getCurrencySymbol } from "../utils/currencies";
 
 const PaymentStatusPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -410,7 +411,11 @@ const PaymentStatusPage: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wide">Amount Paid</p>
-                    <p className="text-sm font-medium text-gray-900">₹{payment.amount.toLocaleString("en-IN")}</p>
+                    <p className="text-sm font-medium text-gray-900">
+                      {getCurrencySymbol(payment.currency || "INR")}
+                      {Number(payment.amount || 0).toLocaleString()}
+                      {payment.currency ? ` (${payment.currency.toUpperCase()})` : " (INR)"}
+                    </p>
                   </div>
                 </div>
 
