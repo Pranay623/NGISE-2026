@@ -5,6 +5,7 @@ export interface PaymentData {
   email: string;
   mobileNumber: string;
   amount: number;
+  currency?: string;
   transactionId: string;
   screenshotUrl: string;
   senderAccountName: string;
@@ -18,6 +19,7 @@ export interface PaymentRecord {
   email: string;
   mobileNumber: string;
   amount: number;
+  currency?: string;
   transactionId: string;
   screenshotUrl: string;
   senderAccountName: string;
