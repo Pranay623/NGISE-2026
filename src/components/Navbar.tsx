@@ -128,7 +128,7 @@ export default function Navbar() {
                         setOpen: setMobileSpeakersOpen,
                         links: [
                           { to: "/programme/keynote-speakers", label: "Keynote Speakers" },
-                          { to: "/programme/industrial-speaker", label: "Industrial Speaker" },
+                          // { to: "/programme/industrial-speaker", label: "Industrial Speaker" }, // Commented out - Industrial speaker moved to KeynoteSpeakers page
                           { to: "/programme/panel", label: "Panel" },
                           { to: "/programme/tutorial", label: "Tutorial" },
                           { to: "/programme/conference-dinner", label: "Conference Dinner" },
@@ -251,7 +251,7 @@ export default function Navbar() {
                   pathPrefix: "/programme",
                   links: [
                     { to: "/programme/keynote-speakers", label: "Keynote Speakers" },
-                    { to: "/programme/industrial-speaker", label: "Industrial Speaker" },
+                    // { to: "/programme/industrial-speaker", label: "Industrial Speaker" }, // Commented out - Industrial speaker moved to KeynoteSpeakers page
                     { to: "/programme/panel", label: "Panel" },
                     { to: "/programme/tutorial", label: "Tutorial" },
                     { to: "/programme/conference-dinner", label: "Conference Dinner" },
