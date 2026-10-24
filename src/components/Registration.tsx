@@ -334,13 +334,13 @@ const Registration = () => {
                   </tr>
                   <tr>
                     <td className="py-4 px-6">Additional Dinner Ticket</td>
-                    <td className="py-4 px-6">USD 60 / EUR 50</td>
-                    <td className="py-4 px-6">USD 90 / EUR 75</td>
+                    <td className="py-4 px-6">INR 5700 / USD 60 / EUR 50</td>
+                    <td className="py-4 px-6">INR 8550 / USD 90 / EUR 75</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-6">Additional Lunch Ticket</td>
-                    <td className="py-4 px-6">-</td>
-                    <td className="py-4 px-6">USD 16 / EUR 14</td>
+                    <td className="py-4 px-6 text-center">-</td>
+                    <td className="py-4 px-6">INR 1520 / USD 16 / EUR 14</td>
                   </tr>
                 </tbody>
               </table>
