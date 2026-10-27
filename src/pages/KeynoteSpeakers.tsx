@@ -65,9 +65,10 @@ export default function KeynoteSpeakers() {
                     <div className="p-6 bg-white shadow-lg rounded-xl border border-gray-100 flex flex-col items-center lg:col-span-2 lg:w-[calc(50%-1rem)] lg:mx-auto">
                         <img src={SalvatorePic} alt="Salvatore Sinno" className="w-32 h-32 object-cover rounded-full mx-auto mb-4" />
                         <p className="text-xl font-semibold text-center mt-2">Salvatore Sinno</p>
-                        <p className="text-gray-600 text-sm text-center mb-6">Vice President of ECS Innovations at Unisys, USA</p>
+                        <p className="text-gray-600 text-sm text-center mb-6">Vice President of ECS Innovations at Unisys, USA (Industrial Keynote Speaker)</p>
 
                         <div className="w-full text-left">
+                            <p className="font-bold text-center text-lg">28 October 2026</p>
                             <p className="font-bold text-center text-md mb-6 px-4">Knowledge Graphs and Neurosymbolic AI in Action: From Connected Data to Intelligent Reasoning</p>
 
                             <div className="text-sm text-gray-700 space-y-4 leading-relaxed">
