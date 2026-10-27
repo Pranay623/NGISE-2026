@@ -128,7 +128,7 @@ export default function Navbar() {
                         setOpen: setMobileSpeakersOpen,
                         links: [
                           { to: "/programme/keynote-speakers", label: "Keynote Speakers" },
-                          { to: "/programme/industrial-speaker", label: "Industrial Speaker" },
+
                           { to: "/programme/invited-address", label: "Invited Address" },
                           { to: "/programme/panel", label: "Panel" },
                           { to: "/programme/tutorial", label: "Tutorial" },
@@ -252,7 +252,7 @@ export default function Navbar() {
                   pathPrefix: "/programme",
                   links: [
                     { to: "/programme/keynote-speakers", label: "Keynote Speakers" },
-                    { to: "/programme/industrial-speaker", label: "Industrial Speaker" },
+
                     { to: "/programme/invited-address", label: "Invited Address" },
                     { to: "/programme/panel", label: "Panel" },
                     { to: "/programme/tutorial", label: "Tutorial" },
