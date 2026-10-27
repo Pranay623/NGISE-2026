@@ -97,7 +97,7 @@ const Footer = () => {
               {[
                 { name: "Keynote Speakers", link: "/programme/keynote-speakers" },
                 { name: "Industrial Speaker", link: "/programme/industrial-speaker" },
-                { name: "Industrial Address", link: "/programme/industrial-address" },
+                { name: "Invited Address", link: "/programme/invited-address" },
                 { name: "Programme Committee", link: "/committee/programme-committee" },
                 { name: "About The City", link: "/locale/about-city" },
                 { name: "History", link: "/ngise/history" },

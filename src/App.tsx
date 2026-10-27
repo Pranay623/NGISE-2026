@@ -28,7 +28,7 @@ import KeynoteSpeakers from "./pages/KeynoteSpeakers";
 import Panel from "./pages/Panel";
 import BestPaperAward from "./pages/BestPaperAward";
 import IndustrialSpeaker from "./pages/IndustrialSpeaker";
-import IndustrialAddress from "./pages/IndustrialAddress";
+import InvitedAddress from "./pages/InvitedAddress";
 import StudentBestPaperAward from "./pages/StudentBestPaperAward";
 import Tutorial from "./pages/Tutorial";
 import ConferenceDinner from "./pages/ConferenceDinner";
@@ -79,9 +79,10 @@ function App() {
                     <Route path="/speakers" element={<SpeakersPage />} />
                     <Route path="/programme/keynote-speakers" element={<KeynoteSpeakers />} />
                     <Route path="/programme/industrial-speaker" element={<IndustrialSpeaker />} />
-                    <Route path="/programme/industrial-address" element={<IndustrialAddress />} />
-                    <Route path="/programme/industrial-adress" element={<IndustrialAddress />} />
-                    <Route path="/programme/industrial-adresss" element={<IndustrialAddress />} />
+                    <Route path="/programme/invited-address" element={<InvitedAddress />} />
+                    <Route path="/programme/industrial-address" element={<InvitedAddress />} />
+                    <Route path="/programme/industrial-adress" element={<InvitedAddress />} />
+                    <Route path="/programme/industrial-adresss" element={<InvitedAddress />} />
                     <Route path="/programme/panel" element={<Panel />} />
                     <Route path="/programme/tutorial" element={<Tutorial />} />
                     <Route path="/programme/conference-dinner" element={<ConferenceDinner />} />

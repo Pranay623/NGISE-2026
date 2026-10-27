@@ -129,7 +129,7 @@ export default function Navbar() {
                         links: [
                           { to: "/programme/keynote-speakers", label: "Keynote Speakers" },
                           { to: "/programme/industrial-speaker", label: "Industrial Speaker" },
-                          { to: "/programme/industrial-address", label: "Industrial Address" },
+                          { to: "/programme/invited-address", label: "Invited Address" },
                           { to: "/programme/panel", label: "Panel" },
                           { to: "/programme/tutorial", label: "Tutorial" },
                           { to: "/programme/conference-dinner", label: "Conference Dinner" },
@@ -253,7 +253,7 @@ export default function Navbar() {
                   links: [
                     { to: "/programme/keynote-speakers", label: "Keynote Speakers" },
                     { to: "/programme/industrial-speaker", label: "Industrial Speaker" },
-                    { to: "/programme/industrial-address", label: "Industrial Address" },
+                    { to: "/programme/invited-address", label: "Invited Address" },
                     { to: "/programme/panel", label: "Panel" },
                     { to: "/programme/tutorial", label: "Tutorial" },
                     { to: "/programme/conference-dinner", label: "Conference Dinner" },
