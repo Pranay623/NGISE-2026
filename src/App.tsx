@@ -27,7 +27,7 @@ import VisaInformation from "./pages/Visa";
 import KeynoteSpeakers from "./pages/KeynoteSpeakers";
 import Panel from "./pages/Panel";
 import BestPaperAward from "./pages/BestPaperAward";
-import IndustrialSpeaker from "./pages/IndustrialSpeaker";
+
 import InvitedAddress from "./pages/InvitedAddress";
 import StudentBestPaperAward from "./pages/StudentBestPaperAward";
 import Tutorial from "./pages/Tutorial";
@@ -78,7 +78,7 @@ function App() {
                     <Route path="/dates" element={<DatesPage />} />
                     <Route path="/speakers" element={<SpeakersPage />} />
                     <Route path="/programme/keynote-speakers" element={<KeynoteSpeakers />} />
-                    <Route path="/programme/industrial-speaker" element={<IndustrialSpeaker />} />
+                    <Route path="/programme/industrial-speaker" element={<KeynoteSpeakers />} />
                     <Route path="/programme/invited-address" element={<InvitedAddress />} />
                     <Route path="/programme/industrial-address" element={<InvitedAddress />} />
                     <Route path="/programme/industrial-adress" element={<InvitedAddress />} />
