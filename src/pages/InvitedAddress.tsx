@@ -1,10 +1,10 @@
 import Riina from "../public/riina-palu.jpg";
 import PageHeader from "../components/PageHeader";
 
-export default function IndustrialAddress() {
+export default function InvitedAddress() {
   return (
     <div className="bg-gray-50 min-h-screen">
-      <PageHeader title="NGISE 2026 Industrial Address" />
+      <PageHeader title="NGISE 2026 Invited Address" />
       <div className="max-w-7xl mx-auto px-4 py-12 flex justify-center items-center">
         <div className="p-6 bg-white shadow-lg rounded-xl border border-gray-100 flex flex-col items-center max-w-4xl w-full">
           {/* Photo is zoomed and shifted so only the face shows inside the circle */}
